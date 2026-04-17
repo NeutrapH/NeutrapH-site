@@ -17,44 +17,79 @@
     header {
       background: linear-gradient(to right, #0077b6, #00b4d8);
       color: white;
-      padding: 40px 20px 20px;
-      text-align: center;
+      padding: 15px 40px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    header img.logo {
-      width: 140px;
-      margin-bottom: 10px;
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
 
-    header h1 {
-      margin: 10px 0 0;
-      font-size: 42px;
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      width: 80px;
+    }
+
+    .brand-text h1 {
+      margin: 0;
+      font-size: 28px;
       font-weight: bold;
     }
 
-    header p {
-      margin: 5px 0 0;
-      font-size: 18px;
+    .brand-text p {
+      margin: 0;
+      font-size: 14px;
       opacity: 0.9;
     }
 
-    /* NAVIGATION */
-    nav {
-      background: white;
-      padding: 12px;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+    .nav-menu {
+      display: flex;
+      gap: 25px;
     }
 
-    nav a {
-      margin: 0 18px;
+    .nav-menu a {
+      color: white;
       text-decoration: none;
-      color: #0077b6;
       font-weight: bold;
       font-size: 16px;
+    }
+
+    .nav-menu a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-btn {
+      display: flex;
+      align-items: center;
+    }
+
+    .whatsapp-btn {
+      background-color: #25D366;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #1ebe5d;
+    }
+
+    .whatsapp-icon {
+      width: 20px;
+      height: 20px;
     }
 
     /* SECTIONS */
@@ -90,21 +125,12 @@
       text-align: left;
     }
 
-    .hero-text h2 {
-      text-align: left;
-    }
-
-    .hero-text p {
-      margin-left: 0;
-    }
-
     .hero-image img {
       max-width: 100%;
       border-radius: 12px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.15);
     }
 
-    /* BUTTON */
     .btn {
       display: inline-block;
       padding: 14px 30px;
@@ -117,7 +143,7 @@
       font-weight: bold;
     }
 
-    /* SERVICES GRID */
+    /* SERVICES */
     .services {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -137,12 +163,6 @@
       transform: translateY(-5px);
     }
 
-    .card h3 {
-      color: #0077b6;
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
     .card img {
       max-width: 100%;
       height: 160px;
@@ -150,7 +170,13 @@
       margin-bottom: 15px;
     }
 
-    /* WHY CHOOSE US */
+    .card h3 {
+      color: #0077b6;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    /* FEATURES */
     .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -175,25 +201,45 @@
     footer {
       background: #003f63;
       color: white;
-      padding: 40px 20px;
-      text-align: center;
+      padding: 50px 20px;
       margin-top: 40px;
     }
 
-    footer p {
-      margin: 8px 0;
-      font-size: 16px;
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      text-align: left;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .footer-logo {
+      width: 120px;
+      margin-bottom: 10px;
     }
 
     .footer-links a {
+      display: block;
       color: #aee1f9;
-      margin: 0 12px;
       text-decoration: none;
-      font-size: 16px;
+      margin-bottom: 8px;
     }
 
     .footer-links a:hover {
       text-decoration: underline;
+    }
+
+    .social-icons img {
+      width: 30px;
+      margin-right: 10px;
+    }
+
+    footer p {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      opacity: 0.8;
     }
   </style>
 </head>
@@ -202,35 +248,48 @@
 
 <!-- HEADER -->
 <header>
-  <!-- Use your exact logo filename -->
-  <img src="NeutrapH Logo.png" alt="NeutrapH Logo" class="logo">
-  <h1>NeutrapH</h1>
-  <p>Balanced Water. Better Life.</p>
+  <div class="header-container">
+
+    <!-- LEFT: LOGO + SLOGAN -->
+    <div class="logo-area">
+      <img src="NeutrapH Logo.png" class="logo" alt="NeutrapH Logo">
+      <div class="brand-text">
+        <h1>NeutrapH</h1>
+        <p>Balanced Water. Better Life.</p>
+      </div>
+    </div>
+
+    <!-- CENTER: NAVIGATION -->
+    <nav class="nav-menu">
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">About</a>
+      <a href="#">Why Choose Us</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <!-- RIGHT: WHATSAPP BUTTON -->
+    <div class="contact-btn">
+      <a href="https://wa.me/27711234567" target="_blank" class="whatsapp-btn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-icon">
+        Get in Touch
+      </a>
+    </div>
+
+  </div>
 </header>
 
-<!-- NAVIGATION -->
-<nav>
-  <a href="#">Home</a>
-  <a href="#">Services</a>
-  <a href="#">About</a>
-  <a href="#">Why Choose Us</a>
-  <a href="#">Contact</a>
-</nav>
-
-<!-- HERO SECTION WITH GLASS OF WATER -->
+<!-- HERO -->
 <section>
   <div class="hero">
     <div class="hero-text">
       <h2>Clean, Safe Drinking Water</h2>
-      <p>
-        NeutrapH provides reliable water purification solutions for schools,
-        churches, and communities using advanced filtration systems.
-      </p>
+      <p>NeutrapH provides reliable water purification solutions for schools, churches, and communities using advanced filtration systems.</p>
       <a href="#" class="btn">Get in Touch</a>
     </div>
+
     <div class="hero-image">
-      <!-- Glass of water picture -->
-      <img src="Glass of water Picture.png" alt="Glass of Water - NeutrapH">
+      <img src="Glass of water Picture.png" alt="Glass of Water">
     </div>
   </div>
 </section>
@@ -240,26 +299,25 @@
   <h2>Our Services</h2>
 
   <div class="services">
+
     <div class="card">
-      <!-- RO Filter picture -->
-      <img src="RO Filter Picture.png" alt="RO Filter - Water Purification">
+      <img src="RO Filter Picture.png" alt="RO Filter">
       <h3>Water Purification</h3>
-      <p>Advanced reverse osmosis systems that remove impurities and ensure safe, healthy drinking water.</p>
+      <p>Advanced reverse osmosis systems ensuring safe drinking water.</p>
     </div>
 
     <div class="card">
-      <!-- Water Dispenser picture -->
-      <img src="Water Dispenser Picture.png" alt="Water Dispensers">
+      <img src="Water Dispenser Picture.png" alt="Water Dispenser">
       <h3>Water Dispensers</h3>
-      <p>High-quality, durable dispensers for schools, offices, churches, and communities.</p>
+      <p>Durable dispensers for schools, offices, churches, and communities.</p>
     </div>
 
     <div class="card">
-      <!-- Water Bottle picture -->
-      <img src="Water Bottle Picture.png" alt="Water Bottle Subscription Supply">
+      <img src="Water Bottle Picture.png" alt="Water Bottle">
       <h3>Subscription Supply</h3>
-      <p>Reliable and flexible water supply plans designed to meet customer needs consistently.</p>
+      <p>Reliable water delivery through flexible subscription plans.</p>
     </div>
+
   </div>
 </section>
 
@@ -290,27 +348,47 @@
   </div>
 </section>
 
-<!-- CONTACT -->
-<section>
-  <h2>Contact Us</h2>
-  <p>📞 +27 71 123 4567</p>
-  <p>📧 info@neutraph.co.za</p>
-  <p>📍 Midrand, Johannesburg, South Africa</p>
-</section>
-
 <!-- FOOTER -->
 <footer>
-  <div class="footer-links">
-    <a href="#">Home</a>
-    <a href="#">Services</a>
-    <a href="#">About</a>
-    <a href="#">Why Choose Us</a>
-    <a href="#">Contact</a>
+  <div class="footer-container">
+
+    <!-- LOGO + MISSION -->
+    <div>
+      <img src="NeutrapH Logo.png" class="footer-logo">
+      <p>Our mission is to deliver clean, safe drinking water to every community.</p>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">About</a>
+      <a href="#">Why Choose Us</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <!-- CONTACT -->
+    <div>
+      <h3>Contact Us</h3>
+      <p>📞 +27 79 8134 4567</p>
+      <p>📧 info@neutraph.co.za</p>
+      <p>📍 Midrand, Johannesburg, South Africa</p>
+    </div>
+
+    <!-- SOCIAL -->
+    <div>
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+      </div>
+    </div>
+
   </div>
 
-  <p>Our mission is to deliver clean, safe drinking water to every community.</p>
-  <p>© 2026 NeutrapH. All Rights Reserved.</p>
-  <p>Designed with Purpose.</p>
+  <p>© 2026 NeutrapH. All Rights Reserved. Designed with Purpose 💙</p>
 </footer>
 
 </body>
