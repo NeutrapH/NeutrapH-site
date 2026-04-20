@@ -2,274 +2,667 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NeutrapH</title>
+  <title>NeutrapH – Balanced Water. Better Life.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue-dark: #0a3d6b;
+      --blue-mid: #0077b6;
+      --blue-light: #00b4d8;
+      --blue-pale: #e8f4fd;
+      --white: #ffffff;
+      --text-dark: #1a2a3a;
+      --text-mid: #4a6080;
+      --text-light: #8aa5bf;
+      --green-wa: #25D366;
+    }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f9fb;
-      color: #333;
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text-dark);
+      background: #f0f6fb;
+      overflow-x: hidden;
     }
 
-    /* HEADER */
+    /* ── HEADER ── */
     header {
-      background: linear-gradient(to right, #0077b6, #00b4d8);
-      color: white;
-      padding: 15px 40px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .header-container {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      box-shadow: 0 2px 12px rgba(0,119,182,0.10);
+      padding: 0 40px;
+      height: 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
     }
 
     .logo-area {
       display: flex;
       align-items: center;
-      gap: 15px;
-    }
-
-    .logo {
-      width: 80px;
-    }
-
-    .brand-text h1 {
-      margin: 0;
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    .brand-text p {
-      margin: 0;
-      font-size: 14px;
-      opacity: 0.9;
-    }
-
-    .nav-menu {
-      display: flex;
-      gap: 25px;
-    }
-
-    .nav-menu a {
-      color: white;
+      gap: 12px;
       text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
     }
 
-    .nav-menu a:hover {
-      text-decoration: underline;
+    .logo-icon {
+      width: 44px;
+      height: 44px;
     }
 
-    .contact-btn {
+    .brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--blue-dark);
+      line-height: 1;
+    }
+
+    .brand-name span { color: var(--blue-light); }
+
+    .brand-tag {
+      font-size: 11px;
+      color: var(--text-light);
+      letter-spacing: 0.04em;
+      margin-top: 2px;
+    }
+
+    nav {
       display: flex;
+      gap: 32px;
       align-items: center;
     }
 
-    .whatsapp-btn {
-      background-color: #25D366;
-      color: white;
-      padding: 10px 18px;
-      border-radius: 6px;
+    nav a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-mid);
       text-decoration: none;
-      font-weight: bold;
+      letter-spacing: 0.02em;
+      position: relative;
+      padding-bottom: 3px;
+      transition: color 0.2s;
+    }
+
+    nav a:hover, nav a.active { color: var(--blue-mid); }
+
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0; right: 0;
+      height: 2px;
+      background: var(--blue-mid);
+      border-radius: 2px;
+    }
+
+    .header-cta {
+      background: var(--blue-mid);
+      color: var(--white);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
       display: flex;
       align-items: center;
       gap: 8px;
+      transition: background 0.2s, transform 0.15s;
     }
 
-    .whatsapp-btn:hover {
-      background-color: #1ebe5d;
+    .header-cta:hover { background: var(--blue-dark); transform: translateY(-1px); }
+
+    .wa-icon-sm {
+      width: 18px; height: 18px;
     }
 
-    .whatsapp-icon {
-      width: 20px;
-      height: 20px;
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-      text-align: center;
-    }
-
-    h2 {
-      font-size: 32px;
-      margin-bottom: 15px;
-      color: #0077b6;
-    }
-
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    /* HERO */
+    /* ── HERO ── */
     .hero {
+      position: relative;
+      background: linear-gradient(120deg, #0a3d6b 0%, #0077b6 45%, #00b4d8 100%);
+      min-height: 540px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg-circles {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .hero-bg-circles::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      top: -200px; right: -100px;
+    }
+
+    .hero-bg-circles::after {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      bottom: -150px; right: 200px;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 40px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-text { color: var(--white); }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.9);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero-title span {
+      color: var(--blue-light);
+      display: block;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 32px;
+      max-width: 420px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--blue-dark);
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.6);
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
       align-items: center;
     }
 
-    .hero-text {
-      text-align: left;
+    .hero-img-wrap {
+      position: relative;
+      width: 380px;
+      height: 380px;
     }
 
-    .hero-image img {
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    .hero-img-glow {
+      position: absolute;
+      inset: 20px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
     }
 
-    .btn {
-      display: inline-block;
-      padding: 14px 30px;
-      background: #00b4d8;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      margin-top: 25px;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    /* SERVICES */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-      margin-top: 40px;
-    }
-
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card img {
-      max-width: 100%;
-      height: 160px;
+    .hero-img-wrap img {
+      width: 100%;
+      height: 100%;
       object-fit: contain;
-      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+      drop-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      animation: floatImg 4s ease-in-out infinite;
     }
 
-    .card h3 {
-      color: #0077b6;
-      font-size: 22px;
+    @keyframes floatImg {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* ── VALUE STRIP ── */
+    .value-strip {
+      background: var(--white);
+      border-bottom: 1px solid #ddeef6;
+      padding: 20px 40px;
+    }
+
+    .value-strip-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .value-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 20px;
+    }
+
+    .value-icon-wrap {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--blue-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .value-icon-wrap img {
+      width: 22px; height: 22px;
+      filter: invert(28%) sepia(98%) saturate(1200%) hue-rotate(185deg) brightness(90%);
+    }
+
+    .value-item-text h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .value-item-text p {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-light);
       margin-bottom: 10px;
     }
 
-    /* WHY CHOOSE US - NEW DESIGN */
-    .why-section {
-      background: #0077b6;
-      padding: 70px 20px;
-      color: white;
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 12px;
     }
 
-    .why-section h2 {
-      color: white;
-      margin-bottom: 40px;
+    .section-desc {
+      font-size: 16px;
+      color: var(--text-mid);
+      max-width: 560px;
+      line-height: 1.7;
     }
 
-    .why-container {
+    .section-divider {
+      width: 48px;
+      height: 4px;
+      background: var(--blue-light);
+      border-radius: 2px;
+      margin: 16px 0 48px;
+    }
+
+    /* ── SERVICES ── */
+    .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-      max-width: 1100px;
-      margin: auto;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,119,182,0.08);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 36px rgba(0,119,182,0.15);
+    }
+
+    .service-img-wrap {
+      height: 200px;
+      overflow: hidden;
+      background: var(--blue-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .service-card:hover .service-img-wrap img { transform: scale(1.05); }
+
+    .service-body {
+      padding: 24px;
+    }
+
+    .service-icon-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .service-icon-badge {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--blue-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-icon-badge img {
+      width: 20px; height: 20px;
+      filter: brightness(0) invert(1);
+    }
+
+    .service-body h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .service-body p {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+
+    /* ── WHY SECTION ── */
+    .why-bg {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 100%);
+      padding: 80px 40px;
+    }
+
+    .why-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .why-header .section-title { color: var(--white); }
+    .why-header .section-label { color: rgba(255,255,255,0.7); }
+    .why-header .section-divider { background: rgba(255,255,255,0.5); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 20px;
     }
 
     .why-box {
-      background: rgba(255, 255, 255, 0.15);
-      padding: 30px 20px;
-      border-radius: 12px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 32px 24px;
       text-align: center;
       backdrop-filter: blur(4px);
-      transition: 0.3s;
+      transition: background 0.25s, transform 0.25s;
     }
 
     .why-box:hover {
-      transform: translateY(-6px);
-      background: rgba(255, 255, 255, 0.25);
+      background: rgba(255,255,255,0.22);
+      transform: translateY(-5px);
     }
 
-    .why-icon {
-      width: 55px;
-      margin-bottom: 15px;
+    .why-box-icon {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .why-box-icon img {
+      width: 28px; height: 28px;
       filter: brightness(0) invert(1);
     }
 
     .why-box h3 {
-      margin: 10px 0;
-      font-size: 20px;
-      color: white;
-    }
-
-    .why-box p {
-      color: #e3f6ff;
-      font-size: 15px;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #003f63;
-      color: white;
-      padding: 50px 20px;
-      margin-top: 40px;
-    }
-
-    .footer-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-      text-align: left;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .footer-logo {
-      width: 120px;
-      margin-bottom: 10px;
-    }
-
-    .footer-links a {
-      display: block;
-      color: #aee1f9;
-      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
       margin-bottom: 8px;
     }
 
-    .footer-links a:hover {
-      text-decoration: underline;
+    .why-box p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
     }
 
-    .social-icons img {
-      width: 30px;
-      margin-right: 10px;
+    /* ── FOOTER ── */
+    footer {
+      background: #06243d;
+      color: var(--white);
+      padding: 60px 40px 30px;
     }
 
-    footer p {
-      text-align: center;
-      margin-top: 30px;
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1.2fr 1fr;
+      gap: 50px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .footer-brand-name span { color: var(--blue-light); }
+
+    .footer-tagline {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.04em;
+      margin-bottom: 14px;
+    }
+
+    .footer-logo-img {
+      width: 110px;
+      margin-bottom: 10px;
+    }
+
+    .footer-about {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+    }
+
+    .footer-col h4 {
+      font-family: 'Montserrat', sans-serif;
       font-size: 14px;
-      opacity: 0.8;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--blue-light); }
+
+    .contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .contact-icon {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: rgba(0,180,216,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-icon img {
+      width: 16px; height: 16px;
+      filter: brightness(0) saturate(100%) invert(71%) sepia(88%) saturate(400%) hue-rotate(165deg) brightness(100%);
+    }
+
+    .contact-row-text {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .social-btn {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, background 0.2s;
+      text-decoration: none;
+    }
+
+    .social-btn:hover { border-color: var(--blue-light); background: rgba(0,180,216,0.15); }
+
+    .social-btn img { width: 18px; height: 18px; }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 24px auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--blue-light); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 0 20px; }
+      nav { display: none; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; padding: 50px 20px; }
+      .hero-title { font-size: 38px; }
+      .hero-desc { margin: 0 auto 32px; }
+      .hero-actions { justify-content: center; }
+      .hero-img-wrap { width: 280px; height: 280px; }
+      .value-strip-inner { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .section { padding: 60px 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .why-bg { padding: 60px 20px; }
     }
   </style>
 </head>
@@ -278,146 +671,281 @@
 
 <!-- HEADER -->
 <header>
-  <div class="header-container">
-
-    <div class="logo-area">
-      <img src="NeutrapH Logo.png" class="logo" alt="NeutrapH Logo">
-      <div class="brand-text">
-        <h1>NeutrapH</h1>
-        <p>Balanced Water. Better Life.</p>
-      </div>
+  <a href="#" class="logo-area">
+    <svg class="logo-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="22" cy="22" r="22" fill="#e8f4fd"/>
+      <path d="M22 8 C22 8 12 20 12 27 C12 33 16.5 37 22 37 C27.5 37 32 33 32 27 C32 20 22 8 22 8Z" fill="#0077b6"/>
+      <path d="M22 14 C22 14 16 23 16 28 C16 31.5 18.7 34 22 34 C25.3 34 28 31.5 28 28 C28 23 22 14 22 14Z" fill="#00b4d8"/>
+      <path d="M22 22 C22 22 19 27 19 29.5 C19 31.4 20.3 33 22 33 C23.7 33 25 31.4 25 29.5 C25 27 22 22 22 22Z" fill="white" opacity="0.7"/>
+    </svg>
+    <div>
+      <div class="brand-name">Neutrap<span>H</span></div>
+      <div class="brand-tag">Balanced Water. Better Life.</div>
     </div>
+  </a>
 
-    <nav class="nav-menu">
-      <a href="#">Home</a>
-      <a href="#">Services</a>
-      <a href="#">About</a>
-      <a href="#">Why Choose Us</a>
-      <a href="#">Contact</a>
-    </nav>
+  <nav>
+    <a href="#" class="active">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#why">Why Choose Us</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-    <div class="contact-btn">
-      <a href="https://wa.me/27711234567" target="_blank" class="whatsapp-btn">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-icon">
-        Get in Touch
-      </a>
-    </div>
-
-  </div>
+  <a href="https://wa.me/27711234567" target="_blank" class="header-cta">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="wa-icon-sm" alt="">
+    Get in Touch
+  </a>
 </header>
 
 <!-- HERO -->
-<section>
-  <div class="hero">
+<section class="hero">
+  <div class="hero-bg-circles"></div>
+  <div class="hero-inner">
     <div class="hero-text">
-      <h2>Clean, Safe Drinking Water</h2>
-      <p>NeutrapH provides reliable water purification solutions for schools, churches, and communities using advanced filtration systems.</p>
-      <a href="#" class="btn">Get in Touch</a>
+      <span class="hero-badge">Trusted Water Purification</span>
+      <h1 class="hero-title">
+        Clean, Safe
+        <span>Drinking Water</span>
+      </h1>
+      <p class="hero-desc">NeutrapH provides reliable water purification solutions for schools, churches, and communities using advanced filtration systems.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/27711234567" target="_blank" class="btn-primary">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:18px;height:18px;" alt="">
+          Get in Touch
+        </a>
+        <a href="#services" class="btn-outline">Learn More →</a>
+      </div>
     </div>
 
     <div class="hero-image">
-      <img src="Glass of water Picture.png" alt="Glass of Water">
+      <div class="hero-img-wrap">
+        <div class="hero-img-glow"></div>
+        <img src="Glass of water Picture.png" alt="Clean water glass with NeutrapH branding">
+      </div>
     </div>
   </div>
 </section>
+
+<!-- VALUE STRIP -->
+<div class="value-strip">
+  <div class="value-strip-inner">
+    <div class="value-item">
+      <div class="value-icon-wrap">
+        <img src="https://cdn-icons-png.flaticon.com/512/992/992700.png" alt="">
+      </div>
+      <div class="value-item-text">
+        <h4>Safe &amp; Reliable</h4>
+        <p>Water you can trust</p>
+      </div>
+    </div>
+    <div class="value-item">
+      <div class="value-icon-wrap">
+        <img src="https://cdn-icons-png.flaticon.com/512/1048/1048949.png" alt="">
+      </div>
+      <div class="value-item-text">
+        <h4>Advanced Technology</h4>
+        <p>Modern filtration systems</p>
+      </div>
+    </div>
+    <div class="value-item">
+      <div class="value-icon-wrap">
+        <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="">
+      </div>
+      <div class="value-item-text">
+        <h4>Community Focused</h4>
+        <p>Empowering communities</p>
+      </div>
+    </div>
+    <div class="value-item">
+      <div class="value-icon-wrap">
+        <img src="https://cdn-icons-png.flaticon.com/512/929/929430.png" alt="">
+      </div>
+      <div class="value-item-text">
+        <h4>Affordable Solutions</h4>
+        <p>Fits your budget</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- SERVICES -->
-<section>
-  <h2>Our Services</h2>
+<div id="services">
+  <div class="section">
+    <span class="section-label">What We Offer</span>
+    <h2 class="section-title">Our Services</h2>
+    <div class="section-divider"></div>
 
-  <div class="services">
+    <div class="services-grid">
 
-    <div class="card">
-      <img src="RO Filter Picture.png" alt="RO Filter">
-      <h3>Water Purification</h3>
-      <p>Advanced reverse osmosis systems ensuring safe drinking water.</p>
+      <div class="service-card">
+        <div class="service-img-wrap">
+          <img src="RO Filter Picture.png" alt="Reverse Osmosis Filter">
+        </div>
+        <div class="service-body">
+          <div class="service-icon-row">
+            <div class="service-icon-badge">
+              <img src="https://cdn-icons-png.flaticon.com/512/992/992700.png" alt="">
+            </div>
+            <h3>Water Purification</h3>
+          </div>
+          <p>Advanced reverse osmosis systems that remove impurities and ensure safe, healthy drinking water.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img-wrap">
+          <img src="Water Dispenser Picture.png" alt="Water Dispenser">
+        </div>
+        <div class="service-body">
+          <div class="service-icon-row">
+            <div class="service-icon-badge">
+              <img src="https://cdn-icons-png.flaticon.com/512/1048/1048949.png" alt="">
+            </div>
+            <h3>Water Dispensers</h3>
+          </div>
+          <p>High-quality, durable water dispensers for schools, offices, churches, and communities.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img-wrap">
+          <img src="Water Bottle Picture.png" alt="Water Bottle">
+        </div>
+        <div class="service-body">
+          <div class="service-icon-row">
+            <div class="service-icon-badge">
+              <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="">
+            </div>
+            <h3>Subscription Supply</h3>
+          </div>
+          <p>Reliable and flexible water supply plans designed to meet your needs consistently.</p>
+        </div>
+      </div>
+
     </div>
-
-    <div class="card">
-      <img src="Water Dispenser Picture.png" alt="Water Dispenser">
-      <h3>Water Dispensers</h3>
-      <p>Durable dispensers for schools, offices, churches, and communities.</p>
-    </div>
-
-    <div class="card">
-      <img src="Water Bottle Picture.png" alt="Water Bottle">
-      <h3>Subscription Supply</h3>
-      <p>Reliable water delivery through flexible subscription plans.</p>
-    </div>
-
   </div>
-</section>
+</div>
 
 <!-- WHY CHOOSE US -->
-<section class="why-section">
-  <h2>Why Choose NeutrapH?</h2>
-
-  <div class="why-container">
-
-    <div class="why-box">
-      <img src="https://cdn-icons-png.flaticon.com/512/992/992700.png" class="why-icon">
-      <h3>Safe & Reliable</h3>
-      <p>Water you can trust, quality you can depend on.</p>
+<div id="why" class="why-bg">
+  <div class="why-inner">
+    <div class="why-header">
+      <span class="section-label">Our Advantages</span>
+      <h2 class="section-title">Why Choose NeutrapH?</h2>
+      <div class="section-divider"></div>
     </div>
 
-    <div class="why-box">
-      <img src="https://cdn-icons-png.flaticon.com/512/1048/1048949.png" class="why-icon">
-      <h3>Advanced Technology</h3>
-      <p>Modern filtration systems for maximum purity.</p>
-    </div>
+    <div class="why-grid">
+      <div class="why-box">
+        <div class="why-box-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/992/992700.png" alt="">
+        </div>
+        <h3>Safe &amp; Reliable</h3>
+        <p>Water you can trust, quality you can depend on every single day.</p>
+      </div>
 
-    <div class="why-box">
-      <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" class="why-icon">
-      <h3>Community Focused</h3>
-      <p>Empowering schools, churches and communities.</p>
-    </div>
+      <div class="why-box">
+        <div class="why-box-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/1048/1048949.png" alt="">
+        </div>
+        <h3>Advanced Technology</h3>
+        <p>Modern filtration systems engineered for maximum purity.</p>
+      </div>
 
-    <div class="why-box">
-      <img src="https://cdn-icons-png.flaticon.com/512/929/929430.png" class="why-icon">
-      <h3>Affordable Solutions</h3>
-      <p>Quality water solutions that fit your budget.</p>
-    </div>
+      <div class="why-box">
+        <div class="why-box-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="">
+        </div>
+        <h3>Community Focused</h3>
+        <p>Empowering schools, churches and communities across South Africa.</p>
+      </div>
 
+      <div class="why-box">
+        <div class="why-box-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/929/929430.png" alt="">
+        </div>
+        <h3>Affordable Solutions</h3>
+        <p>Quality water solutions that fit any budget without compromise.</p>
+      </div>
+    </div>
   </div>
-</section>
+</div>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-container">
+<footer id="contact">
+  <div class="footer-grid">
 
+    <!-- Brand -->
     <div>
-      <img src="NeutrapH Logo.png" class="footer-logo">
-      <p>Our mission is to deliver clean, safe drinking water to every community.</p>
+      <img src="NeutrapH Logo.png" class="footer-logo-img" alt="NeutrapH Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      <div style="display:none;">
+        <div class="footer-brand-name">Neutrap<span>H</span></div>
+        <div class="footer-tagline">Balanced Water. Better Life.</div>
+      </div>
+      <p class="footer-about">Our mission is to deliver clean, safe drinking water to every community. Serving Johannesburg and beyond.</p>
     </div>
 
-    <div class="footer-links">
-      <h3>Quick Links</h3>
-      <a href="#">Home</a>
-      <a href="#">Services</a>
-      <a href="#">About</a>
-      <a href="#">Why Choose Us</a>
-      <a href="#">Contact</a>
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#why">Why Choose Us</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
 
-    <div>
-      <h3>Contact Us</h3>
-      <p>📞 +27 71 123 4567</p>
-      <p>📧 info@neutraph.co.za</p>
-      <p>📍 Midrand, Johannesburg, South Africa</p>
+    <!-- Contact -->
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+
+      <div class="contact-row">
+        <div class="contact-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/159/159832.png" alt="">
+        </div>
+        <div class="contact-row-text">+27 71 123 4567</div>
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="">
+        </div>
+        <div class="contact-row-text">info@neutraph.co.za</div>
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/149/149060.png" alt="">
+        </div>
+        <div class="contact-row-text">Midrand, Johannesburg<br>South Africa</div>
+      </div>
     </div>
 
-    <div>
-      <h3>Follow Us</h3>
-      <div class="social-icons">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+    <!-- Social -->
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <div class="social-row">
+        <a href="#" class="social-btn" aria-label="Facebook">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook">
+        </a>
+        <a href="#" class="social-btn" aria-label="Instagram">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        </a>
+        <a href="https://wa.me/27711234567" target="_blank" class="social-btn" aria-label="WhatsApp">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </a>
       </div>
     </div>
 
   </div>
 
-  <p>© 2026 NeutrapH. All Rights Reserved. Designed with Purpose 💙</p>
+  <div class="footer-bottom">
+    <span>© 2026 NeutrapH. All Rights Reserved.</span>
+    <span>Designed with Purpose 💙</span>
+  </div>
 </footer>
 
 </body>
