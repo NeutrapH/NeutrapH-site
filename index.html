@@ -51,9 +51,10 @@
       text-decoration: none;
     }
 
+    /* ── LOGO SIZE DOUBLED (was 44px → 88px) ── */
     .logo-icon {
-      width: 44px;
-      height: 44px;
+      width: 88px;
+      height: 88px;
     }
 
     .brand-name {
@@ -128,7 +129,8 @@
     .hero {
       position: relative;
       background: linear-gradient(120deg, #0a3d6b 0%, #0077b6 45%, #00b4d8 100%);
-      min-height: 540px;
+      /* INCREASED min-height for a bigger hero section */
+      min-height: 680px;
       display: flex;
       align-items: center;
       overflow: hidden;
@@ -164,7 +166,7 @@
       z-index: 2;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 60px 40px;
+      padding: 80px 40px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 60px;
@@ -253,10 +255,11 @@
       align-items: center;
     }
 
+    /* ── HERO IMAGE: BIGGER (380→520px) + FADE-UP INTO BACKGROUND ── */
     .hero-img-wrap {
       position: relative;
-      width: 380px;
-      height: 380px;
+      width: 520px;
+      height: 520px;
     }
 
     .hero-img-glow {
@@ -272,8 +275,22 @@
       object-fit: contain;
       position: relative;
       z-index: 1;
-      drop-shadow: 0 20px 40px rgba(0,0,0,0.3);
       animation: floatImg 4s ease-in-out infinite;
+      /* Fade the bottom of the image into the gradient background */
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 55%,
+        rgba(0,0,0,0.6) 75%,
+        transparent 100%
+      );
+      mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 55%,
+        rgba(0,0,0,0.6) 75%,
+        transparent 100%
+      );
     }
 
     @keyframes floatImg {
@@ -391,8 +408,9 @@
       box-shadow: 0 12px 36px rgba(0,119,182,0.15);
     }
 
+    /* ── SERVICE IMAGE: TALLER (200px → 280px) ── */
     .service-img-wrap {
-      height: 200px;
+      height: 280px;
       overflow: hidden;
       background: var(--blue-pale);
       display: flex;
@@ -404,6 +422,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center top;
       transition: transform 0.4s;
     }
 
@@ -647,6 +666,7 @@
     @media (max-width: 1024px) {
       .why-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .hero-img-wrap { width: 420px; height: 420px; }
     }
 
     @media (max-width: 768px) {
@@ -656,7 +676,7 @@
       .hero-title { font-size: 38px; }
       .hero-desc { margin: 0 auto 32px; }
       .hero-actions { justify-content: center; }
-      .hero-img-wrap { width: 280px; height: 280px; }
+      .hero-img-wrap { width: 300px; height: 300px; }
       .value-strip-inner { grid-template-columns: repeat(2, 1fr); }
       .services-grid { grid-template-columns: 1fr; }
       .why-grid { grid-template-columns: 1fr 1fr; }
@@ -906,7 +926,7 @@
         <div class="contact-icon">
           <img src="https://cdn-icons-png.flaticon.com/512/159/159832.png" alt="">
         </div>
-        <div class="contact-row-text">+27 79 813 4567</div>
+        <div class="contact-row-text">+27 79 813 4597</div>
       </div>
 
       <div class="contact-row">
@@ -934,7 +954,7 @@
         <a href="#" class="social-btn" aria-label="Instagram">
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
         </a>
-        <a href="https://wa.me/27711234567" target="_blank" class="social-btn" aria-label="WhatsApp">
+        <a href="https://wa.me/27798134597" target="_blank" class="social-btn" aria-label="WhatsApp">
           <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
         </a>
       </div>
