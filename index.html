@@ -395,6 +395,25 @@
       gap: 28px;
     }
 
+    /* Last two cards in a row of 2 centered */
+    .services-grid .service-card:nth-child(4),
+    .services-grid .service-card:nth-child(5) {
+      /* handled by auto placement; override below for 2-col last row */
+    }
+
+    @media (min-width: 769px) {
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      /* Row 2: 2 cards → center them */
+      .services-grid .service-card:nth-child(4) {
+        grid-column: 1;
+      }
+      .services-grid .service-card:nth-child(5) {
+        grid-column: 2;
+      }
+    }
+
     .service-card {
       background: var(--white);
       border-radius: 16px;
@@ -427,6 +446,23 @@
     }
 
     .service-card:hover .service-img-wrap img { transform: scale(1.05); }
+
+    /* Image caption overlay */
+    .service-img-caption-wrap {
+      position: relative;
+    }
+    .service-img-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0; right: 0;
+      background: rgba(0, 65, 110, 0.82);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      padding: 8px 12px;
+      letter-spacing: 0.02em;
+    }
 
     .service-body {
       padding: 24px;
@@ -684,8 +720,291 @@
       .footer-grid { grid-template-columns: 1fr; gap: 28px; }
       .why-bg { padding: 60px 20px; }
     }
+    /* ── SUBSCRIPTION PLANS ── */
+    .sub-plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .sub-card {
+      background: var(--white);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,119,182,0.10);
+      position: relative;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .sub-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 36px rgba(0,119,182,0.18);
+    }
+
+    .sub-card--featured {
+      border: 3px solid var(--blue-mid);
+    }
+
+    .sub-card-badge {
+      background: var(--blue-mid);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+      padding: 5px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .sub-card-header {
+      padding: 28px 28px 16px;
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 100%);
+      color: #fff;
+    }
+
+    .sub-card--starter .sub-card-header { background: linear-gradient(135deg, #1a5f8a, #0099cc); }
+    .sub-card--business .sub-card-header { background: linear-gradient(135deg, #0a3d6b, #0a5a8a); }
+
+    .sub-card-header h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .sub-price {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+    }
+
+    .sub-price span {
+      font-size: 16px;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+
+    .sub-card-img {
+      height: 200px;
+      background: var(--blue-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .sub-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .sub-features {
+      list-style: none;
+      padding: 20px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sub-features li {
+      font-size: 14px;
+      color: var(--text-mid);
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .sub-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--blue-mid);
+      font-weight: 700;
+    }
+
+    .sub-btn {
+      display: block;
+      margin: 4px 28px 28px;
+      background: var(--blue-dark);
+      color: #fff;
+      text-align: center;
+      padding: 14px;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .sub-btn:hover { background: var(--blue-mid); transform: translateY(-2px); }
+    .sub-btn--featured { background: var(--blue-mid); }
+    .sub-btn--featured:hover { background: var(--blue-dark); }
+
+    /* ── PACKAGED WATER SHOP ── */
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .shop-card {
+      background: var(--white);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,119,182,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .shop-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(0,119,182,0.14);
+    }
+
+    .shop-img-wrap {
+      height: 200px;
+      background: var(--blue-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .shop-img-wrap img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      padding: 12px;
+    }
+
+    .shop-body {
+      padding: 18px;
+    }
+
+    .shop-price {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .shop-size-label {
+      font-size: 13px;
+      color: var(--text-mid);
+      margin-bottom: 12px;
+    }
+
+    .shop-qty-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .shop-qty-row label {
+      font-size: 13px;
+      color: var(--text-mid);
+      font-weight: 600;
+    }
+
+    .shop-qty-row select {
+      border: 1px solid #ccd9e8;
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 13px;
+      color: var(--text-dark);
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .shop-btn {
+      display: block;
+      width: 100%;
+      background: var(--blue-mid);
+      color: #fff;
+      text-align: center;
+      padding: 11px;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 14px;
+      transition: background 0.2s;
+    }
+
+    .shop-btn:hover { background: var(--blue-dark); }
+
+    .info-toggle {
+      background: none;
+      border: none;
+      color: var(--blue-mid);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 4px 0;
+      font-family: 'Open Sans', sans-serif;
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+
+    .info-toggle:hover { color: var(--blue-dark); }
+
+    .product-info {
+      font-size: 13px;
+      color: var(--text-mid);
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+
+    .product-info ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 6px;
+    }
+
+    .product-info li::before { content: '• '; color: var(--blue-mid); }
+
+    .ingredients-info {
+      font-size: 12px;
+      color: var(--text-mid);
+      margin-top: 8px;
+      background: var(--blue-pale);
+      padding: 10px;
+      border-radius: 6px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 1024px) {
+      .shop-grid { grid-template-columns: repeat(2, 1fr); }
+      .sub-plans-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    }
+
+    @media (max-width: 768px) {
+      .shop-grid { grid-template-columns: 1fr; }
+      .sub-plans-grid { grid-template-columns: 1fr; }
+    }
   </style>
-</head>
+
+  <script>
+    function toggleInfo(btn) {
+      const infoDiv = btn.nextElementSibling;
+      const isHidden = infoDiv.style.display === 'none';
+      infoDiv.style.display = isHidden ? 'block' : 'none';
+      btn.textContent = isHidden ? '▴ Product Information' : '▾ Product Information';
+    }
+
+    function toggleIngredients(btn) {
+      const infoDiv = btn.nextElementSibling;
+      const isHidden = infoDiv.style.display === 'none';
+      infoDiv.style.display = isHidden ? 'block' : 'none';
+      btn.textContent = isHidden ? '▴ Ingredients' : '▾ Ingredients';
+    }
+  </script>
 
 <body>
 
@@ -710,6 +1029,8 @@
     <a href="#about">About</a>
     <a href="#why">Why Choose Us</a>
     <a href="#contact">Contact</a>
+    <a href="#subscriptions" style="border:1.5px solid var(--blue-dark);padding:6px 14px;border-radius:6px;color:var(--blue-dark);">Subscription Plans</a>
+    <a href="#packaged-water" style="border:1.5px solid var(--blue-dark);padding:6px 14px;border-radius:6px;color:var(--blue-dark);">Packaged Water</a>
   </nav>
 
   <a href="https://wa.me/27798134597" target="_blank" class="header-cta">
@@ -798,6 +1119,7 @@
 
     <div class="services-grid">
 
+      <!-- 1. Water Purification -->
       <div class="service-card">
         <div class="service-img-wrap">
           <img src="RO Filter Picture.png" alt="Reverse Osmosis Filter">
@@ -813,6 +1135,7 @@
         </div>
       </div>
 
+      <!-- 2. Water Dispensers -->
       <div class="service-card">
         <div class="service-img-wrap">
           <img src="Water Dispenser Picture.png" alt="Water Dispenser">
@@ -828,24 +1151,281 @@
         </div>
       </div>
 
+      <!-- 3. 10L Refilling Bottles -->
       <div class="service-card">
         <div class="service-img-wrap">
-          <img src="Water Bottle Picture.png" alt="Water Bottle">
+          <img src="Water Bottle Picture.png" alt="10L Refilling Bottle">
         </div>
         <div class="service-body">
           <div class="service-icon-row">
             <div class="service-icon-badge">
               <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="">
             </div>
-            <h3>Subscription Supply</h3>
+            <h3>10 L Refilling Bottles</h3>
           </div>
-          <p>Reliable and flexible water supply plans designed to meet your needs consistently.</p>
+          <p>Reliable and flexible 10 L refilling bottles designed to meet your needs consistently.</p>
+        </div>
+      </div>
+
+      <!-- 4. Water Refilling Station -->
+      <div class="service-card">
+        <div class="service-img-wrap service-img-caption-wrap">
+          <img src="Water Refilling Station Picture.png" alt="Water Refilling Station">
+          <div class="service-img-caption">R2.50 per litre &nbsp;|&nbsp; Refilling starts from 5 L volume</div>
+        </div>
+        <div class="service-body">
+          <div class="service-icon-row">
+            <div class="service-icon-badge">
+              <img src="https://cdn-icons-png.flaticon.com/512/929/929430.png" alt="">
+            </div>
+            <h3>Water Refilling Station</h3>
+          </div>
+          <p>Convenient self-service refilling stations offering affordable, purified water at just R2.50 per litre.</p>
+        </div>
+      </div>
+
+      <!-- 5. Packaged Water -->
+      <div class="service-card">
+        <div class="service-img-wrap service-img-caption-wrap">
+          <img src="Packaged water.png" alt="Packaged Water">
+          <div class="service-img-caption">Balance water for better taste</div>
+        </div>
+        <div class="service-body">
+          <div class="service-icon-row">
+            <div class="service-icon-badge">
+              <img src="https://cdn-icons-png.flaticon.com/512/1048/1048949.png" alt="">
+            </div>
+            <h3>Packaged Water</h3>
+          </div>
+          <p>Premium packaged mineral water with balanced pH for a refreshing, great-tasting experience.</p>
         </div>
       </div>
 
     </div>
   </div>
 </div>
+
+<!-- SUBSCRIPTION PLANS -->
+<section id="subscriptions" style="background:#f0f6fb; padding:80px 40px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <span class="section-label">Flexible Options</span>
+    <h2 class="section-title">Subscription Plans</h2>
+    <div class="section-divider"></div>
+    <p style="text-align:center;color:var(--text-mid);font-size:16px;margin-bottom:48px;margin-top:-20px;">Stay hydrated with reliable delivery and top-quality dispensers</p>
+
+    <div class="sub-plans-grid">
+
+      <!-- Starter -->
+      <div class="sub-card sub-card--starter">
+        <div class="sub-card-header">
+          <h3>Starter Plan</h3>
+          <div class="sub-price">R299 <span>/month</span></div>
+        </div>
+        <div class="sub-card-img">
+          <img src="Starter plan image.png" alt="Starter Plan" onerror="this.style.display='none'">
+        </div>
+        <ul class="sub-features">
+          <li>1 × water dispenser (rental)</li>
+          <li>6 × 10L bottles</li>
+          <li>Delivery included (weekly or biweekly)</li>
+          <li>Basic maintenance (limited)</li>
+        </ul>
+        <a href="https://wa.me/27798134597?text=Hi%2C+I%27m+interested+in+the+Starter+Plan" target="_blank" class="sub-btn">SELECT STARTER PLAN</a>
+      </div>
+
+      <!-- Standard -->
+      <div class="sub-card sub-card--standard sub-card--featured">
+        <div class="sub-card-badge">Most Popular</div>
+        <div class="sub-card-header">
+          <h3>Standard Plan</h3>
+          <div class="sub-price">R499 <span>/month</span></div>
+        </div>
+        <div class="sub-card-img">
+          <img src="Standard plan image.png" alt="Standard Plan" onerror="this.style.display='none'">
+        </div>
+        <ul class="sub-features">
+          <li>2 × dispensers</li>
+          <li>10 × 10L bottles</li>
+          <li>Free delivery</li>
+          <li>Full maintenance</li>
+          <li>Priority refill service</li>
+        </ul>
+        <a href="https://wa.me/27798134597?text=Hi%2C+I%27m+interested+in+the+Standard+Plan" target="_blank" class="sub-btn sub-btn--featured">SELECT STANDARD PLAN</a>
+      </div>
+
+      <!-- Business -->
+      <div class="sub-card sub-card--business">
+        <div class="sub-card-header">
+          <h3>Business Plan</h3>
+          <div class="sub-price">R899 <span>/month</span></div>
+        </div>
+        <div class="sub-card-img">
+          <img src="Business plan image.png" alt="Business Plan" onerror="this.style.display='none'">
+        </div>
+        <ul class="sub-features">
+          <li>3 × dispensers</li>
+          <li>20 × 10L bottles</li>
+          <li>Free delivery (multiple times per week)</li>
+          <li>Full maintenance + fast response</li>
+          <li>Optional branding</li>
+        </ul>
+        <a href="https://wa.me/27798134597?text=Hi%2C+I%27m+interested+in+the+Business+Plan" target="_blank" class="sub-btn">SELECT BUSINESS PLAN</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGED WATER SHOP -->
+<section id="packaged-water" style="background:#fff;padding:80px 40px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <span class="section-label">Shop Now</span>
+    <h2 class="section-title">Packaged Water</h2>
+    <div class="section-divider"></div>
+    <p style="color:var(--text-mid);font-size:16px;margin-bottom:48px;margin-top:-20px;">Premium mineral water. Balanced for better taste.</p>
+
+    <div class="shop-grid">
+
+      <!-- Product 1: 6×500ml -->
+      <div class="shop-card">
+        <div class="shop-img-wrap">
+          <img src="6x500ml plastic bottle.png" alt="6×500ml Water Bottles">
+        </div>
+        <div class="shop-body">
+          <div class="shop-price">R49,99</div>
+          <div class="shop-size-label">6 × 500ml Plastic Bottles</div>
+          <div class="shop-qty-row">
+            <label>Qty:</label>
+            <select><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+          </div>
+          <a href="https://wa.me/27798134597?text=Order%3A+6x500ml+Water+Bottles" target="_blank" class="shop-btn">Add to Cart</a>
+
+          <button class="info-toggle" onclick="toggleInfo(this)">▾ Product Information</button>
+          <div class="product-info" style="display:none;">
+            <ul>
+              <li>Gourmet: No</li>
+              <li>Container Type: Plastic Bottle</li>
+              <li>Type: Mineral</li>
+              <li>Quantity: 6 × 500ml</li>
+              <li>Organic: Yes</li>
+              <li>Shelf Life: 8 Months</li>
+            </ul>
+            <button class="info-toggle" style="margin-top:10px;" onclick="toggleIngredients(this)">▾ Ingredients</button>
+            <div class="ingredients-info" style="display:none;">
+              <strong>Mineral Content:</strong><br>
+              Sodium 3.0mg/L<br>Potassium 1.0mg/L<br>Chloride 2.0mg/L<br>
+              Calcium 10mg/L<br>Magnesium 10.0mg/L<br>Fluoride &lt;0.1mg/L<br>Sulfate 4.0mg/L
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2: 6×1.5L -->
+      <div class="shop-card">
+        <div class="shop-img-wrap">
+          <img src="6x1.5L plastic bottle.png" alt="6×1.5L Water Bottles">
+        </div>
+        <div class="shop-body">
+          <div class="shop-price">R99,99</div>
+          <div class="shop-size-label">6 × 1.5L Plastic Bottles</div>
+          <div class="shop-qty-row">
+            <label>Qty:</label>
+            <select><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+          </div>
+          <a href="https://wa.me/27798134597?text=Order%3A+6x1.5L+Water+Bottles" target="_blank" class="shop-btn">Add to Cart</a>
+
+          <button class="info-toggle" onclick="toggleInfo(this)">▾ Product Information</button>
+          <div class="product-info" style="display:none;">
+            <ul>
+              <li>Gourmet: No</li>
+              <li>Container Type: Plastic Bottle</li>
+              <li>Type: Mineral</li>
+              <li>Quantity: 6 × 1.5L</li>
+              <li>Organic: Yes</li>
+              <li>Shelf Life: 8 Months</li>
+            </ul>
+            <button class="info-toggle" style="margin-top:10px;" onclick="toggleIngredients(this)">▾ Ingredients</button>
+            <div class="ingredients-info" style="display:none;">
+              <strong>Mineral Content:</strong><br>
+              Sodium 3.0mg/L<br>Potassium 1.0mg/L<br>Chloride 2.0mg/L<br>
+              Calcium 10mg/L<br>Magnesium 10.0mg/L<br>Fluoride &lt;0.1mg/L<br>Sulfate 4.0mg/L
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3: 5L -->
+      <div class="shop-card">
+        <div class="shop-img-wrap">
+          <img src="5L plastic bottle.png" alt="5L Water Bottle">
+        </div>
+        <div class="shop-body">
+          <div class="shop-price">R39,99</div>
+          <div class="shop-size-label">5L Plastic Bottle</div>
+          <div class="shop-qty-row">
+            <label>Qty:</label>
+            <select><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+          </div>
+          <a href="https://wa.me/27798134597?text=Order%3A+5L+Water+Bottle" target="_blank" class="shop-btn">Add to Cart</a>
+
+          <button class="info-toggle" onclick="toggleInfo(this)">▾ Product Information</button>
+          <div class="product-info" style="display:none;">
+            <ul>
+              <li>Gourmet: No</li>
+              <li>Container Type: Plastic Bottle</li>
+              <li>Type: Mineral</li>
+              <li>Quantity: 5L</li>
+              <li>Organic: Yes</li>
+              <li>Shelf Life: 8 Months</li>
+            </ul>
+            <button class="info-toggle" style="margin-top:10px;" onclick="toggleIngredients(this)">▾ Ingredients</button>
+            <div class="ingredients-info" style="display:none;">
+              <strong>Mineral Content:</strong><br>
+              Sodium 3.0mg/L<br>Potassium 1.0mg/L<br>Chloride 2.0mg/L<br>
+              Calcium 10mg/L<br>Magnesium 10.0mg/L<br>Fluoride &lt;0.1mg/L<br>Sulfate 4.0mg/L
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 4: 10L -->
+      <div class="shop-card">
+        <div class="shop-img-wrap">
+          <img src="10L plastic bottle.png" alt="10L Water Bottle">
+        </div>
+        <div class="shop-body">
+          <div class="shop-price">R59,99</div>
+          <div class="shop-size-label">10L Plastic Bottle</div>
+          <div class="shop-qty-row">
+            <label>Qty:</label>
+            <select><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+          </div>
+          <a href="https://wa.me/27798134597?text=Order%3A+10L+Water+Bottle" target="_blank" class="shop-btn">Add to Cart</a>
+
+          <button class="info-toggle" onclick="toggleInfo(this)">▾ Product Information</button>
+          <div class="product-info" style="display:none;">
+            <ul>
+              <li>Gourmet: No</li>
+              <li>Container Type: Plastic Bottle</li>
+              <li>Type: Mineral</li>
+              <li>Quantity: 10L</li>
+              <li>Organic: Yes</li>
+              <li>Shelf Life: 8 Months</li>
+            </ul>
+            <button class="info-toggle" style="margin-top:10px;" onclick="toggleIngredients(this)">▾ Ingredients</button>
+            <div class="ingredients-info" style="display:none;">
+              <strong>Mineral Content:</strong><br>
+              Sodium 3.0mg/L<br>Potassium 1.0mg/L<br>Chloride 2.0mg/L<br>
+              Calcium 10mg/L<br>Magnesium 10.0mg/L<br>Fluoride &lt;0.1mg/L<br>Sulfate 4.0mg/L
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <p style="text-align:center;margin-top:32px;color:var(--text-light);font-size:13px;">🚚 Shipping calculated at checkout</p>
+  </div>
+</section>
 
 <!-- WHY CHOOSE US -->
 <div id="why" class="why-bg">
@@ -914,6 +1494,8 @@
         <a href="#services">Services</a>
         <a href="#about">About</a>
         <a href="#why">Why Choose Us</a>
+        <a href="#subscriptions">Subscription Plans</a>
+        <a href="#packaged-water">Packaged Water</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
