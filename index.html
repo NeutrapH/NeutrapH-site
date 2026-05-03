@@ -326,8 +326,7 @@
                   <option>Business Plan - R899/month</option>
                   <option>Packaged Water Order</option>
                   <option>Water Dispenser Rental</option>
-                  <option>Water Refilling Station</option>
-                  <option>RO Process Information</option>
+
                 </select>
               </div>
               <div>
@@ -346,7 +345,10 @@
               <textarea name="Message" placeholder="Tell us quantity, preferred delivery date, number of people, etc."></textarea>
             </div>
 
-            <button class="btn btn-blue" type="submit">Send Details on WhatsApp</button>
+            <div class="form-buttons">
+              <button class="btn btn-blue" type="submit">Send Details on WhatsApp</button>
+              <button class="btn btn-email" type="button" onclick="submitLeadEmail()">Send Details by Email</button>
+          </div>
           </form>
 
           <div class="payment-box">
