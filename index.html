@@ -419,10 +419,14 @@
 <script src="script.js"></script>
 
 <script>
-  const heroImages = [
-    "Glass of water Picture.png",
-    "Neutraph shop.png"
-  ];
+const heroImages = [
+  "Glass of water Picture.png",
+  "Neutraph shop.png",
+  "Water Refilling Station.png",
+  "6x500ml Water Bottles.png",
+  "Standard plan image.png",
+  "5L Water Bottle.png"
+];
 
   let currentHeroImage = 0;
   const heroImageElement = document.getElementById("heroRotatingImage");
@@ -436,7 +440,7 @@
         heroImageElement.src = heroImages[currentHeroImage];
         heroImageElement.style.opacity = 1;
       }, 500);
-    }, 4000);
+    }, 6000);
   }
 </script>
 
