@@ -40,13 +40,12 @@ function submitLead(e){
 function submitLeadEmail(){
   const form = document.querySelector(".form");
 
-  if(!form){
-    alert("Form not found");
+  if (!form.checkValidity()) {
+    form.reportValidity();
     return;
   }
 
   const f = new FormData(form);
-
   let msg = "New NeutrapH Order / Subscription Enquiry\n\n";
 
   for(const [k,v] of f.entries()){
