@@ -1,110 +1,184 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --blue-dark:#0a3d6b;
-  --blue-mid:#0077b6;
-  --blue-light:#00b4d8;
-  --blue-pale:#e8f4fd;
-  --white:#fff;
-  --text-dark:#1a2a3a;
-  --text-mid:#4a6080;
-  --text-light:#8aa5bf;
-  --green-wa:#25D366;
-  --shadow:0 8px 30px rgba(0,119,182,.12);
-  --radius:18px;
+  --blue-dark:#0a3d6b; --blue-mid:#0077b6; --blue-light:#00b4d8; --blue-pale:#e8f4fd;
+  --white:#fff; --text-dark:#1a2a3a; --text-mid:#4a6080; --text-light:#8aa5bf;
+  --green-wa:#25D366; --shadow:0 8px 30px rgba(0,119,182,.12); --radius:18px;
 }
 
-html { scroll-behavior:smooth }
+html{scroll-behavior:smooth}
 
-body {
+body{
   font-family:'Open Sans',Arial,sans-serif;
   color:var(--text-dark);
   background:#f0f6fb;
   overflow-x:hidden;
-  line-height:1.6;
+  line-height:1.6
 }
 
-a { color:inherit }
-img { max-width:100%; display:block }
+a{color:inherit}
+img{max-width:100%;display:block}
 
-.container {
-  max-width:1200px;
-  margin:auto;
-  padding:0 40px;
-}
+.container{max-width:1200px;margin:auto;padding:0 40px}
 
-.section { padding:84px 0 }
-.section.alt { background:#fff }
+.section{padding:84px 0}
+.section.alt{background:#fff}
 
-.section-label {
+.section-label{
   display:inline-block;
   font-size:12px;
   font-weight:800;
   letter-spacing:.12em;
   text-transform:uppercase;
   color:var(--blue-light);
-  margin-bottom:10px;
+  margin-bottom:10px
 }
 
-.section-title {
+.section-title{
   font-family:'Montserrat',sans-serif;
   font-size:38px;
   line-height:1.15;
   font-weight:800;
   color:var(--text-dark);
-  margin-bottom:12px;
+  margin-bottom:12px
 }
 
-.section-desc {
+.section-desc{
   font-size:16px;
   color:var(--text-mid);
-  max-width:720px;
+  max-width:720px
 }
 
-.section-divider {
+.section-divider{
   width:52px;
   height:4px;
   background:var(--blue-light);
   border-radius:4px;
-  margin:18px 0 40px;
+  margin:18px 0 40px
 }
 
-/* BUTTONS */
+/* ===== HEADER / NAV ===== */
 
-.btn-blue {
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#fff;
+  box-shadow:0 2px 12px rgba(0,119,182,.10)
+}
+
+.nav-wrap{
+  height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px
+}
+
+nav{
+  display:flex;
+  gap:18px;
+  align-items:center
+}
+
+nav a{
+  font-family:'Montserrat',sans-serif;
+  font-size:13px;
+  font-weight:700;
+  color:var(--text-mid);
+  text-decoration:none;
+  padding:8px 4px;
+  border-bottom:2px solid transparent;
+  transition:.2s
+}
+
+nav a:hover{
+  color:var(--blue-mid);
+  border-color:var(--blue-mid)
+}
+
+/* ===== BUTTONS ===== */
+
+.btn{
+  border:0;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border-radius:10px;
+  font-family:'Montserrat',sans-serif;
+  font-weight:800;
+  transition:.2s;
+  padding:14px 24px;
+  font-size:15px
+}
+
+.btn-blue{
   background:var(--blue-mid);
-  color:#fff;
+  color:#fff
 }
 
-/* ✅ NEW EMAIL BUTTON + LAYOUT */
-
-.form-buttons {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  width: 100%;
+.btn-blue:hover{
+  background:var(--blue-dark);
+  transform:translateY(-1px)
 }
 
-.form-btn {
-  width: 100%;
-  min-height: 48px;
-  padding: 14px 18px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 800;
-  border-radius: 10px;
-  cursor: pointer;
+/* ===== FORM BUTTON FIX ===== */
+
+.form-buttons{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  width:100%
 }
 
-.btn-email {
-  background: #fff;
-  color: var(--blue-mid);
-  border: 2px solid var(--blue-mid);
+.form-buttons .btn{
+  width:100%;
+  min-height:50px;
+  padding:14px 18px
 }
 
-.btn-email:hover {
-  background: var(--blue-pale);
-  color: var(--blue-dark);
+.btn-email{
+  background:#fff;
+  color:var(--blue-mid);
+  border:2px solid var(--blue-mid)
 }
 
-/* KEEP YOUR EXISTING CSS BELOW (UNCHANGED) */
+.btn-email:hover{
+  background:var(--blue-pale);
+  color:var(--blue-dark);
+  transform:translateY(-1px)
+}
+
+/* ===== FORM ===== */
+
+.form{
+  display:grid;
+  gap:14px
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px
+}
+
+.form input,
+.form select,
+.form textarea{
+  border:1px solid #ccd9e8;
+  border-radius:9px;
+  padding:11px 12px;
+  font-size:14px;
+  width:100%
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:700px){
+  .form-buttons{
+    grid-template-columns:1fr;
+  }
+}
