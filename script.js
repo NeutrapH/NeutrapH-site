@@ -53,7 +53,7 @@ function submitLeadEmail(){
   }
 
   const email = "info@neutraph.co.za";
-  const subject = "New NeutrapH Order / Subscription Enquiry";
+  const subject = "New NeutrapH Enquiry";
 
   window.location.href =
     "mailto:" + email +
