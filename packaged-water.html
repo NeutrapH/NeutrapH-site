@@ -12,6 +12,19 @@
   <link rel="icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+<style>
+/* NeutrapH packaged-water shop improvements */
+.shop-hero-modern{position:relative;overflow:hidden;background:linear-gradient(105deg,#053b78 0%,#086fc2 48%,#eaf7ff 100%);min-height:330px;color:#fff}
+.shop-hero-modern .container{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:36px;padding:70px 20px}
+.shop-hero-modern h1{font-size:clamp(42px,5vw,72px);line-height:1;margin:12px 0 16px;font-weight:900;color:#fff}
+.shop-hero-modern p{font-size:18px;max-width:620px;color:#eef8ff;line-height:1.7}
+.hero-breadcrumb{font-weight:700;font-size:14px;opacity:.9}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}.hero-btn{border-radius:14px;padding:14px 20px;font-weight:800;text-decoration:none;display:inline-flex;align-items:center;gap:8px}.hero-btn.primary{background:#fff;color:#035ca8}.hero-btn.secondary{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.35)}
+.hero-image-card{min-height:250px;border-radius:30px;background:radial-gradient(circle at 65% 35%,rgba(255,255,255,.9),rgba(255,255,255,.1) 48%,rgba(255,255,255,0) 70%);display:flex;align-items:center;justify-content:center}.hero-image-card img{max-height:280px;max-width:100%;filter:drop-shadow(0 25px 35px rgba(0,26,64,.28))}
+.shop-benefits{margin-top:-44px;position:relative;z-index:5}.benefit-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;background:#fff;border-radius:24px;padding:20px;box-shadow:0 20px 50px rgba(7,67,126,.13);border:1px solid #e5f3ff}.benefit-item{display:flex;gap:13px;align-items:center}.benefit-icon{width:48px;height:48px;border-radius:16px;background:#e9f6ff;display:grid;place-items:center;font-size:23px}.benefit-item strong{display:block;color:#082b57}.benefit-item span{font-size:13px;color:#52627a}.shop-layout-modern{display:grid;grid-template-columns:260px 1fr;gap:34px}.shop-sidebar{background:#fff;border:1px solid #e5f0fb;border-radius:22px;padding:18px;box-shadow:0 16px 38px rgba(11,67,125,.08);height:max-content;position:sticky;top:90px}.shop-sidebar h3{margin:0 0 15px;color:#082b57}.size-filter{display:flex;justify-content:space-between;align-items:center;padding:13px 12px;border-radius:14px;color:#18365f;font-weight:700;text-decoration:none}.size-filter.active,.size-filter:hover{background:#eaf5ff;color:#006ac7}.size-filter small{background:#fff;border-radius:20px;padding:4px 9px;color:#006ac7}.help-card{margin-top:22px;background:linear-gradient(145deg,#eef8ff,#dff0ff);border-radius:18px;padding:18px;text-align:center}.help-card .shop-btn{width:100%;margin-top:12px}.shop-head-row{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:20px}.trust-pill{border:1px solid #d9ecff;background:#fff;border-radius:18px;padding:16px 18px;color:#163762;box-shadow:0 10px 30px rgba(10,76,140,.07)}.shop-grid.improved{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.shop-card{position:relative;overflow:hidden}.product-badge{position:absolute;top:14px;right:14px;background:#e9f6ff;color:#006ac7;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:900;z-index:2}.product-badge.best{background:#00a86b;color:#fff}.product-desc{font-size:13px;color:#52627a;line-height:1.55;margin-top:10px}.dispenser-specs{font-size:13px;color:#52627a;line-height:1.55;margin-top:10px}.bulk-order-strip{margin-top:24px;border:1px solid #cfe8ff;background:linear-gradient(90deg,#eef8ff,#ffffff);border-radius:18px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}.bulk-order-strip strong{color:#082b57}.footer-service-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:35px}.footer-service{background:#fff;border:1px solid #e2effb;border-radius:18px;padding:18px;text-align:center;color:#17345c}.footer-service b{display:block;color:#082b57;margin-bottom:4px}@media(max-width:950px){.shop-hero-modern .container{grid-template-columns:1fr;padding:46px 20px}.benefit-strip,.footer-service-strip{grid-template-columns:1fr 1fr}.shop-layout-modern{grid-template-columns:1fr}.shop-sidebar{position:static}.shop-grid.improved{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.benefit-strip,.footer-service-strip,.shop-grid.improved{grid-template-columns:1fr}.shop-head-row,.bulk-order-strip{display:block}.hero-buttons{display:block}.hero-btn{margin:6px 0}}
+</style>
+
 </head>
 <body>
 <div class="topbar"><div class="container"><span>Serving Midrand, Johannesburg and surrounding areas</span><a href="tel:+27798134597">+27 79 813 4597</a></div></div>
@@ -31,7 +44,88 @@
   </nav>
   <a href="https://wa.me/27798134597" target="_blank" class="header-cta"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="wa-icon-sm" alt="">Order Now</a>
 </div></header>
-<main><section class="page-hero"><div class="container"><h1>Packaged Water</h1><p>Premium mineral water options for everyday use, events, businesses and households.</p></div></section><section class="section alt"><div class="container"><span class="section-label">Shop Now</span><h2 class="section-title">Packaged Water Products</h2><p class="section-desc">Order through WhatsApp while payment integration is being prepared.</p><div class="section-divider"></div><div class="shop-grid"><div class="shop-card"><div class="shop-img-wrap"><img src="6x500ml Water Bottles.png" alt="6x500ml Water Bottles"></div><div class="shop-body"><div class="shop-price">R49,99</div><div class="shop-size-label">6 × 500ml Plastic Bottles</div><div class="shop-qty-row"><label>Qty:</label><select id="qty-6x500mlWaterBottles"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><button class="shop-btn" onclick="orderProduct('6x500ml Water Bottles')">Order on WhatsApp</button><button class="info-toggle" onclick="toggleInfo(this)">▾ Product Information</button><div class="product-info" style="display:none"><ul><li>Container Type: Plastic Bottle</li><li>Type: Mineral</li><li>Shelf Life: 8 Months</li><li>Balanced for better taste</li></ul><button class="info-toggle" onclick="toggleIngredients(this)">▾ Ingredients</button><div class="ingredients-info" style="display:none"><strong>Mineral Content:</strong><br>Sodium 3.0mg/L<br>Potassium 1.0mg/L<br>Chloride 2.0mg/L<br>Calcium 10mg/L<br>Magnesium 10.0mg/L<br>Fluoride &lt;0.1mg/L<br>Sulfate 4.0mg/L</div></div></div></div><div class="shop-card"><div class="shop-img-wrap"><img src="6x1.5L Water Bottles.png" alt="6x1.5L Water Bottles"></div><div class="shop-body"><div class="shop-price">R99,99</div><div class="shop-size-label">6 × 1.5L Plastic Bottles</div><div class="shop-qty-row"><label>Qty:</label><select id="qty-6x15LWaterBottles"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><button class="shop-btn" onclick="orderProduct('6x1.5L Water Bottles')">Order on WhatsApp</button><button class="info-toggle" onclick="toggleInfo(this)">▾ Product Information</button><div class="product-info" style="display:none"><ul><li>Container Type: Plastic Bottle</li><li>Type: Mineral</li><li>Shelf Life: 8 Months</li><li>Balanced for better taste</li></ul><button class="info-toggle" onclick="toggleIngredients(this)">▾ Ingredients</button><div class="ingredients-info" style="display:none"><strong>Mineral Content:</strong><br>Sodium 3.0mg/L<br>Potassium 1.0mg/L<br>Chloride 2.0mg/L<br>Calcium 10mg/L<br>Magnesium 10.0mg/L<br>Fluoride &lt;0.1mg/L<br>Sulfate 4.0mg/L</div></div></div></div><div class="shop-card"><div class="shop-img-wrap"><img src="5L Water Bottle.png" alt="5L Water Bottle"></div><div class="shop-body"><div class="shop-price">R39,99</div><div class="shop-size-label">5L Plastic Bottle</div><div class="shop-qty-row"><label>Qty:</label><select id="qty-5LWaterBottle"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><button class="shop-btn" onclick="orderProduct('5L Water Bottle')">Order on WhatsApp</button><button class="info-toggle" onclick="toggleInfo(this)">▾ Product Information</button><div class="product-info" style="display:none"><ul><li>Container Type: Plastic Bottle</li><li>Type: Mineral</li><li>Shelf Life: 8 Months</li><li>Balanced for better taste</li></ul><button class="info-toggle" onclick="toggleIngredients(this)">▾ Ingredients</button><div class="ingredients-info" style="display:none"><strong>Mineral Content:</strong><br>Sodium 3.0mg/L<br>Potassium 1.0mg/L<br>Chloride 2.0mg/L<br>Calcium 10mg/L<br>Magnesium 10.0mg/L<br>Fluoride &lt;0.1mg/L<br>Sulfate 4.0mg/L</div></div></div></div><div class="shop-card"><div class="shop-img-wrap"><img src="10L Water Bottle.png" alt="10L Water Bottle"></div><div class="shop-body"><div class="shop-price">R59,99</div><div class="shop-size-label">10L Plastic Bottle</div><div class="shop-qty-row"><label>Qty:</label><select id="qty-10LWaterBottle"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><button class="shop-btn" onclick="orderProduct('10L Water Bottle')">Order on WhatsApp</button><button class="info-toggle" onclick="toggleInfo(this)">▾ Product Information</button><div class="product-info" style="display:none"><ul><li>Container Type: Plastic Bottle</li><li>Type: Mineral</li><li>Shelf Life: 8 Months</li><li>Balanced for better taste</li></ul><button class="info-toggle" onclick="toggleIngredients(this)">▾ Ingredients</button><div class="ingredients-info" style="display:none"><strong>Mineral Content:</strong><br>Sodium 3.0mg/L<br>Potassium 1.0mg/L<br>Chloride 2.0mg/L<br>Calcium 10mg/L<br>Magnesium 10.0mg/L<br>Fluoride &lt;0.1mg/L<br>Sulfate 4.0mg/L</div></div></div></div></div><p style="text-align:center;margin-top:32px;color:var(--text-light);font-size:13px">🚚 Shipping calculated at checkout / confirmation</p></div></section></main><footer id="contact"><div class="container">
+<main>
+  <section class="shop-hero-modern">
+    <div class="container">
+      <div>
+        <div class="hero-breadcrumb">Home › Packaged Water</div>
+        <h1>Packaged Water</h1>
+        <p>Premium NeutrapH packaged water, dispenser bottles and water dispensers for homes, offices, schools, churches, events and local businesses.</p>
+        <div class="hero-buttons">
+          <a class="hero-btn primary" href="#shop-products">Shop Products</a>
+          <a class="hero-btn secondary" href="https://wa.me/27798134597" target="_blank">💬 Order on WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero-image-card">
+        <img src="10L Water Bottle.png" alt="NeutrapH packaged water bottle">
+      </div>
+    </div>
+  </section>
+
+  <section class="shop-benefits">
+    <div class="container">
+      <div class="benefit-strip">
+        <div class="benefit-item"><div class="benefit-icon">💧</div><div><strong>Pure & Refreshing</strong><span>Balanced water for daily hydration</span></div></div>
+        <div class="benefit-item"><div class="benefit-icon">🛡️</div><div><strong>Trusted Quality</strong><span>Clean, safe and reliable supply</span></div></div>
+        <div class="benefit-item"><div class="benefit-icon">🚚</div><div><strong>Doorstep Delivery</strong><span>Delivery arranged after order confirmation</span></div></div>
+        <div class="benefit-item"><div class="benefit-icon">🟢</div><div><strong>Easy Ordering</strong><span>Quick ordering through WhatsApp</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="shop-products">
+    <div class="container">
+      <div class="shop-layout-modern">
+        <aside class="shop-sidebar">
+          <h3>Shop by Category</h3>
+          <a class="size-filter active" href="#shop-products">All Products <small>8</small></a>
+          <a class="size-filter" href="#bottled-water">Packaged Water <small>5</small></a>
+          <a class="size-filter" href="#dispenser-bottles">Dispenser Bottles <small>1</small></a>
+          <a class="size-filter" href="#water-dispensers">Water Dispensers <small>3</small></a>
+          <div class="help-card">
+            <h3>Need Help?</h3>
+            <p>Chat with us for bulk orders, dispenser options and delivery support.</p>
+            <a class="shop-btn" href="https://wa.me/27798134597" target="_blank">Chat Now</a>
+          </div>
+        </aside>
+
+        <div>
+          <div class="shop-head-row">
+            <div>
+              <span class="section-label">Shop Now</span>
+              <h2 class="section-title">NeutrapH Water Shop</h2>
+              <p class="section-desc">Order through WhatsApp while payment integration is being prepared.</p>
+              <div class="section-divider"></div>
+            </div>
+            <div class="trust-pill"><strong>Safe. Clean. Balanced.</strong><br>Hydration you can trust.</div>
+          </div>
+
+          <div class="shop-grid improved" id="bottled-water">
+            <div class="shop-card"><span class="product-badge">6 Pack</span><div class="shop-img-wrap"><img src="6x500ml Water Bottles.png" alt="6x500ml Water Bottles"></div><div class="shop-body"><div class="shop-price">R49,99</div><div class="shop-size-label">6 × 500ml Plastic Bottles</div><div class="shop-qty-row"><label>Qty:</label><select id="qty-6x500mlWaterBottles"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><button class="shop-btn" onclick="orderProduct('6x500ml Water Bottles')">Order on WhatsApp</button></div></div>
+            <div class="shop-card"><span class="product-badge">6 Pack</span><div class="shop-img-wrap"><img src="6x1.5L Water Bottles.png" alt="6x1.5L Water Bottles"></div><div class="shop-body"><div class="shop-price">R99,99</div><div class="shop-size-label">6 × 1.5L Plastic Bottles</div><div class="shop-qty-row"><label>Qty:</label><select id="qty-6x15LWaterBottles"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><button class="shop-btn" onclick="orderProduct('6x1.5L Water Bottles')">Order on WhatsApp</button></div></div>
+            <div class="shop-card"><span class="product-badge best">Best Seller</span><div class="shop-img-wrap"><img src="5L Water Bottle.png" alt="5L Water Bottle"></div><div class="shop-body"><div class="shop-price">R39,99</div><div class="shop-size-label">5L Plastic Bottle</div><div class="shop-qty-row"><label>Qty:</label><select id="qty-5LWaterBottle"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><button class="shop-btn" onclick="orderProduct('5L Water Bottle')">Order on WhatsApp</button></div></div>
+            <div class="shop-card"><span class="product-badge">10L</span><div class="shop-img-wrap"><img src="10L Water Bottle.png" alt="10L Water Bottle"></div><div class="shop-body"><div class="shop-price">R59,99</div><div class="shop-size-label">10L Plastic Bottle</div><div class="shop-qty-row"><label>Qty:</label><select id="qty-10LWaterBottle"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><button class="shop-btn" onclick="orderProduct('10L Water Bottle')">Order on WhatsApp</button></div></div>
+            <div class="shop-card" id="dispenser-bottles"><span class="product-badge">18.9L / 5 Gallon</span><div class="shop-img-wrap"><img src="18.9L Water Dispenser Bottle.png" alt="18.9L Water Dispenser Bottle"></div><div class="shop-body"><div class="shop-price">Price on Request</div><div class="shop-size-label">NeutrapH Water Dispenser Bottle 18.9L Poly-Carbonate</div><p class="product-desc">55mm neck size, 270mm diameter and 490mm height. Health regulation-approved poly-carbonate bottle for safe and durable use. Ideal for home and office water dispensers.</p><div class="shop-qty-row"><label>Qty:</label><select id="qty-189LWaterDispenserBottle"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><button class="shop-btn" onclick="orderProduct('18.9L Water Dispenser Bottle')">Order on WhatsApp</button></div></div>
+          </div>
+
+          <h2 class="section-title" id="water-dispensers" style="margin-top:42px">Water Dispensers</h2>
+          <p class="section-desc">Choose from three dispenser options. Final pricing and delivery can be confirmed through WhatsApp.</p>
+          <div class="shop-grid improved">
+            <div class="shop-card"><span class="product-badge">Option 1</span><div class="shop-img-wrap"><img src="water-dispenser-option-1.png" alt="Water Dispenser Option 1"></div><div class="shop-body"><div class="shop-price">Price on Request</div><div class="shop-size-label">Water Dispenser – Standard Hot & Cold</div><p class="dispenser-specs">AC220V/220V–240V, 50/60Hz. Hot water ≤95℃, 5L/h. Cold water 6–10℃, 2L/h. Heating power 500W, cooling power 90W.</p><button class="shop-btn" onclick="orderProduct('Water Dispenser Option 1 - Standard Hot and Cold')">Enquire on WhatsApp</button></div></div>
+            <div class="shop-card"><span class="product-badge">Option 2</span><div class="shop-img-wrap"><img src="water-dispenser-option-2.png" alt="Water Dispenser Option 2"></div><div class="shop-body"><div class="shop-price">Price on Request</div><div class="shop-size-label">Water Dispenser with 5 Stage RO Filters</div><p class="dispenser-specs">Model YLR-LW-2-5-98LB. PP, GAC, CTO, RO and T33 filters with 2 UV lamps inside cold tank and one side filter slide set.</p><button class="shop-btn" onclick="orderProduct('Water Dispenser Option 2 - 5 Stage RO Filters')">Enquire on WhatsApp</button></div></div>
+            <div class="shop-card"><span class="product-badge">Option 3</span><div class="shop-img-wrap"><img src="water-dispenser-option-3.png" alt="Water Dispenser Option 3"></div><div class="shop-body"><div class="shop-price">Price on Request</div><div class="shop-size-label">Premium Water Dispenser</div><p class="dispenser-specs">Anti-bacteria ABS plastic parts, cool rolled steel lateral plate, stainless steel welding water tank, copper tube, over-current protection and automatic thermostat technology.</p><button class="shop-btn" onclick="orderProduct('Water Dispenser Option 3 - Premium')">Enquire on WhatsApp</button></div></div>
+          </div>
+
+          <div class="bulk-order-strip">
+            <div><strong>Bulk Orders?</strong> Need larger quantities for your business, school, church or event?</div>
+            <a class="shop-btn" href="https://wa.me/27798134597" target="_blank">Contact Us on WhatsApp</a>
+          </div>
+          <div class="footer-service-strip"><div class="footer-service">🛡️<b>Quality Assured</b>Purified and tested for your safety</div><div class="footer-service">📦<b>Secure Packaging</b>Leak-proof and hygienic bottles</div><div class="footer-service">🚚<b>Flexible Delivery</b>Delivery arranged per order</div><div class="footer-service">☎️<b>Customer Support</b>We are here to help you</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main><footer id="contact"><div class="container">
   <div class="footer-grid">
     <div><img src="NeutrapH Logo.png" class="footer-logo-img" alt="NeutrapH Logo" onerror="this.style.display='none'"><p class="footer-about">Our mission is to deliver clean, safe drinking water to every community. Serving Johannesburg and beyond.</p></div>
     <div class="footer-col"><h4>Quick Links</h4><div class="footer-links"><a href="index.html">Home</a><a href="water-purification.html">Water Purification</a><a href="water-dispensers.html">Water Dispensers</a><a href="subscriptions.html">Subscription Plans</a><a href="packaged-water.html">Packaged Water</a><a href="contact.html">Contact</a></div></div>
