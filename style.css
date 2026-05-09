@@ -704,3 +704,77 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
     background-position:center center !important;
   }
 }
+
+
+/* =========================================================
+   WATER DISPENSERS PAGE HERO + PRODUCTS
+   Hero image required: Dispenser hero.png
+========================================================= */
+.dispenser-hero-modern{
+  position:relative;
+  overflow:hidden;
+  min-height:560px;
+  color:#fff;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(3,30,83,.96) 0%,
+      rgba(4,48,110,.88) 30%,
+      rgba(4,84,160,.42) 55%,
+      rgba(255,255,255,0) 100%
+    ),
+    url("Dispenser hero.png");
+  background-size:cover;
+  background-position:right center;
+  background-repeat:no-repeat;
+  display:flex;
+  align-items:center;
+}
+.dispenser-hero-modern .container{
+  position:relative;
+  z-index:2;
+  min-height:560px;
+  display:flex;
+  align-items:center;
+  padding:80px 40px;
+}
+.dispenser-hero-modern .hero-content{max-width:620px;color:#fff}
+.dispenser-hero-modern .hero-breadcrumb{font-weight:700;font-size:14px;opacity:.95;margin-bottom:18px;color:#fff}
+.dispenser-hero-modern h1{font-family:'Montserrat',sans-serif;font-size:clamp(52px,6vw,86px);line-height:.95;font-weight:900;color:#fff;margin-bottom:24px}
+.dispenser-hero-modern p{font-size:19px;line-height:1.8;color:#eef8ff;max-width:580px;margin-bottom:30px}
+.dispenser-hero-modern .hero-buttons{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.dispenser-hero-modern .hero-btn{border-radius:14px;padding:15px 24px;font-family:'Montserrat',sans-serif;font-weight:800;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.25s}
+.dispenser-hero-modern .hero-btn.primary{background:#fff;color:var(--blue-dark)}
+.dispenser-hero-modern .hero-btn.primary:hover{background:#f0f6fb;transform:translateY(-2px)}
+.dispenser-hero-modern .hero-btn.secondary{background:rgba(255,255,255,.10);color:#fff;border:1px solid rgba(255,255,255,.45)}
+.dispenser-hero-modern .hero-btn.secondary:hover{background:rgba(255,255,255,.18);transform:translateY(-2px)}
+.dispenser-intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:center}
+.dispenser-feature-card{background:#fff;border-radius:22px;box-shadow:var(--shadow);padding:30px;border:1px solid #e3f1fb}
+.dispenser-feature-card h3{font-family:'Montserrat',sans-serif;color:var(--blue-dark);font-size:22px;margin-bottom:14px}
+.dispenser-feature-card p{color:var(--text-mid);font-size:15px;margin-bottom:16px}
+.dispenser-card-img{height:245px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.dispenser-card-img img{width:100%;height:100%;object-fit:contain;padding:12px}
+@media(max-width:950px){
+  .dispenser-hero-modern .container{padding:70px 24px}
+  .dispenser-intro-grid{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  .dispenser-hero-modern{
+    min-height:640px;
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(3,30,83,.97) 0%,
+        rgba(4,48,110,.88) 42%,
+        rgba(4,84,160,.35) 100%
+      ),
+      url("Dispenser hero.png");
+    background-size:cover;
+    background-position:center center;
+  }
+  .dispenser-hero-modern .container{min-height:640px;align-items:flex-start;padding:70px 20px}
+  .dispenser-hero-modern h1{font-size:52px}
+  .dispenser-hero-modern p{font-size:17px}
+  .dispenser-hero-modern .hero-buttons{display:grid;gap:12px;width:100%}
+  .dispenser-hero-modern .hero-btn{width:100%}
+}
