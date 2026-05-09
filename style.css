@@ -343,154 +343,145 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
 }
 
 /* =========================================================
-   NEUTRAPH HOME PAGE HERO BACKGROUND
-   Image required in the same folder: Watershop hero.png
-   This targets only the home page hero.
+   DEFINITIVE HOME PAGE HERO FIX
+   Image file required in the same folder: Watershop hero.png
+   Layout: image starts on the LEFT and fades into the RIGHT.
 ========================================================= */
-.hero-home-modern{
-  position:relative;
-  overflow:hidden;
-  min-height:720px;
-  display:flex;
-  align-items:center;
-  color:#fff;
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(5,44,92,.97) 0%,
-      rgba(7,71,135,.90) 32%,
-      rgba(0,119,182,.42) 58%,
-      rgba(255,255,255,0) 100%
-    ),
-    url("Watershop hero.png");
-  background-size:cover;
-  background-position:right center;
-  background-repeat:no-repeat;
+
+.hero.hero-home-modern{
+  position:relative !important;
+  min-height:720px !important;
+  overflow:hidden !important;
+  display:flex !important;
+  align-items:center !important;
+  background:linear-gradient(120deg,#0a3d6b 0%,#0077b6 55%,#00b4d8 100%) !important;
 }
 
-.hero-home-modern::before,
-.hero-home-modern::after{
-  display:none;
+.hero.hero-home-modern::before,
+.hero.hero-home-modern::after{
+  display:none !important;
+  content:none !important;
 }
 
-.hero-home-modern .hero-home-content{
-  position:relative;
-  z-index:2;
-  width:100%;
+.home-hero-bg{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:left center !important;
+  z-index:0 !important;
 }
 
-.hero-home-modern .hero-text{
-  max-width:620px;
-  color:#fff;
+.home-hero-overlay{
+  position:absolute !important;
+  inset:0 !important;
+  z-index:1 !important;
+  background:linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(0,119,182,.28) 38%,
+    rgba(7,71,135,.84) 66%,
+    rgba(5,44,92,.97) 100%
+  ) !important;
 }
 
-.hero-home-modern .hero-badge{
-  background:rgba(255,255,255,.16);
-  border:1px solid rgba(255,255,255,.32);
-  color:#fff;
+.hero.hero-home-modern .hero-home-content{
+  position:relative !important;
+  z-index:2 !important;
+  width:100% !important;
+  min-height:720px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
 }
 
-.hero-home-modern .hero-title{
-  font-size:clamp(58px,7vw,96px);
-  line-height:.95;
-  margin-bottom:24px;
-  color:#fff;
+.hero.hero-home-modern .hero-text{
+  max-width:620px !important;
+  color:#fff !important;
+  text-align:left !important;
 }
 
-.hero-home-modern .hero-title span{
-  color:#bff4ff;
+.hero.hero-home-modern .hero-title{
+  font-family:'Montserrat',sans-serif !important;
+  font-size:clamp(54px,6vw,88px) !important;
+  line-height:.96 !important;
+  font-weight:900 !important;
+  margin-bottom:24px !important;
+  color:#fff !important;
 }
 
-.hero-home-modern .hero-desc{
-  max-width:600px;
-  font-size:20px;
-  line-height:1.8;
-  color:#eef8ff;
-  margin-bottom:34px;
+.hero.hero-home-modern .hero-title span{
+  color:#bff4ff !important;
+  display:block !important;
 }
 
-.hero-home-modern .hero-actions{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-  justify-content:flex-start;
+.hero.hero-home-modern .hero-desc{
+  max-width:580px !important;
+  font-size:19px !important;
+  line-height:1.8 !important;
+  color:rgba(255,255,255,.92) !important;
+  margin-bottom:32px !important;
 }
 
-.hero-home-modern .btn{
-  min-height:52px;
+.hero.hero-home-modern .hero-actions{
+  display:flex !important;
+  gap:14px !important;
+  flex-wrap:wrap !important;
+  justify-content:flex-start !important;
 }
 
-.hero-home-modern .btn-blue{
-  background:var(--blue-mid);
-  color:#fff;
-}
-
-.hero-home-modern .btn-outline{
-  background:rgba(255,255,255,.10);
-  color:#fff;
-  border:2px solid rgba(255,255,255,.65);
-}
-
-.hero-home-modern .btn-outline:hover{
-  background:rgba(255,255,255,.18);
-  border-color:#fff;
-}
-
-/* Hide the old floating hero image area if it still exists in old cached HTML */
-.hero-home-modern .hero-image,
-.hero-home-modern .hero-img-wrap,
-.hero-home-modern .hero-img-glow{
+.hero.hero-home-modern .hero-image,
+.hero.hero-home-modern .hero-img-wrap,
+.hero.hero-home-modern .hero-img-glow{
   display:none !important;
 }
 
-@media(max-width:1050px){
-  .hero-home-modern{
-    text-align:left;
-    min-height:660px;
-  }
-  .hero-home-modern .hero-desc{
-    margin-left:0;
-    margin-right:0;
-  }
-  .hero-home-modern .hero-actions{
-    justify-content:flex-start;
-  }
-}
-
-@media(max-width:700px){
-  .hero-home-modern{
-    min-height:680px;
-    background-image:
-      linear-gradient(
-        180deg,
-        rgba(5,44,92,.98) 0%,
-        rgba(7,71,135,.92) 42%,
-        rgba(0,119,182,.40) 100%
-      ),
-      url("Watershop hero.png");
-    background-position:center center;
+@media(max-width:900px){
+  .hero.hero-home-modern{
+    min-height:660px !important;
   }
 
-  .hero-home-modern .hero-home-content{
-    padding-top:70px;
-    padding-bottom:70px;
+  .home-hero-bg{
+    object-position:center center !important;
   }
 
-  .hero-home-modern .hero-title{
-    font-size:50px;
+  .home-hero-overlay{
+    background:linear-gradient(
+      180deg,
+      rgba(5,44,92,.94) 0%,
+      rgba(7,71,135,.86) 50%,
+      rgba(0,119,182,.42) 100%
+    ) !important;
   }
 
-  .hero-home-modern .hero-desc{
-    font-size:17px;
+  .hero.hero-home-modern .hero-home-content{
+    min-height:660px !important;
+    justify-content:flex-start !important;
+    align-items:flex-start !important;
+    padding-top:72px !important;
   }
 
-  .hero-home-modern .hero-actions{
-    display:grid;
-    gap:12px;
+  .hero.hero-home-modern .hero-text{
+    max-width:100% !important;
   }
 
-  .hero-home-modern .hero-actions .btn{
-    width:100%;
-    max-width:320px;
+  .hero.hero-home-modern .hero-title{
+    font-size:48px !important;
+  }
+
+  .hero.hero-home-modern .hero-desc{
+    font-size:17px !important;
+  }
+
+  .hero.hero-home-modern .hero-actions{
+    display:grid !important;
+    width:100% !important;
+    gap:12px !important;
+  }
+
+  .hero.hero-home-modern .hero-actions .btn{
+    width:100% !important;
+    max-width:none !important;
   }
 }
