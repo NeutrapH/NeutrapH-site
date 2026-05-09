@@ -532,3 +532,175 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
     max-width:none !important;
   }
 }
+
+/* =========================================================
+   FINAL OVERRIDES: HOME PAGE + PACKAGED WATER HERO FIX
+   Keep both hero sections working at the same time.
+========================================================= */
+
+/* HOME PAGE HERO: uses Index hero.png */
+.hero.hero-home-modern{
+  position:relative !important;
+  min-height:720px !important;
+  overflow:hidden !important;
+  display:flex !important;
+  align-items:center !important;
+  background:#062f68 !important;
+}
+
+.hero.hero-home-modern::before,
+.hero.hero-home-modern::after{
+  display:none !important;
+  content:none !important;
+}
+
+.hero.hero-home-modern .home-hero-bg,
+.home-hero-bg{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:right center !important;
+  z-index:0 !important;
+}
+
+.hero.hero-home-modern .home-hero-overlay,
+.home-hero-overlay{
+  position:absolute !important;
+  inset:0 !important;
+  z-index:1 !important;
+  background:linear-gradient(
+    90deg,
+    rgba(3,24,70,.98) 0%,
+    rgba(4,45,105,.94) 30%,
+    rgba(4,76,145,.62) 50%,
+    rgba(4,92,170,.18) 68%,
+    rgba(4,92,170,0) 100%
+  ) !important;
+}
+
+.hero.hero-home-modern .hero-home-content{
+  position:relative !important;
+  z-index:2 !important;
+  width:100% !important;
+  min-height:720px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  padding-top:80px !important;
+  padding-bottom:80px !important;
+}
+
+.hero.hero-home-modern .hero-text{
+  max-width:560px !important;
+  color:#fff !important;
+  text-align:left !important;
+  margin-left:0 !important;
+  margin-right:auto !important;
+}
+
+.hero.hero-home-modern .hero-title{
+  font-size:clamp(48px,5.4vw,78px) !important;
+  line-height:1.02 !important;
+  text-align:left !important;
+}
+
+.hero.hero-home-modern .hero-desc{
+  max-width:560px !important;
+  text-align:left !important;
+}
+
+.hero.hero-home-modern .hero-actions{
+  justify-content:flex-start !important;
+}
+
+.hero.hero-home-modern .hero-image,
+.hero.hero-home-modern .hero-img-wrap,
+.hero.hero-home-modern .hero-img-glow{
+  display:none !important;
+}
+
+/* PACKAGED WATER HERO: uses Watershop hero.png */
+.shop-hero-modern{
+  position:relative !important;
+  overflow:hidden !important;
+  min-height:560px !important;
+  color:#fff !important;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(3,30,83,.97) 0%,
+      rgba(4,48,110,.90) 28%,
+      rgba(4,84,160,.45) 55%,
+      rgba(255,255,255,0) 100%
+    ),
+    url("Watershop hero.png") !important;
+  background-size:cover !important;
+  background-position:right center !important;
+  background-repeat:no-repeat !important;
+}
+
+.shop-hero-modern .container{
+  position:relative !important;
+  z-index:2 !important;
+  min-height:560px !important;
+  display:flex !important;
+  align-items:center !important;
+}
+
+.shop-hero-modern .hero-image-card{
+  display:none !important;
+}
+
+@media(max-width:900px){
+  .hero.hero-home-modern{
+    min-height:660px !important;
+  }
+
+  .hero.hero-home-modern .hero-home-content{
+    min-height:660px !important;
+    align-items:center !important;
+  }
+
+  .hero.hero-home-modern .home-hero-bg,
+  .home-hero-bg{
+    object-position:center center !important;
+  }
+
+  .hero.hero-home-modern .home-hero-overlay,
+  .home-hero-overlay{
+    background:linear-gradient(
+      180deg,
+      rgba(3,24,70,.97) 0%,
+      rgba(4,45,105,.86) 50%,
+      rgba(4,92,170,.28) 100%
+    ) !important;
+  }
+
+  .hero.hero-home-modern .hero-title{
+    font-size:48px !important;
+  }
+
+  .hero.hero-home-modern .hero-actions{
+    flex-direction:column !important;
+    align-items:stretch !important;
+  }
+
+  .hero.hero-home-modern .hero-actions .btn{
+    width:100% !important;
+    max-width:360px !important;
+  }
+
+  .shop-hero-modern{
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(3,30,83,.97) 0%,
+        rgba(4,48,110,.88) 42%,
+        rgba(4,84,160,.35) 100%
+      ),
+      url("Watershop hero.png") !important;
+    background-position:center center !important;
+  }
+}
