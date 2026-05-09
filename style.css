@@ -53,45 +53,29 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
   }
 }
 
+
 /* =========================================================
    NEUTRAPH PACKAGED WATER SHOP PAGE IMPROVEMENTS
-   Hero image required in same folder as this CSS:
-   Watershop hero.png
+   Hero image required: Watershop hero.png
 ========================================================= */
 
-/* HERO SECTION: image sits on the RIGHT and fades into the LEFT text area */
 .shop-hero-modern{
   position:relative;
   overflow:hidden;
   min-height:560px;
   color:#fff;
-  background:linear-gradient(120deg,#06306b 0%,#006bb6 52%,#dff3ff 100%);
-}
-
-/* The actual hero image */
-.shop-hero-modern::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:0;
-  background-image:url("Watershop hero.png"), url("Watershop%20hero.png");
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3,30,83,.97) 0%,
+      rgba(4,48,110,.90) 28%,
+      rgba(4,84,160,.45) 55%,
+      rgba(255,255,255,0) 100%
+    ),
+    url("Watershop hero.png");
   background-size:cover;
   background-position:right center;
   background-repeat:no-repeat;
-
-  /* fade the image away towards the left text side */
-  -webkit-mask-image:linear-gradient(90deg, transparent 0%, rgba(0,0,0,.10) 25%, rgba(0,0,0,.75) 48%, #000 68%, #000 100%);
-  mask-image:linear-gradient(90deg, transparent 0%, rgba(0,0,0,.10) 25%, rgba(0,0,0,.75) 48%, #000 68%, #000 100%);
-}
-
-/* Dark blue overlay for readable text on the left */
-.shop-hero-modern::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:1;
-  background:linear-gradient(90deg, rgba(3,30,83,.98) 0%, rgba(4,58,125,.88) 32%, rgba(4,90,170,.45) 55%, rgba(255,255,255,0) 82%);
-  pointer-events:none;
 }
 
 .shop-hero-modern .container{
@@ -160,8 +144,6 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
 }
 
 .shop-hero-modern .hero-btn.secondary:hover{background:rgba(255,255,255,.18);transform:translateY(-2px)}
-
-/* Hide the old separate image box if it still exists in the HTML */
 .shop-hero-modern .hero-image-card{display:none}
 
 /* Shop benefits strip */
@@ -326,18 +308,16 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
 @media(max-width:700px){
   .shop-hero-modern{
     min-height:640px;
-    background:linear-gradient(180deg,#06306b 0%,#006bb6 55%,#dff3ff 100%);
-  }
-
-  .shop-hero-modern::before{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(3,30,83,.97) 0%,
+        rgba(4,48,110,.88) 42%,
+        rgba(4,84,160,.35) 100%
+      ),
+      url("Watershop hero.png");
     background-size:cover;
-    background-position:center bottom;
-    -webkit-mask-image:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.18) 28%, rgba(0,0,0,.75) 58%, #000 100%);
-    mask-image:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.18) 28%, rgba(0,0,0,.75) 58%, #000 100%);
-  }
-
-  .shop-hero-modern::after{
-    background:linear-gradient(180deg, rgba(3,30,83,.98) 0%, rgba(4,58,125,.88) 45%, rgba(4,90,170,.25) 100%);
+    background-position:center center;
   }
 
   .shop-hero-modern .container{
@@ -362,3 +342,155 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
   .trust-pill{margin-top:14px}
 }
 
+/* =========================================================
+   NEUTRAPH HOME PAGE HERO BACKGROUND
+   Image required in the same folder: Watershop hero.png
+   This targets only the home page hero.
+========================================================= */
+.hero-home-modern{
+  position:relative;
+  overflow:hidden;
+  min-height:720px;
+  display:flex;
+  align-items:center;
+  color:#fff;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(5,44,92,.97) 0%,
+      rgba(7,71,135,.90) 32%,
+      rgba(0,119,182,.42) 58%,
+      rgba(255,255,255,0) 100%
+    ),
+    url("Watershop hero.png");
+  background-size:cover;
+  background-position:right center;
+  background-repeat:no-repeat;
+}
+
+.hero-home-modern::before,
+.hero-home-modern::after{
+  display:none;
+}
+
+.hero-home-modern .hero-home-content{
+  position:relative;
+  z-index:2;
+  width:100%;
+}
+
+.hero-home-modern .hero-text{
+  max-width:620px;
+  color:#fff;
+}
+
+.hero-home-modern .hero-badge{
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.32);
+  color:#fff;
+}
+
+.hero-home-modern .hero-title{
+  font-size:clamp(58px,7vw,96px);
+  line-height:.95;
+  margin-bottom:24px;
+  color:#fff;
+}
+
+.hero-home-modern .hero-title span{
+  color:#bff4ff;
+}
+
+.hero-home-modern .hero-desc{
+  max-width:600px;
+  font-size:20px;
+  line-height:1.8;
+  color:#eef8ff;
+  margin-bottom:34px;
+}
+
+.hero-home-modern .hero-actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  justify-content:flex-start;
+}
+
+.hero-home-modern .btn{
+  min-height:52px;
+}
+
+.hero-home-modern .btn-blue{
+  background:var(--blue-mid);
+  color:#fff;
+}
+
+.hero-home-modern .btn-outline{
+  background:rgba(255,255,255,.10);
+  color:#fff;
+  border:2px solid rgba(255,255,255,.65);
+}
+
+.hero-home-modern .btn-outline:hover{
+  background:rgba(255,255,255,.18);
+  border-color:#fff;
+}
+
+/* Hide the old floating hero image area if it still exists in old cached HTML */
+.hero-home-modern .hero-image,
+.hero-home-modern .hero-img-wrap,
+.hero-home-modern .hero-img-glow{
+  display:none !important;
+}
+
+@media(max-width:1050px){
+  .hero-home-modern{
+    text-align:left;
+    min-height:660px;
+  }
+  .hero-home-modern .hero-desc{
+    margin-left:0;
+    margin-right:0;
+  }
+  .hero-home-modern .hero-actions{
+    justify-content:flex-start;
+  }
+}
+
+@media(max-width:700px){
+  .hero-home-modern{
+    min-height:680px;
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(5,44,92,.98) 0%,
+        rgba(7,71,135,.92) 42%,
+        rgba(0,119,182,.40) 100%
+      ),
+      url("Watershop hero.png");
+    background-position:center center;
+  }
+
+  .hero-home-modern .hero-home-content{
+    padding-top:70px;
+    padding-bottom:70px;
+  }
+
+  .hero-home-modern .hero-title{
+    font-size:50px;
+  }
+
+  .hero-home-modern .hero-desc{
+    font-size:17px;
+  }
+
+  .hero-home-modern .hero-actions{
+    display:grid;
+    gap:12px;
+  }
+
+  .hero-home-modern .hero-actions .btn{
+    width:100%;
+    max-width:320px;
+  }
+}
