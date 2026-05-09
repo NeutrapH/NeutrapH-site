@@ -247,6 +247,153 @@
         height:390px;
       }
     }
+  
+
+    /* =====================================================
+       FINAL WATER DISPENSER HERO FIX
+       Keeps the text on the far left and leaves dispensers clear
+    ===================================================== */
+    .dispenser-hero-modern{
+      min-height:600px !important;
+      background-image:
+        linear-gradient(
+          90deg,
+          rgba(3,28,74,.98) 0%,
+          rgba(3,43,100,.94) 27%,
+          rgba(3,75,145,.58) 44%,
+          rgba(3,75,145,.18) 58%,
+          rgba(255,255,255,0) 74%
+        ),
+        url("Dispenser hero.png") !important;
+      background-size:cover !important;
+      background-position:right center !important;
+      background-repeat:no-repeat !important;
+      display:flex !important;
+      align-items:center !important;
+    }
+
+    .dispenser-hero-modern .container{
+      max-width:none !important;
+      width:100% !important;
+      min-height:600px !important;
+      display:flex !important;
+      align-items:center !important;
+      justify-content:flex-start !important;
+      padding:90px 0 90px clamp(70px, 8vw, 145px) !important;
+    }
+
+    .dispenser-hero-modern .hero-content{
+      max-width:560px !important;
+      margin-left:0 !important;
+      text-align:left !important;
+      color:#fff !important;
+    }
+
+    .dispenser-hero-modern .hero-breadcrumb{
+      color:#fff !important;
+      font-weight:800 !important;
+      margin-bottom:20px !important;
+    }
+
+    .dispenser-hero-modern h1{
+      font-size:clamp(58px, 5.8vw, 92px) !important;
+      line-height:.95 !important;
+      margin-bottom:24px !important;
+      color:#fff !important;
+      text-shadow:0 12px 32px rgba(0,0,0,.24) !important;
+    }
+
+    .dispenser-hero-modern p{
+      max-width:540px !important;
+      font-size:20px !important;
+      line-height:1.75 !important;
+      color:#eef8ff !important;
+      margin-bottom:30px !important;
+    }
+
+    .dispenser-hero-modern .hero-buttons{
+      display:flex !important;
+      gap:16px !important;
+      flex-wrap:wrap !important;
+      align-items:center !important;
+    }
+
+    .dispenser-hero-modern .hero-btn{
+      padding:16px 26px !important;
+      border-radius:14px !important;
+      font-weight:900 !important;
+    }
+
+    /* Bigger, cleaner product image cards */
+    #water-dispensers-products .shop-grid.improved{
+      grid-template-columns:repeat(3,minmax(300px,1fr)) !important;
+      gap:32px !important;
+    }
+
+    #water-dispensers-products .shop-card{
+      border-radius:24px !important;
+      box-shadow:0 18px 45px rgba(0,119,182,.12) !important;
+    }
+
+    #water-dispensers-products .dispenser-card-img{
+      height:500px !important;
+      padding:8px !important;
+      background:#f7fbff !important;
+    }
+
+    #water-dispensers-products .dispenser-card-img img{
+      width:100% !important;
+      height:100% !important;
+      object-fit:contain !important;
+    }
+
+    #water-dispensers-products .shop-price{
+      font-size:32px !important;
+      font-weight:900 !important;
+      color:var(--blue-dark) !important;
+    }
+
+    @media(max-width:1000px){
+      .dispenser-hero-modern{
+        min-height:620px !important;
+        background-image:
+          linear-gradient(
+            180deg,
+            rgba(3,28,74,.98) 0%,
+            rgba(3,43,100,.88) 47%,
+            rgba(3,75,145,.35) 100%
+          ),
+          url("Dispenser hero.png") !important;
+        background-position:center center !important;
+      }
+
+      .dispenser-hero-modern .container{
+        min-height:620px !important;
+        align-items:flex-start !important;
+        padding:70px 22px !important;
+      }
+
+      .dispenser-hero-modern .hero-content{
+        max-width:100% !important;
+      }
+
+      .dispenser-hero-modern h1{
+        font-size:52px !important;
+      }
+
+      .dispenser-hero-modern p{
+        font-size:17px !important;
+      }
+
+      #water-dispensers-products .shop-grid.improved{
+        grid-template-columns:1fr !important;
+      }
+
+      #water-dispensers-products .dispenser-card-img{
+        height:430px !important;
+      }
+    }
+
   </style>
 
 </head>
