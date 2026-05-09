@@ -12,25 +12,6 @@
   <link rel="icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    .hero-img-wrap img {
-      width: 100%;
-      max-width: 560px;
-      height: auto;
-      transition: opacity 0.5s ease-in-out;
-    }
-
-    .hero-image {
-      flex: 1.15;
-    }
-
-    .hero-img-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  </style>
 </head>
 
 <body>
@@ -67,31 +48,15 @@
 </header>
 
 <main>
-  <section class="hero">
-    <div class="container hero-inner">
+  <section class="hero hero-home-modern">
+    <div class="container">
       <div class="hero-text">
         <span class="hero-badge">Trusted Water Purification</span>
         <h1 class="hero-title">Clean, Safe<span>Drinking Water</span></h1>
         <p class="hero-desc">NeutrapH purifies high-salinity borehole water into safe, clean drinking water, while offering water dispenser rentals and packaged water solutions for schools, churches, small offices and football clubs.</p>
-      <div class="hero-actions">
-      <div class="hero-buttons">
-      
-        <a href="water-purification.html" class="btn btn-blue">
-          Learn About Reverse Osmosis
-        </a>
-      
-        <a href="contact.html" class="btn btn-outline">
-          Send an Inquiry
-        </a>
-      
-      </div>
-      </div>
-      </div>
-
-      <div class="hero-image">
-        <div class="hero-img-wrap">
-          <div class="hero-img-glow"></div>
-          <img id="heroRotatingImage" src="Glass of water Picture.png" alt="Clean purified water and NeutrapH shop">
+        <div class="hero-actions">
+          <a href="water-purification.html" class="btn btn-blue">Learn About Reverse Osmosis</a>
+          <a href="contact.html" class="btn btn-outline">Send an Inquiry</a>
         </div>
       </div>
     </div>
@@ -430,32 +395,6 @@
 <a class="sticky-mobile-cta" href="https://wa.me/27798134597" target="_blank">WhatsApp NeutrapH</a>
 
 <script src="script.js"></script>
-
-<script>
-const heroImages = [
-  "Glass of water Picture.png",
-  "Neutraph shop.png",
-  "Water Refilling Station.png",
-  "6x500ml Water Bottles.png",
-  "Standard plan image.png",
-  "5L Water Bottle.png"
-];
-
-  let currentHeroImage = 0;
-  const heroImageElement = document.getElementById("heroRotatingImage");
-
-  if (heroImageElement) {
-    setInterval(() => {
-      currentHeroImage = (currentHeroImage + 1) % heroImages.length;
-      heroImageElement.style.opacity = 0;
-
-      setTimeout(() => {
-        heroImageElement.src = heroImages[currentHeroImage];
-        heroImageElement.style.opacity = 1;
-      }, 500);
-    }, 6000);
-  }
-</script>
 
 </body>
 </html>
