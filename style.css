@@ -53,29 +53,45 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
   }
 }
 
-
 /* =========================================================
    NEUTRAPH PACKAGED WATER SHOP PAGE IMPROVEMENTS
-   Hero image required: Watershop hero.png
+   Hero image required in same folder as this CSS:
+   Watershop hero.png
 ========================================================= */
 
+/* HERO SECTION: image sits on the RIGHT and fades into the LEFT text area */
 .shop-hero-modern{
   position:relative;
   overflow:hidden;
   min-height:560px;
   color:#fff;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(3,30,83,.97) 0%,
-      rgba(4,48,110,.90) 28%,
-      rgba(4,84,160,.45) 55%,
-      rgba(255,255,255,0) 100%
-    ),
-    url("Watershop hero.png");
+  background:linear-gradient(120deg,#06306b 0%,#006bb6 52%,#dff3ff 100%);
+}
+
+/* The actual hero image */
+.shop-hero-modern::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background-image:url("Watershop hero.png"), url("Watershop%20hero.png");
   background-size:cover;
   background-position:right center;
   background-repeat:no-repeat;
+
+  /* fade the image away towards the left text side */
+  -webkit-mask-image:linear-gradient(90deg, transparent 0%, rgba(0,0,0,.10) 25%, rgba(0,0,0,.75) 48%, #000 68%, #000 100%);
+  mask-image:linear-gradient(90deg, transparent 0%, rgba(0,0,0,.10) 25%, rgba(0,0,0,.75) 48%, #000 68%, #000 100%);
+}
+
+/* Dark blue overlay for readable text on the left */
+.shop-hero-modern::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:linear-gradient(90deg, rgba(3,30,83,.98) 0%, rgba(4,58,125,.88) 32%, rgba(4,90,170,.45) 55%, rgba(255,255,255,0) 82%);
+  pointer-events:none;
 }
 
 .shop-hero-modern .container{
@@ -144,6 +160,8 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
 }
 
 .shop-hero-modern .hero-btn.secondary:hover{background:rgba(255,255,255,.18);transform:translateY(-2px)}
+
+/* Hide the old separate image box if it still exists in the HTML */
 .shop-hero-modern .hero-image-card{display:none}
 
 /* Shop benefits strip */
@@ -308,16 +326,18 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
 @media(max-width:700px){
   .shop-hero-modern{
     min-height:640px;
-    background:
-      linear-gradient(
-        180deg,
-        rgba(3,30,83,.97) 0%,
-        rgba(4,48,110,.88) 42%,
-        rgba(4,84,160,.35) 100%
-      ),
-      url("Watershop hero.png");
+    background:linear-gradient(180deg,#06306b 0%,#006bb6 55%,#dff3ff 100%);
+  }
+
+  .shop-hero-modern::before{
     background-size:cover;
-    background-position:center center;
+    background-position:center bottom;
+    -webkit-mask-image:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.18) 28%, rgba(0,0,0,.75) 58%, #000 100%);
+    mask-image:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.18) 28%, rgba(0,0,0,.75) 58%, #000 100%);
+  }
+
+  .shop-hero-modern::after{
+    background:linear-gradient(180deg, rgba(3,30,83,.98) 0%, rgba(4,58,125,.88) 45%, rgba(4,90,170,.25) 100%);
   }
 
   .shop-hero-modern .container{
@@ -341,3 +361,4 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
   .bulk-order-strip .shop-btn{width:100%;margin-top:14px}
   .trust-pill{margin-top:14px}
 }
+
