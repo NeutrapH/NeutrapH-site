@@ -342,10 +342,11 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
   .trust-pill{margin-top:14px}
 }
 
+
 /* =========================================================
    DEFINITIVE HOME PAGE HERO FIX
-   Image file required in the same folder: Watershop hero.png
-   Layout: image starts on the LEFT and fades into the RIGHT.
+   Image file required in the same folder: Index hero.png
+   Layout: text on the LEFT, image on the RIGHT, image fades into text.
 ========================================================= */
 
 .hero.hero-home-modern{
@@ -354,7 +355,7 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
   overflow:hidden !important;
   display:flex !important;
   align-items:center !important;
-  background:linear-gradient(120deg,#0a3d6b 0%,#0077b6 55%,#00b4d8 100%) !important;
+  background:#062f68 !important;
 }
 
 .hero.hero-home-modern::before,
@@ -369,21 +370,25 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
   width:100% !important;
   height:100% !important;
   object-fit:cover !important;
-  object-position:left center !important;
+  object-position:right center !important;
   z-index:0 !important;
 }
 
+/* Dark blue layer on the left so the wording is readable.
+   The image remains strongest on the right and fades into the left. */
 .home-hero-overlay{
   position:absolute !important;
   inset:0 !important;
   z-index:1 !important;
-  background:linear-gradient(
-    90deg,
-    rgba(255,255,255,0) 0%,
-    rgba(0,119,182,.28) 38%,
-    rgba(7,71,135,.84) 66%,
-    rgba(5,44,92,.97) 100%
-  ) !important;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3,24,70,.98) 0%,
+      rgba(4,48,110,.92) 28%,
+      rgba(4,92,170,.58) 48%,
+      rgba(4,92,170,.16) 68%,
+      rgba(4,92,170,0) 100%
+    ) !important;
 }
 
 .hero.hero-home-modern .hero-home-content{
@@ -393,7 +398,9 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
   min-height:720px !important;
   display:flex !important;
   align-items:center !important;
-  justify-content:flex-end !important;
+  justify-content:flex-start !important;
+  padding-top:80px !important;
+  padding-bottom:80px !important;
 }
 
 .hero.hero-home-modern .hero-text{
@@ -402,13 +409,28 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
   text-align:left !important;
 }
 
+.hero.hero-home-modern .hero-badge{
+  display:inline-block !important;
+  background:rgba(255,255,255,.14) !important;
+  border:1px solid rgba(255,255,255,.32) !important;
+  color:#fff !important;
+  font-size:12px !important;
+  font-weight:800 !important;
+  letter-spacing:.1em !important;
+  text-transform:uppercase !important;
+  padding:7px 16px !important;
+  border-radius:999px !important;
+  margin-bottom:22px !important;
+}
+
 .hero.hero-home-modern .hero-title{
   font-family:'Montserrat',sans-serif !important;
-  font-size:clamp(54px,6vw,88px) !important;
-  line-height:.96 !important;
+  font-size:clamp(52px,6vw,86px) !important;
+  line-height:.98 !important;
   font-weight:900 !important;
   margin-bottom:24px !important;
   color:#fff !important;
+  text-align:left !important;
 }
 
 .hero.hero-home-modern .hero-title span{
@@ -417,11 +439,12 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
 }
 
 .hero.hero-home-modern .hero-desc{
-  max-width:580px !important;
+  max-width:590px !important;
   font-size:19px !important;
-  line-height:1.8 !important;
-  color:rgba(255,255,255,.92) !important;
-  margin-bottom:32px !important;
+  line-height:1.75 !important;
+  color:rgba(255,255,255,.94) !important;
+  margin-bottom:34px !important;
+  text-align:left !important;
 }
 
 .hero.hero-home-modern .hero-actions{
@@ -429,6 +452,29 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
   gap:14px !important;
   flex-wrap:wrap !important;
   justify-content:flex-start !important;
+  align-items:center !important;
+}
+
+.hero.hero-home-modern .hero-actions .btn{
+  min-height:54px !important;
+  padding:15px 24px !important;
+  border-radius:12px !important;
+}
+
+.hero.hero-home-modern .btn-blue{
+  background:var(--blue-mid) !important;
+  color:#fff !important;
+}
+
+.hero.hero-home-modern .btn-outline{
+  background:rgba(255,255,255,.08) !important;
+  color:#fff !important;
+  border:2px solid rgba(255,255,255,.7) !important;
+}
+
+.hero.hero-home-modern .btn-blue:hover,
+.hero.hero-home-modern .btn-outline:hover{
+  transform:translateY(-2px) !important;
 }
 
 .hero.hero-home-modern .hero-image,
@@ -449,17 +495,18 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
   .home-hero-overlay{
     background:linear-gradient(
       180deg,
-      rgba(5,44,92,.94) 0%,
-      rgba(7,71,135,.86) 50%,
-      rgba(0,119,182,.42) 100%
+      rgba(3,24,70,.96) 0%,
+      rgba(4,48,110,.88) 46%,
+      rgba(4,92,170,.42) 100%
     ) !important;
   }
 
   .hero.hero-home-modern .hero-home-content{
     min-height:660px !important;
-    justify-content:flex-start !important;
     align-items:flex-start !important;
+    justify-content:flex-start !important;
     padding-top:72px !important;
+    padding-bottom:72px !important;
   }
 
   .hero.hero-home-modern .hero-text{
