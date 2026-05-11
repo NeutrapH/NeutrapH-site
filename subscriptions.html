@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NeutrapH provides clean, safe drinking water solutions in Johannesburg, including dispenser rentals, RO purification, subscriptions and packaged water.">
+  <title>Subscription Plans | NeutrapH</title>
+
+  <link rel="icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+  /* =========================
+     SUBSCRIPTIONS HERO
+  ========================= */
+
+  .subscriptions-hero{
+      position: relative;
+      min-height: 720px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+
+      background:
+      linear-gradient(
+          90deg,
+          rgba(0,33,99,0.96) 0%,
+          rgba(0,78,180,0.88) 35%,
+          rgba(0,140,255,0.15) 60%,
+          rgba(0,140,255,0.00) 100%
+      ),
+      url("Subscriptions hero.png");
+
+      background-size: cover;
+      background-position: center right;
+      background-repeat: no-repeat;
+  }
+
+  .hero-content-left{
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      position: relative;
+      z-index: 2;
+  }
+
+  .hero-text{
+      max-width: 650px;
+      padding: 120px 0;
+      color: #fff;
+  }
+
+  .hero-badge{
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+  }
+
+  .subscriptions-hero h1{
+      font-size: 88px;
+      line-height: 0.95;
+      font-weight: 900;
+      margin-bottom: 30px;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+  }
+
+  .subscriptions-hero p{
+      font-size: 24px;
+      line-height: 1.7;
+      max-width: 620px;
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 40px;
+  }
+
+  .hero-buttons{
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+  }
+
+  .btn-white{
+      background: #fff;
+      color: #003b95;
+      padding: 18px 34px;
+      border-radius: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
+  }
+
+  .btn-outline{
+      border: 2px solid rgba(255,255,255,0.7);
+      color: #fff;
+      padding: 18px 34px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
+  }
+
+  .btn-outline:hover{
+      background: rgba(255,255,255,0.12);
+  }
+
+  @media(max-width: 991px){
+
+      .subscriptions-hero{
+          min-height: 620px;
+          background-position: 70% center;
+      }
+
+      .subscriptions-hero h1{
+          font-size: 56px;
+      }
+
+      .subscriptions-hero p{
+          font-size: 18px;
+      }
+
+      .hero-text{
+          padding: 90px 0;
+      }
+  }
+
+  </style>
+</head>
+
+<body class="page-subscriptions">
+
+<header>
+  <div class="container nav-wrap">
+    <a href="index.html" class="logo-area" aria-label="NeutrapH Home">
+      <img src="NeutrapH Logo.png" alt="NeutrapH Logo" class="site-logo-img">
+    </a>
+
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+
+    <nav>
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="water-purification.html" data-page="water-purification.html">Purification</a>
+      <a href="water-dispensers.html" data-page="water-dispensers.html">Dispensers</a>
+      <a href="subscriptions.html" data-page="subscriptions.html">Subscriptions</a>
+      <a href="refilling-station.html" data-page="refilling-station.html">Refilling Station</a>
+      <a href="Our Shop.html" data-page="Our Shop.html">Our Shop</a>
+      <a href="contact.html" data-page="contact.html">Contact</a>
+    </nav>
+
+    <a href="https://wa.me/27798134597" target="_blank" class="header-cta">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="wa-icon-sm" alt="">Order Now
+    </a>
+  </div>
+</header>
+
+<main>
+
+<section class="subscriptions-hero">
+  <div class="container hero-content-left">
+
+    <div class="hero-text">
+      <span class="hero-badge">NEUTRAPH SUBSCRIPTIONS</span>
+
+      <h1>
+        Smart Water<br>
+        Subscription<br>
+        Plans
+      </h1>
+
+      <p>
+        Affordable monthly water delivery packages with premium water dispensers,
+        purified water bottles, maintenance support and reliable delivery for
+        homes, schools, churches and businesses.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#plans" class="btn-white">View Plans</a>
+
+        <a href="https://wa.me/27798134597" target="_blank" class="btn-outline">
+          💬 Enquire on WhatsApp
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="plans">
+  <div class="container center">
+
+    <span class="section-label">Choose Your Plan</span>
+
+    <h2 class="section-title">Flexible Monthly Packages</h2>
+
+    <div class="section-divider"></div>
+
+    <div class="sub-plans-grid">
+
+      <div class="sub-card">
+        <div class="sub-card-header">
+          <h3>Starter Plan</h3>
+          <div class="sub-price">R299 <span>/month</span></div>
+        </div>
+
+        <div class="sub-card-img">
+          <img src="Starter plan image.png" alt="Starter Plan">
+        </div>
+
+        <ul class="sub-features">
+          <li>1 × water dispenser rental</li>
+          <li>6 × 18.9 L bottles</li>
+          <li>Weekly or biweekly delivery</li>
+          <li>Basic maintenance included</li>
+        </ul>
+
+        <a href="contact.html?plan=starter" class="sub-btn">START SIGN-UP</a>
+      </div>
+
+      <div class="sub-card sub-card--featured">
+        <div class="sub-card-badge">Most Popular</div>
+
+        <div class="sub-card-header">
+          <h3>Standard Plan</h3>
+          <div class="sub-price">R499 <span>/month</span></div>
+        </div>
+
+        <div class="sub-card-img">
+          <img src="Standard plan image.png" alt="Standard Plan">
+        </div>
+
+        <ul class="sub-features">
+          <li>2 × dispensers</li>
+          <li>10 × 18.9 L bottles</li>
+          <li>Free delivery</li>
+          <li>Full maintenance</li>
+          <li>Priority refill service</li>
+        </ul>
+
+        <a href="contact.html?plan=standard" class="sub-btn sub-btn--featured">START SIGN-UP</a>
+      </div>
+
+      <div class="sub-card">
+        <div class="sub-card-header">
+          <h3>Business Plan</h3>
+          <div class="sub-price">R899 <span>/month</span></div>
+        </div>
+
+        <div class="sub-card-img">
+          <img src="Business plan image.png" alt="Business Plan">
+        </div>
+
+        <ul class="sub-features">
+          <li>3 × dispensers</li>
+          <li>20 × 18.9 L bottles</li>
+          <li>Multiple deliveries per week</li>
+          <li>Fast response maintenance</li>
+          <li>Optional branding</li>
+        </ul>
+
+        <a href="contact.html?plan=business" class="sub-btn">START SIGN-UP</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      © 2026 NeutrapH. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+  <script src="script.js"></script>
+<a class="sticky-mobile-cta" href="https://wa.me/27798134597" target="_blank">WhatsApp NeutrapH</a>
+</body>
+</html>
+```
+
+Save your hero image as:
+
+```text
+Subscriptions hero.png
+```
+
+Place it in the same folder as your HTML files.
