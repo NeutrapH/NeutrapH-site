@@ -793,9 +793,9 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
 body{background:#f4f9fd;}
 .container{max-width:var(--page-max);}
 header{backdrop-filter:saturate(160%) blur(10px);}
-.nav-wrap{height:82px;}
-.site-logo-img{height:68px;width:auto;display:block;object-fit:contain;}
-.logo-area{min-width:170px;}
+.nav-wrap{min-height:110px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 10px;}
+.site-logo,.site-logo-img{height:92px;width:auto;display:block;object-fit:contain;}
+.logo-area{display:flex;align-items:center;min-width:260px;flex-shrink:0;}
 nav a{white-space:nowrap;}
 nav a.active{color:var(--blue-mid);border-color:var(--blue-mid);}
 .header-cta{border-radius:999px;box-shadow:0 10px 24px rgba(0,119,182,.18);}
@@ -899,12 +899,12 @@ footer{margin-top:0;}
   .nav-wrap{gap:12px;}
   nav{gap:10px;}
   nav a{font-size:12px;}
-  .site-logo-img{height:60px;}
+  .site-logo,.site-logo-img{height:78px;}
   .header-cta{padding:10px 14px;}
 }
 @media(max-width:1050px){
   .nav-wrap{height:74px;}
-  .site-logo-img{height:58px;}
+  .site-logo,.site-logo-img{height:72px;}
   nav{top:74px;}
   nav a{font-size:14px;}
 }
@@ -928,220 +928,59 @@ footer{margin-top:0;}
   .sticky-mobile-cta{display:block;}
 }
 
+
 /* =========================================================
-   FINAL HEADER UPDATE - SECONDARY LOGO VERSION
-   Use with: <img src="NeutrapH Secondary Logo.png" class="site-logo" alt="NeutrapH Logo">
+   FINAL HEADER + SECONDARY LOGO OPTIMIZATION
 ========================================================= */
+
 header{
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 1000 !important;
-  background: #ffffff !important;
-  box-shadow: 0 2px 12px rgba(0,119,182,.10) !important;
-}
-
-.nav-wrap{
-  height: auto !important;
-  min-height: 88px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  gap: 28px !important;
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
-}
-
-.logo-area{
-  display: flex !important;
-  align-items: center !important;
-  flex-shrink: 0 !important;
-  min-width: 230px !important;
-  max-width: 285px !important;
-  text-decoration: none !important;
-}
-
-.site-logo,
-.site-logo-img{
-  height: 72px !important;
-  width: auto !important;
-  max-width: 285px !important;
-  display: block !important;
-  object-fit: contain !important;
-}
-
-.logo-icon,
-.brand-name,
-.brand-tag{
-  display: none !important;
+  background:#ffffff;
+  box-shadow:0 2px 14px rgba(0,119,182,.10);
 }
 
 nav{
-  position: static !important;
-  display: flex !important;
-  flex: 1 1 auto !important;
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 22px !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  padding: 0 !important;
+  flex:1;
+  justify-content:center;
 }
 
 nav a{
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: 14px !important;
-  font-weight: 800 !important;
-  color: #4a6080 !important;
-  text-decoration: none !important;
-  white-space: nowrap !important;
-  padding: 10px 2px !important;
-  border-bottom: 2px solid transparent !important;
-}
-
-nav a:hover,
-nav a.active{
-  color: var(--blue-mid) !important;
-  border-color: var(--blue-mid) !important;
+  font-size:15px;
+  font-weight:700;
 }
 
 .header-cta{
-  flex-shrink: 0 !important;
-  min-height: 50px !important;
-  padding: 12px 22px !important;
-  border-radius: 999px !important;
-  background: var(--blue-mid) !important;
-  color: #ffffff !important;
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: 14px !important;
-  font-weight: 900 !important;
-  text-decoration: none !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 9px !important;
-  white-space: nowrap !important;
-  box-shadow: 0 10px 24px rgba(0,119,182,.18) !important;
+  border-radius:999px;
+  padding:14px 24px;
+  font-size:15px;
+  min-width:160px;
 }
 
-.header-cta:hover{
-  background: var(--blue-dark) !important;
-  transform: translateY(-1px) !important;
-}
-
-.wa-icon-sm{
-  width: 18px !important;
-  height: 18px !important;
-  flex-shrink: 0 !important;
-}
-
-.menu-toggle{
-  display: none !important;
-  background: var(--blue-pale) !important;
-  border: 0 !important;
-  border-radius: 10px !important;
-  padding: 10px 14px !important;
-  color: var(--blue-dark) !important;
-  font-weight: 900 !important;
-  font-size: 24px !important;
-  cursor: pointer !important;
-}
-
-@media(max-width: 1180px){
+@media(max-width:1120px){
   .nav-wrap{
-    gap: 18px !important;
-  }
-
-  .logo-area{
-    min-width: 210px !important;
-    max-width: 250px !important;
+    min-height:96px;
   }
 
   .site-logo,
   .site-logo-img{
-    height: 64px !important;
-    max-width: 250px !important;
-  }
-
-  nav{
-    gap: 14px !important;
+    height:82px;
   }
 
   nav a{
-    font-size: 12.5px !important;
-  }
-
-  .header-cta{
-    padding: 11px 16px !important;
-    font-size: 13px !important;
+    font-size:14px;
   }
 }
 
-@media(max-width: 1050px){
+@media(max-width:760px){
   .nav-wrap{
-    min-height: 78px !important;
-    position: relative !important;
-  }
-
-  .logo-area{
-    min-width: 200px !important;
+    min-height:84px;
   }
 
   .site-logo,
   .site-logo-img{
-    height: 58px !important;
-  }
-
-  .menu-toggle{
-    display: block !important;
-    order: 3 !important;
-  }
-
-  nav{
-    position: absolute !important;
-    top: 100% !important;
-    left: 0 !important;
-    right: 0 !important;
-    display: none !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    justify-content: flex-start !important;
-    gap: 0 !important;
-    background: #ffffff !important;
-    padding: 12px 24px !important;
-    box-shadow: 0 12px 24px rgba(0,119,182,.12) !important;
-  }
-
-  nav.open{
-    display: flex !important;
-  }
-
-  nav a{
-    width: 100% !important;
-    font-size: 14px !important;
-    padding: 14px 0 !important;
-    border-bottom: 1px solid #eef4f8 !important;
-  }
-
-  .header-cta{
-    display: none !important;
-  }
-}
-
-@media(max-width: 700px){
-  .nav-wrap{
-    min-height: 72px !important;
-    padding-top: 8px !important;
-    padding-bottom: 8px !important;
+    height:64px;
   }
 
   .logo-area{
-    min-width: 170px !important;
-    max-width: 210px !important;
-  }
-
-  .site-logo,
-  .site-logo-img{
-    height: 52px !important;
-    max-width: 210px !important;
+    min-width:auto;
   }
 }
