@@ -56,7 +56,7 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
 
 /* =========================================================
    NEUTRAPH PACKAGED WATER SHOP PAGE IMPROVEMENTS
-   Hero image required: Watershop hero.png
+   Hero image required: ../images/hero-shop.png
 ========================================================= */
 
 .shop-hero-modern{
@@ -72,7 +72,7 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
       rgba(4,84,160,.45) 55%,
       rgba(255,255,255,0) 100%
     ),
-    url("Watershop hero.png");
+    url("../images/hero-shop.png");
   background-size:cover;
   background-position:right center;
   background-repeat:no-repeat;
@@ -315,7 +315,7 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
         rgba(4,48,110,.88) 42%,
         rgba(4,84,160,.35) 100%
       ),
-      url("Watershop hero.png");
+      url("../images/hero-shop.png");
     background-size:cover;
     background-position:center center;
   }
@@ -345,7 +345,7 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
 
 /* =========================================================
    DEFINITIVE HOME PAGE HERO FIX
-   Image file required in the same folder: Index hero.png
+   Image file required in the same folder: ../images/hero-home.png
    Layout: text on the LEFT, image on the RIGHT, image fades into text.
 ========================================================= */
 
@@ -538,7 +538,7 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
    Keep both hero sections working at the same time.
 ========================================================= */
 
-/* HOME PAGE HERO: uses Index hero.png */
+/* HOME PAGE HERO: uses ../images/hero-home.png */
 .hero.hero-home-modern{
   position:relative !important;
   min-height:720px !important;
@@ -621,7 +621,7 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
   display:none !important;
 }
 
-/* PACKAGED WATER HERO: uses Watershop hero.png */
+/* PACKAGED WATER HERO: uses ../images/hero-shop.png */
 .shop-hero-modern{
   position:relative !important;
   overflow:hidden !important;
@@ -635,7 +635,7 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
       rgba(4,84,160,.45) 55%,
       rgba(255,255,255,0) 100%
     ),
-    url("Watershop hero.png") !important;
+    url("../images/hero-shop.png") !important;
   background-size:cover !important;
   background-position:right center !important;
   background-repeat:no-repeat !important;
@@ -700,7 +700,7 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
         rgba(4,48,110,.88) 42%,
         rgba(4,84,160,.35) 100%
       ),
-      url("Watershop hero.png") !important;
+      url("../images/hero-shop.png") !important;
     background-position:center center !important;
   }
 }
@@ -708,7 +708,7 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
 
 /* =========================================================
    WATER DISPENSERS PAGE HERO + PRODUCTS
-   Hero image required: Dispenser hero.png
+   Hero image required: ../images/hero-dispenser.png
 ========================================================= */
 .dispenser-hero-modern{
   position:relative;
@@ -723,7 +723,7 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
       rgba(4,84,160,.42) 55%,
       rgba(255,255,255,0) 100%
     ),
-    url("Dispenser hero.png");
+    url("../images/hero-dispenser.png");
   background-size:cover;
   background-position:right center;
   background-repeat:no-repeat;
@@ -768,7 +768,7 @@ footer{background:#06243d;color:#fff;padding:60px 0 30px}.footer-grid{display:gr
         rgba(4,48,110,.88) 42%,
         rgba(4,84,160,.35) 100%
       ),
-      url("Dispenser hero.png");
+      url("../images/hero-dispenser.png");
     background-size:cover;
     background-position:center center;
   }
@@ -861,10 +861,10 @@ nav a.active{color:var(--blue-mid);border-color:var(--blue-mid);}
 .btn-outline,.hero-btn.secondary{background:rgba(255,255,255,.08) !important;color:#fff !important;border:2px solid rgba(255,255,255,.58) !important;}
 
 /* Specific hero image overlays */
-.subscriptions-hero{background-image:linear-gradient(90deg,rgba(3,30,83,.97) 0%,rgba(4,48,110,.90) 34%,rgba(4,84,160,.35) 58%,rgba(255,255,255,0) 78%),url("Subscriptions hero.png") !important;}
-.refill-hero{background-image:linear-gradient(90deg,rgba(3,30,83,.97) 0%,rgba(4,48,110,.90) 34%,rgba(4,84,160,.35) 58%,rgba(255,255,255,0) 78%),url("Refilling Station hero.png") !important;}
-.dispenser-hero-modern{background-image:linear-gradient(90deg,rgba(3,30,83,.97) 0%,rgba(4,48,110,.90) 34%,rgba(4,84,160,.35) 58%,rgba(255,255,255,0) 78%),url("Dispenser hero.png") !important;}
-.shop-hero-modern{background-image:linear-gradient(90deg,rgba(3,30,83,.97) 0%,rgba(4,48,110,.90) 34%,rgba(4,84,160,.35) 58%,rgba(255,255,255,0) 78%),url("Watershop hero.png") !important;}
+.subscriptions-hero{background-image:linear-gradient(90deg,rgba(3,30,83,.97) 0%,rgba(4,48,110,.90) 34%,rgba(4,84,160,.35) 58%,rgba(255,255,255,0) 78%),url("../images/hero-subscriptions.png") !important;}
+.refill-hero{background-image:linear-gradient(90deg,rgba(3,30,83,.97) 0%,rgba(4,48,110,.90) 34%,rgba(4,84,160,.35) 58%,rgba(255,255,255,0) 78%),url("../images/hero-refilling-station.png") !important;}
+.dispenser-hero-modern{background-image:linear-gradient(90deg,rgba(3,30,83,.97) 0%,rgba(4,48,110,.90) 34%,rgba(4,84,160,.35) 58%,rgba(255,255,255,0) 78%),url("../images/hero-dispenser.png") !important;}
+.shop-hero-modern{background-image:linear-gradient(90deg,rgba(3,30,83,.97) 0%,rgba(4,48,110,.90) 34%,rgba(4,84,160,.35) 58%,rgba(255,255,255,0) 78%),url("../images/hero-shop.png") !important;}
 
 /* Home hero alignment */
 .hero-home-modern{min-height:650px;background:#063b77;}
