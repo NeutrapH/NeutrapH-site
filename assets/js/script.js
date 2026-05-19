@@ -225,6 +225,55 @@ function submitLeadEmail(){
   document.head.appendChild(style);
 })();
 
+(function(){
+  if(document.getElementById('neutraph-hero-size-match')) return;
+
+  const style=document.createElement('style');
+  style.id='neutraph-hero-size-match';
+  style.textContent=`
+    @media(min-width:901px){
+      .hero.hero-home-modern,
+      .page-hero,
+      .subscriptions-hero,
+      .refill-hero,
+      .dispenser-hero-modern,
+      .shop-hero-modern{
+        min-height:720px !important;
+      }
+
+      .hero.hero-home-modern .hero-home-content,
+      .page-hero .container,
+      .subscriptions-hero .container,
+      .refill-hero .container,
+      .dispenser-hero-modern .container,
+      .shop-hero-modern .container{
+        min-height:720px !important;
+      }
+    }
+
+    @media(max-width:900px){
+      .hero.hero-home-modern,
+      .page-hero,
+      .subscriptions-hero,
+      .refill-hero,
+      .dispenser-hero-modern,
+      .shop-hero-modern{
+        min-height:660px !important;
+      }
+
+      .hero.hero-home-modern .hero-home-content,
+      .page-hero .container,
+      .subscriptions-hero .container,
+      .refill-hero .container,
+      .dispenser-hero-modern .container,
+      .shop-hero-modern .container{
+        min-height:660px !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+})();
+
 // Global navigation alignment helper
 (function(){
   const current = decodeURIComponent((location.pathname.split('/').pop() || 'index.html'));
