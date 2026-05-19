@@ -170,6 +170,61 @@ function submitLeadEmail(){
   document.head.appendChild(style);
 })();
 
+(function(){
+  if(document.getElementById('neutraph-hero-alignment')) return;
+
+  const style=document.createElement('style');
+  style.id='neutraph-hero-alignment';
+  style.textContent=`
+    @media(min-width:761px){
+      .page-water-purification .page-hero .container,
+      .page-water-dispensers .dispenser-hero-modern .container,
+      .page-our-shop .shop-hero-modern .container{
+        max-width:var(--page-max,1200px) !important;
+        width:100% !important;
+        margin-left:auto !important;
+        margin-right:auto !important;
+        padding-left:40px !important;
+        padding-right:40px !important;
+        justify-content:flex-start !important;
+        justify-items:start !important;
+        align-items:center !important;
+      }
+
+      .page-water-purification .page-hero .container{
+        display:flex !important;
+        flex-direction:column !important;
+        text-align:left !important;
+      }
+
+      .page-water-purification .page-hero h1,
+      .page-water-purification .page-hero p{
+        width:100% !important;
+        max-width:620px !important;
+        margin-left:0 !important;
+        margin-right:auto !important;
+        text-align:left !important;
+      }
+
+      .page-water-dispensers .dispenser-hero-modern .hero-content,
+      .page-our-shop .shop-hero-modern .hero-content{
+        max-width:620px !important;
+        margin-left:0 !important;
+        margin-right:auto !important;
+        text-align:left !important;
+      }
+
+      .page-water-dispensers .dispenser-hero-modern .hero-buttons,
+      .page-our-shop .shop-hero-modern .hero-buttons{
+        justify-content:flex-start !important;
+        margin-left:0 !important;
+        margin-right:auto !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+})();
+
 // Global navigation alignment helper
 (function(){
   const current = decodeURIComponent((location.pathname.split('/').pop() || 'index.html'));
