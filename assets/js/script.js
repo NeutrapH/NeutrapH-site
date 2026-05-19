@@ -172,13 +172,8 @@ function submitLeadEmail(){
         max-height:84px !important;
       }
 
-      header nav{
-        gap:11px !important;
-      }
-
-      header nav a{
-        font-size:13px !important;
-      }
+      header nav{ gap:11px !important; }
+      header nav a{ font-size:13px !important; }
 
       header .header-cta{
         min-width:124px !important;
@@ -221,6 +216,7 @@ function submitLeadEmail(){
         padding-bottom:0 !important;
         display:flex !important;
         align-items:center !important;
+        overflow:hidden !important;
       }
 
       .hero.hero-home-modern .hero-home-content,
@@ -249,6 +245,7 @@ function submitLeadEmail(){
         min-height:660px !important;
         padding-top:0 !important;
         padding-bottom:0 !important;
+        overflow:hidden !important;
       }
 
       .hero.hero-home-modern .hero-home-content,
@@ -362,12 +359,71 @@ function submitLeadEmail(){
   document.head.appendChild(style);
 })();
 
+function normalizeHeroHeights(){
+  const desktop = window.matchMedia('(min-width: 901px)').matches;
+  const heroHeight = desktop ? '720px' : '660px';
+  const heroSelectors = [
+    '.hero.hero-home-modern',
+    '.page-hero',
+    '.subscriptions-hero',
+    '.refill-hero',
+    '.dispenser-hero-modern',
+    '.shop-hero-modern'
+  ];
+  const contentSelectors = [
+    '.hero.hero-home-modern .hero-home-content',
+    '.page-hero > .container',
+    '.subscriptions-hero > .container',
+    '.refill-hero > .container',
+    '.dispenser-hero-modern > .container',
+    '.shop-hero-modern > .container'
+  ];
+
+  document.querySelectorAll(heroSelectors.join(',')).forEach(hero => {
+    hero.style.setProperty('min-height', heroHeight, 'important');
+    hero.style.setProperty('padding-top', '0', 'important');
+    hero.style.setProperty('padding-bottom', '0', 'important');
+    hero.style.setProperty('display', 'flex', 'important');
+    hero.style.setProperty('align-items', 'center', 'important');
+    hero.style.setProperty('overflow', 'hidden', 'important');
+
+    if(desktop){
+      hero.style.setProperty('height', heroHeight, 'important');
+      hero.style.setProperty('max-height', heroHeight, 'important');
+    }else{
+      hero.style.removeProperty('height');
+      hero.style.removeProperty('max-height');
+    }
+  });
+
+  document.querySelectorAll(contentSelectors.join(',')).forEach(content => {
+    content.style.setProperty('padding-top', '0', 'important');
+    content.style.setProperty('padding-bottom', '0', 'important');
+    content.style.setProperty('display', 'flex', 'important');
+    content.style.setProperty('align-items', 'center', 'important');
+
+    if(desktop){
+      content.style.setProperty('height', heroHeight, 'important');
+      content.style.setProperty('min-height', '0', 'important');
+      content.style.setProperty('max-height', heroHeight, 'important');
+    }else{
+      content.style.removeProperty('height');
+      content.style.setProperty('min-height', heroHeight, 'important');
+      content.style.removeProperty('max-height');
+    }
+  });
+}
+
 (function(){
   const current = decodeURIComponent((location.pathname.split('/').pop() || 'index.html'));
   document.querySelectorAll('nav a').forEach(a => {
     const href = decodeURIComponent(a.getAttribute('href') || '');
     if(href === current || (current === '' && href === 'index.html')) a.classList.add('active');
   });
+
+  normalizeHeroHeights();
+  window.addEventListener('load', normalizeHeroHeights);
+  window.addEventListener('resize', normalizeHeroHeights);
 
   document.addEventListener('click', function(e){
     const nav = document.querySelector('nav');
