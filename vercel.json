@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/payment-notify",
+      "destination": "/api/payfast/itn"
+    }
+  ]
+}
