@@ -1,0 +1,17 @@
+[[redirects]]
+from = "/api/payfast/create-payment"
+to = "/.netlify/functions/payfast-create-payment"
+status = 200
+force = true
+
+[[redirects]]
+from = "/api/payfast/itn"
+to = "/.netlify/functions/payfast-itn"
+status = 200
+force = true
+
+[[redirects]]
+from = "/payment-notify"
+to = "/.netlify/functions/payfast-itn"
+status = 200
+force = true
