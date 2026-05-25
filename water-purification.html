@@ -110,6 +110,17 @@
 
 <script src="assets/js/script.js"></script>
 <script>
+(function(){
+  const hero = document.querySelector('.page-water-purification .page-hero');
+  if(hero){
+    hero.style.setProperty(
+      'background-image',
+      'linear-gradient(90deg,rgba(3,30,83,.98) 0%,rgba(4,55,120,.90) 36%,rgba(0,119,182,.42) 62%,rgba(0,119,182,.08) 100%), url("assets/images/hero-purification.png")',
+      'important'
+    );
+  }
+})();
+
 function toggleROProcess(){
   const section=document.getElementById("ro-process-section");
   if(section.style.display==="none"||section.style.display===""){
