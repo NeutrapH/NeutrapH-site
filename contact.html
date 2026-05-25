@@ -169,6 +169,17 @@
 <script src="assets/js/script.js"></script>
 
 <script>
+(function(){
+  const hero = document.querySelector('.page-contact .page-hero');
+  if(hero){
+    hero.style.setProperty(
+      'background-image',
+      'linear-gradient(90deg,rgba(3,30,83,.98) 0%,rgba(4,55,120,.90) 36%,rgba(0,119,182,.40) 64%,rgba(0,119,182,.08) 100%), url("assets/images/hero-contact.png")',
+      'important'
+    );
+  }
+})();
+
 function submitLeadEmail(){
   const form=document.querySelector(".form");
 
