@@ -304,6 +304,219 @@ function submitLeadEmail(){
       }
     }
 
+    /* Secondary page polish */
+    body:not(.page-index) main{
+      background:#f6fbff !important;
+    }
+
+    .page-water-purification .page-hero,
+    .page-contact .page-hero{
+      position:relative !important;
+      isolation:isolate !important;
+      background-size:cover !important;
+      background-repeat:no-repeat !important;
+      background-position:center right !important;
+      box-shadow:inset 0 -1px 0 rgba(255,255,255,.2) !important;
+    }
+
+    .page-water-purification .page-hero{
+      background-image:
+        linear-gradient(90deg,rgba(3,30,83,.98) 0%,rgba(4,55,120,.90) 36%,rgba(0,119,182,.42) 62%,rgba(0,119,182,.08) 100%),
+        url("assets/images/ro-filter.png") !important;
+    }
+
+    .page-contact .page-hero{
+      background-image:
+        linear-gradient(90deg,rgba(3,30,83,.98) 0%,rgba(4,55,120,.90) 36%,rgba(0,119,182,.40) 64%,rgba(0,119,182,.08) 100%),
+        url("assets/images/hero-home.png") !important;
+    }
+
+    .page-water-purification .page-hero > .container,
+    .page-contact .page-hero > .container{
+      position:relative !important;
+      z-index:1 !important;
+    }
+
+    body:not(.page-index) .section{
+      position:relative !important;
+    }
+
+    body:not(.page-index) .section.alt,
+    .page-subscriptions #plans{
+      background:linear-gradient(180deg,#ffffff 0%,#f6fbff 100%) !important;
+    }
+
+    .page-water-purification .detail-grid,
+    .page-refilling-station .detail-grid,
+    .page-contact .form-wrap{
+      gap:40px !important;
+      align-items:center !important;
+    }
+
+    .page-water-dispensers .dispenser-intro-grid{
+      display:grid !important;
+      grid-template-columns:1fr .9fr !important;
+      gap:40px !important;
+      align-items:center !important;
+    }
+
+    body:not(.page-index) .detail-img,
+    body:not(.page-index) .form-card,
+    body:not(.page-index) .map-box,
+    body:not(.page-index) .step,
+    body:not(.page-index) .sub-card,
+    .page-water-dispensers .dispenser-feature-card,
+    .page-water-dispensers .shop-card,
+    .page-our-shop .shop-card{
+      border-radius:8px !important;
+      border:1px solid #d7ebf8 !important;
+      box-shadow:0 16px 40px rgba(6,65,110,.10) !important;
+      background:#fff !important;
+    }
+
+    body:not(.page-index) .detail-img{
+      overflow:hidden !important;
+      background:linear-gradient(145deg,#eef8ff,#ffffff) !important;
+    }
+
+    body:not(.page-index) .detail-img img{
+      border-radius:0 !important;
+      transform:none !important;
+    }
+
+    body:not(.page-index) .section-title{
+      max-width:760px !important;
+      letter-spacing:0 !important;
+      color:#082b57 !important;
+    }
+
+    body:not(.page-index) .section-desc{
+      color:#52627a !important;
+      line-height:1.8 !important;
+    }
+
+    body:not(.page-index) .checklist{
+      gap:10px !important;
+    }
+
+    body:not(.page-index) .checklist li{
+      background:#fff !important;
+      border:1px solid #dceefa !important;
+      border-radius:8px !important;
+      padding:12px 14px 12px 42px !important;
+      box-shadow:0 8px 20px rgba(6,65,110,.06) !important;
+    }
+
+    body:not(.page-index) .checklist li::before{
+      left:16px !important;
+      top:12px !important;
+      color:#0077b6 !important;
+    }
+
+    body:not(.page-index) .step{
+      padding:28px !important;
+      text-align:left !important;
+      min-height:190px !important;
+    }
+
+    body:not(.page-index) .step-num{
+      width:48px !important;
+      height:48px !important;
+      border-radius:8px !important;
+      background:linear-gradient(135deg,#00b4d8,#0077b6) !important;
+      box-shadow:0 10px 22px rgba(0,119,182,.20) !important;
+    }
+
+    .page-subscriptions .sub-plans-grid{
+      align-items:stretch !important;
+      gap:22px !important;
+    }
+
+    .page-subscriptions .sub-card{
+      display:flex !important;
+      flex-direction:column !important;
+      overflow:hidden !important;
+    }
+
+    .page-subscriptions .sub-card--featured{
+      border:2px solid #00b4d8 !important;
+      transform:translateY(-10px) !important;
+      box-shadow:0 24px 54px rgba(0,119,182,.18) !important;
+    }
+
+    .page-subscriptions .sub-card-header{
+      background:linear-gradient(135deg,#062f68 0%,#0077b6 72%,#00b4d8 100%) !important;
+      padding:28px !important;
+    }
+
+    .page-subscriptions .sub-card-img{
+      height:220px !important;
+      background:linear-gradient(145deg,#eef8ff,#ffffff) !important;
+      border-bottom:1px solid #e2f1fb !important;
+    }
+
+    .page-subscriptions .sub-card-img img{
+      object-fit:contain !important;
+      padding:18px !important;
+    }
+
+    .page-subscriptions .sub-features{
+      flex:1 1 auto !important;
+    }
+
+    .page-subscriptions .sub-btn,
+    body:not(.page-index) .btn,
+    body:not(.page-index) .shop-btn,
+    body:not(.page-index) .hero-btn{
+      border-radius:8px !important;
+    }
+
+    .page-water-dispensers .dispenser-feature-card{
+      padding:30px !important;
+      background:linear-gradient(180deg,#ffffff 0%,#f8fcff 100%) !important;
+    }
+
+    .page-water-dispensers .bulk-order-strip{
+      border-radius:8px !important;
+      border:1px solid #d7ebf8 !important;
+      box-shadow:0 16px 40px rgba(6,65,110,.10) !important;
+      background:linear-gradient(135deg,#062f68 0%,#0077b6 70%,#00b4d8 100%) !important;
+    }
+
+    .page-contact .form-card,
+    .page-contact .map-box{
+      padding:32px !important;
+      height:100% !important;
+    }
+
+    .page-contact iframe{
+      filter:saturate(.95) contrast(1.04) !important;
+    }
+
+    @media(max-width:1050px){
+      .page-water-dispensers .dispenser-intro-grid,
+      .page-water-purification .detail-grid,
+      .page-refilling-station .detail-grid,
+      .page-contact .form-wrap{
+        grid-template-columns:1fr !important;
+      }
+
+      .page-subscriptions .sub-card--featured{
+        transform:none !important;
+      }
+    }
+
+    @media(max-width:700px){
+      .page-water-purification .page-hero,
+      .page-contact .page-hero{
+        background-position:center !important;
+      }
+
+      body:not(.page-index) .step{
+        min-height:auto !important;
+      }
+    }
+
     /* Homepage lower-section upgrade */
     .page-index .home-proof-strip{
       background:linear-gradient(180deg,#ffffff 0%,#f6fbff 100%) !important;
@@ -610,8 +823,8 @@ function submitLeadEmail(){
 
     /* Footer and mobile WhatsApp polish */
     .footer-logo-img{
-      width:240px !important;
-      max-width:240px !important;
+      width:280px !important;
+      max-width:280px !important;
       height:auto !important;
       margin-bottom:18px !important;
       filter:drop-shadow(0 12px 22px rgba(0,0,0,.20));
@@ -664,8 +877,8 @@ function submitLeadEmail(){
 
     @media(max-width:760px){
       .footer-logo-img{
-        width:200px !important;
-        max-width:200px !important;
+        width:220px !important;
+        max-width:220px !important;
       }
     }
   `;
