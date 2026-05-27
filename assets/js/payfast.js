@@ -16,7 +16,7 @@
     merchantId: 'PAYFAST_MERCHANT_ID_HERE',
     merchantKey: 'PAYFAST_MERCHANT_KEY_HERE',
     mode: 'sandbox',
-    apiBase: '',
+    apiBase: 'https://timely-pavlova-d74b5e.netlify.app',
     returnUrl: 'https://www.neutraph.co.za/payment-success.html',
     cancelUrl: 'https://www.neutraph.co.za/payment-cancelled.html',
     notifyUrl: 'https://www.neutraph.co.za/payment-notify'
