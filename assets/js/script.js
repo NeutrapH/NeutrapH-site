@@ -29,7 +29,24 @@ function orderProduct(product){
   const qtyField = document.getElementById('qty-' + product.replace(/[^a-z0-9]/gi, ''));
   const qty = qtyField ? qtyField.value : '1';
   const msg = `Hi NeutrapH, I would like to order ${qty} x ${product}. Please confirm delivery and payment details.`;
+  showFormConfirmation(e.target);
   window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+function showFormConfirmation(form){
+  if(!form) return;
+
+  const buttons = form.querySelector('.form-buttons');
+  if(!buttons) return;
+
+  let confirmation = form.querySelector('.form-confirmation');
+  if(!confirmation){
+    confirmation = document.createElement('p');
+    confirmation.className = 'form-confirmation';
+    buttons.insertAdjacentElement('afterend', confirmation);
+  }
+
+  confirmation.textContent = '✅ Your details are ready to send. Complete the action in WhatsApp or your email app.';
 }
 
 function submitLead(e){
@@ -60,6 +77,7 @@ function submitLeadEmail(){
     if(v) msg += `${k}: ${v}\n`;
   }
 
+  showFormConfirmation(form);
   window.location.href =
     'mailto:info@neutraph.co.za' +
     '?subject=' + encodeURIComponent('New NeutrapH Enquiry') +

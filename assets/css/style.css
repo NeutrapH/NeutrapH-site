@@ -984,3 +984,23 @@ nav a{
     min-width:auto;
   }
 }
+
+
+.contact-icon svg{
+  width:16px;
+  height:16px;
+  fill:#00b4d8;
+  display:block;
+}
+
+.form-confirmation{
+  margin-top:12px;
+  color:#0a6b4e;
+  background:#e9fbf4;
+  border:1px solid #b8ead7;
+  border-radius:8px;
+  padding:12px 14px;
+  font-size:14px;
+  font-weight:700;
+  line-height:1.45;
+}
