@@ -1,0 +1,233 @@
+name: Codex Founder Bio Update
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  update-founder-bio:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Add founder bio to About hero
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+
+          about_path = Path('about.html')
+          css_path = Path('assets/css/style.css')
+
+          html = about_path.read_text(encoding='utf-8')
+          new_hero = '''  <section class="about-hero about-founder-hero">
+    <div class="container about-founder-grid">
+      <aside class="founder-profile-card" aria-label="Founder profile">
+        <div class="founder-photo-placeholder">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 12.2a4.4 4.4 0 1 0 0-8.8 4.4 4.4 0 0 0 0 8.8zm0 2.1c-4.4 0-8 2.2-8 4.8V21h16v-1.9c0-2.6-3.6-4.8-8-4.8z"/>
+          </svg>
+          <span>Add your photo here</span>
+        </div>
+        <h2>Founder &amp; Director</h2>
+        <p>NeutrapH Water Solutions</p>
+        <div class="founder-location">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2.2c4 0 7.2 3.2 7.2 7.2 0 5.3-7.2 12.4-7.2 12.4S4.8 14.7 4.8 9.4c0-4 3.2-7.2 7.2-7.2zm0 10.3a3.1 3.1 0 1 0 0-6.2 3.1 3.1 0 0 0 0 6.2z"/>
+          </svg>
+          Welverdiend, Bushbuckridge
+        </div>
+      </aside>
+
+      <div class="founder-bio-copy">
+        <span class="founder-kicker">Meet the Founder</span>
+        <h1>A problem-solver who grew up here</h1>
+        <p>I grew up in Welverdiend, Bushbuckridge, the same community NeutrapH now serves. I watched families, schools and neighbours rely on borehole water that was visibly discoloured, high in salinity and unsafe to drink without boiling. It was a daily inconvenience that nobody should have to accept.</p>
+        <p>After studying Chemical Engineering and working as a Process Engineer, I had the technical foundation to understand exactly what was happening to the water and, more importantly, how to fix it. Reverse osmosis was not a new concept in industry, but it had never been accessible and affordable for rural communities like ours.</p>
+        <p>NeutrapH was my answer to that gap. Not a corporate project or an outside initiative, just someone from here using what they know to solve a real problem. I built the purification process, designed the delivery model around how people in Bushbuckridge actually live, and kept the pricing honest.</p>
+        <p>I am not much for long speeches. I would rather the water speak for itself. But if you are a school principal, a church leader or a family who has been struggling with unsafe water, I understand your situation personally, and I built this specifically for you.</p>
+        <div class="founder-chips" aria-label="Founder background">
+          <span>Chemical Engineering</span>
+          <span>Process Engineer</span>
+          <span>RO Purification Specialist</span>
+          <span>Born and raised in Bushbuckridge</span>
+        </div>
+      </div>
+    </div>
+  </section>'''
+
+          story_marker = '  <section class="section alt about-story">'
+          hero_start = html.index('  <section class="about-hero')
+          hero_end = html.index(story_marker, hero_start)
+          html = html[:hero_start] + new_hero + '\n\n' + html[hero_end:]
+          about_path.write_text(html, encoding='utf-8')
+
+          css = css_path.read_text(encoding='utf-8')
+          if 'FOUNDER BIO HERO' not in css:
+              css += r'''
+
+/* FOUNDER BIO HERO */
+.about-founder-hero{
+  min-height:auto !important;
+  color:#082b57 !important;
+  padding:88px 0 82px !important;
+  background:
+    radial-gradient(circle at 18% 20%,rgba(0,180,216,.16),transparent 34%),
+    linear-gradient(180deg,#f6fbff 0%,#eef8ff 100%) !important;
+}
+.about-founder-hero .about-founder-grid{
+  min-height:0 !important;
+  display:grid !important;
+  grid-template-columns:310px minmax(0,1fr) !important;
+  gap:72px !important;
+  align-items:start !important;
+}
+.founder-profile-card{
+  text-align:center;
+  position:sticky;
+  top:140px;
+}
+.founder-photo-placeholder{
+  width:240px;
+  height:240px;
+  border-radius:50%;
+  border:5px solid #fff;
+  background:#cfefff;
+  box-shadow:0 24px 60px rgba(6,65,110,.14);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin:0 auto 24px;
+  color:#0077b6;
+}
+.founder-photo-placeholder svg{
+  width:68px;
+  height:68px;
+  fill:rgba(0,119,182,.55);
+}
+.founder-photo-placeholder span{
+  font-size:13px;
+  font-weight:900;
+}
+.founder-profile-card h2{
+  font-family:'Montserrat',sans-serif;
+  font-size:20px;
+  color:#082b57;
+  margin-bottom:2px;
+}
+.founder-profile-card p{
+  color:#0077b6 !important;
+  font-size:13px !important;
+  font-weight:900;
+  margin:0 0 14px !important;
+}
+.founder-location{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 14px;
+  border:1px solid #b7def3;
+  border-radius:999px;
+  background:#e7f7ff;
+  color:#0a3d6b;
+  font-size:12px;
+  font-weight:900;
+}
+.founder-location svg{
+  width:14px;
+  height:14px;
+  fill:#0077b6;
+}
+.founder-kicker{
+  display:block;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#0077b6;
+  margin-bottom:10px;
+}
+.founder-bio-copy h1{
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(34px,4vw,54px) !important;
+  line-height:1.05 !important;
+  color:#082b57 !important;
+  letter-spacing:-.035em !important;
+  margin-bottom:18px !important;
+}
+.founder-bio-copy p{
+  max-width:780px !important;
+  color:#203246 !important;
+  font-size:16px !important;
+  line-height:1.9 !important;
+  margin-bottom:18px !important;
+}
+.founder-chips{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:26px;
+}
+.founder-chips span{
+  display:inline-flex;
+  align-items:center;
+  min-height:38px;
+  padding:8px 14px;
+  border:1px solid #b7def3;
+  border-radius:8px;
+  background:#fff;
+  color:#082b57;
+  font-size:13px;
+  font-weight:900;
+  box-shadow:0 8px 20px rgba(6,65,110,.06);
+}
+@media(max-width:1050px){
+  .about-founder-hero .about-founder-grid{
+    grid-template-columns:1fr !important;
+    gap:36px !important;
+  }
+  .founder-profile-card{
+    position:static;
+  }
+}
+@media(max-width:700px){
+  .about-founder-hero{
+    padding:58px 0 62px !important;
+  }
+  .founder-photo-placeholder{
+    width:210px;
+    height:210px;
+  }
+  .founder-bio-copy{
+    text-align:left;
+  }
+  .founder-bio-copy h1{
+    font-size:34px !important;
+  }
+  .founder-chips{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+}
+'''
+              css_path.write_text(css, encoding='utf-8')
+          PY
+
+          rm -f ".github/workflows/codex-founder-bio.yml"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes needed."
+            exit 0
+          fi
+          git commit -m "Add founder bio to About hero"
+          git push
