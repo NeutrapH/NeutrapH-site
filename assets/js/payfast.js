@@ -4,11 +4,10 @@
   REQUIRED SETUP:
   1. Replace PAYFAST_MERCHANT_ID_HERE with your live PayFast Merchant ID.
   2. Replace PAYFAST_MERCHANT_KEY_HERE with your live PayFast Merchant Key.
-  3. Do not add your PayFast passphrase in this frontend file.
-     The passphrase belongs only in the Vercel/Netlify environment variable:
-     PAYFAST_PASSPHRASE.
-  4. To use signed serverless checkout, set apiBase to your deployed backend URL.
-     Example: apiBase: "https://neutraph-payfast.vercel.app"
+  3. GitHub Pages cannot run a PayFast backend or ITN endpoint.
+     Keep apiBase empty for static GitHub Pages checkout.
+  4. Do not add your PayFast passphrase in this frontend file.
+     The passphrase belongs only in a private serverless backend if you add one later.
 */
 
 (function(){
@@ -16,7 +15,7 @@
     merchantId: 'PAYFAST_MERCHANT_ID_HERE',
     merchantKey: 'PAYFAST_MERCHANT_KEY_HERE',
     mode: 'sandbox',
-    apiBase: 'https://timely-pavlova-d74b5e.netlify.app',
+    apiBase: '',
     returnUrl: 'https://www.neutraph.co.za/payment-success.html',
     cancelUrl: 'https://www.neutraph.co.za/payment-cancelled.html',
     notifyUrl: 'https://www.neutraph.co.za/payment-notify'
