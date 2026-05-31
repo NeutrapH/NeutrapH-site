@@ -28,11 +28,10 @@
       align-items:start !important;
     }
     .founder-profile-card{text-align:center;position:sticky;top:140px;}
-    .founder-photo-placeholder{
-      width:240px;height:240px;border-radius:50%;border:5px solid #fff;background:#cfefff;box-shadow:0 24px 60px rgba(6,65,110,.14);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;margin:0 auto 24px;color:#0077b6;
+    .founder-photo-wrap{
+      width:240px;height:240px;border-radius:50%;border:5px solid #fff;background:#cfefff;box-shadow:0 24px 60px rgba(6,65,110,.14);overflow:hidden;margin:0 auto 24px;
     }
-    .founder-photo-placeholder svg{width:68px;height:68px;fill:rgba(0,119,182,.55);}
-    .founder-photo-placeholder span{font-size:13px;font-weight:900;}
+    .founder-photo{width:100%;height:100%;object-fit:cover;display:block;}
     .founder-profile-card h2{font-family:'Montserrat',sans-serif;font-size:20px;color:#082b57;margin-bottom:2px;}
     .founder-profile-card p{color:#0077b6 !important;font-size:13px !important;font-weight:900;margin:0 0 14px !important;}
     .founder-location{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid #b7def3;border-radius:999px;background:#e7f7ff;color:#0a3d6b;font-size:12px;font-weight:900;}
@@ -43,7 +42,7 @@
     .founder-chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px;}
     .founder-chips span{display:inline-flex;align-items:center;min-height:38px;padding:8px 14px;border:1px solid #b7def3;border-radius:8px;background:#fff;color:#082b57;font-size:13px;font-weight:900;box-shadow:0 8px 20px rgba(6,65,110,.06);}
     @media(max-width:1050px){.about-founder-hero .about-founder-grid{grid-template-columns:1fr !important;gap:36px !important}.founder-profile-card{position:static}}
-    @media(max-width:700px){.about-founder-hero{padding:58px 0 62px !important}.founder-photo-placeholder{width:210px;height:210px}.founder-bio-copy{text-align:left}.founder-bio-copy h1{font-size:34px !important}.founder-chips{display:grid;grid-template-columns:1fr}}
+    @media(max-width:700px){.about-founder-hero{padding:58px 0 62px !important}.founder-photo-wrap{width:210px;height:210px}.founder-bio-copy{text-align:left}.founder-bio-copy h1{font-size:34px !important}.founder-chips{display:grid;grid-template-columns:1fr}}
   </style>
 </head>
 <body class="page-about">
@@ -73,9 +72,8 @@
   <section class="about-hero about-founder-hero">
     <div class="container about-founder-grid">
       <aside class="founder-profile-card" aria-label="Founder profile">
-        <div class="founder-photo-placeholder">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12.2a4.4 4.4 0 1 0 0-8.8 4.4 4.4 0 0 0 0 8.8zm0 2.1c-4.4 0-8 2.2-8 4.8V21h16v-1.9c0-2.6-3.6-4.8-8-4.8z"/></svg>
-          <span>Add your photo here</span>
+        <div class="founder-photo-wrap">
+          <img src="assets/images/founder-photo.png" alt="Founder and Director of NeutrapH Water Solutions" class="founder-photo">
         </div>
         <h2>Founder &amp; Director</h2>
         <p>NeutrapH Water Solutions</p>
