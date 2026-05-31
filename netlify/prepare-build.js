@@ -2,11 +2,12 @@ const fs = require('fs');
 const path = require('path');
 
 const cssPath = path.join(__dirname, '..', 'assets', 'css', 'style.css');
-const marker = '/* FOOTER LOGO VISIBILITY PANEL */';
+const aboutPath = path.join(__dirname, '..', 'about.html');
+const footerMarker = '/* FOOTER LOGO VISIBILITY PANEL */';
 
 const footerLogoCss = `
 
-${marker}
+${footerMarker}
 footer .footer-grid > div:first-child{
   padding:18px 20px;
   border-radius:8px;
@@ -36,7 +37,33 @@ footer .footer-about{
 }
 `;
 
-const css = fs.readFileSync(cssPath, 'utf8');
-if (!css.includes(marker)) {
-  fs.appendFileSync(cssPath, footerLogoCss, 'utf8');
+const oldFounderBio = `<p>I grew up in Welverdiend, Bushbuckridge, the same community NeutrapH now serves. I watched families, schools and neighbours rely on borehole water that was visibly discoloured, high in salinity and unsafe to drink without boiling. It was a daily inconvenience that nobody should have to accept.</p>
+        <p>After studying Chemical Engineering and working as a Process Engineer, I had the technical foundation to understand exactly what was happening to the water and, more importantly, how to fix it. Reverse osmosis was not a new concept in industry, but it had never been accessible and affordable for rural communities like ours.</p>
+        <p>NeutrapH was my answer to that gap. Not a corporate project or an outside initiative, just someone from here using what they know to solve a real problem. I built the purification process, designed the delivery model around how people in Bushbuckridge actually live, and kept the pricing honest.</p>
+        <p>I am not much for long speeches. I would rather the water speak for itself. But if you are a school principal, a church leader or a family who has been struggling with unsafe water, I understand your situation personally, and I built this specifically for you.</p>`;
+
+const newFounderBio = `<p>I grew up in Welverdiend, Bushbuckridge, the same community NeutrapH now serves. I watched families, schools and neighbours rely on borehole water that often had a noticeable salty taste and an appearance that made many people hesitant to drink it. While the water was generally safe, it was not always pleasant to consume, and many households had simply accepted this as part of daily life.</p>
+        <p>After studying Chemical Engineering and working as a Process Engineer, I had the technical foundation to understand exactly what was happening to the water and, more importantly, how to fix it. Reverse osmosis was not a new concept in industry, but it had never been accessible and affordable for rural communities like ours.</p>
+        <p>NeutrapH was my answer to that gap. Not a corporate project or an outside initiative, just someone from here using what they know to solve a real problem. I built the purification process, designed the delivery model around how people in Bushbuckridge actually live, and kept the pricing honest.</p>
+        <p>I am not much for long speeches. I would rather the water speak for itself. But if you are a school principal, a church leader or a family who has been struggling with poor-tasting borehole water, I understand your situation personally, and I built this specifically for you.</p>`;
+
+function addFooterLogoPanel() {
+  const css = fs.readFileSync(cssPath, 'utf8');
+  if (!css.includes(footerMarker)) {
+    fs.appendFileSync(cssPath, footerLogoCss, 'utf8');
+  }
 }
+
+function updateFounderBio() {
+  const html = fs.readFileSync(aboutPath, 'utf8');
+  if (html.includes(newFounderBio)) {
+    return;
+  }
+  if (!html.includes(oldFounderBio)) {
+    throw new Error('Founder bio block not found in about.html');
+  }
+  fs.writeFileSync(aboutPath, html.replace(oldFounderBio, newFounderBio), 'utf8');
+}
+
+addFooterLogoPanel();
+updateFounderBio();
