@@ -186,6 +186,7 @@ footer .footer-grid > div{
 }
 
 footer .footer-grid > div:first-child{
+  --footer-brand-center-shift:clamp(-130px, calc((1200px - 100vw) / 4 - 8px), 0px);
   align-self:stretch !important;
   display:flex !important;
   flex-direction:column !important;
@@ -218,6 +219,7 @@ footer .footer-grid > div:first-child .footer-logo-img{
   height:auto !important;
   margin:0 auto 22px !important;
   filter:none !important;
+  transform:translateX(var(--footer-brand-center-shift)) !important;
 }
 
 footer .footer-grid > div:first-child .footer-about{
@@ -227,6 +229,7 @@ footer .footer-grid > div:first-child .footer-about{
   text-align:center !important;
   font-weight:700 !important;
   line-height:1.7 !important;
+  transform:translateX(var(--footer-brand-center-shift)) !important;
 }
 
 footer .footer-bottom{
@@ -288,6 +291,7 @@ footer .footer-bottom span{
 
 @media(max-width:1050px){
   footer .footer-grid > div:first-child{
+    --footer-brand-center-shift:0px;
     min-height:300px !important;
     padding:34px 28px 42px !important;
   }
