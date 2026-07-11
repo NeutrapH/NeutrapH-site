@@ -56,6 +56,7 @@ header .logo-area{
   min-width:190px !important;
   display:inline-flex !important;
   align-items:center !important;
+  gap:0 !important;
   text-decoration:none !important;
   font-family:'Montserrat',sans-serif !important;
   line-height:1 !important;
@@ -67,7 +68,7 @@ header .logo-area .site-logo{
 }
 
 header .logo-area::before{
-  content:"Neutra" !important;
+  content:"Neutrap" !important;
   color:#0a3d6b !important;
   font-size:34px !important;
   font-weight:900 !important;
@@ -76,15 +77,12 @@ header .logo-area::before{
 }
 
 header .logo-area::after{
-  content:"pH" !important;
+  content:"H" !important;
+  color:#7de9ff !important;
   font-size:34px !important;
   font-weight:900 !important;
   letter-spacing:0 !important;
-  background:linear-gradient(135deg,#00b4d8 0%,#0077b6 45%,#6fba2c 100%) !important;
-  -webkit-background-clip:text !important;
-  background-clip:text !important;
-  color:transparent !important;
-  text-shadow:none !important;
+  text-shadow:0 2px 0 rgba(255,255,255,.70) !important;
 }
 
 header .logo-icon{
