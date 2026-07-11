@@ -71,7 +71,7 @@ header .logo-area::before{
   content:"Neutrap" !important;
   color:#0a3d6b !important;
   font-size:34px !important;
-  font-weight:900 !important;
+  font-weight:600 !important;
   letter-spacing:0 !important;
   text-shadow:0 2px 0 rgba(255,255,255,.70) !important;
 }
