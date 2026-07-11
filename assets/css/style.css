@@ -59,6 +59,36 @@ footer .footer-grid > div:first-child .footer-about{
   line-height:1.7 !important;
 }
 
+footer .footer-bottom{
+  position:relative !important;
+  z-index:1 !important;
+  margin-top:0 !important;
+  padding-top:24px !important;
+  color:#07345f !important;
+}
+
+footer .footer-bottom::before{
+  content:"" !important;
+  position:absolute !important;
+  top:0 !important;
+  bottom:-30px !important;
+  left:50% !important;
+  width:100vw !important;
+  transform:translateX(-50%) !important;
+  background:
+    radial-gradient(circle at 18% 15%, rgba(255,255,255,.72) 0%, rgba(255,255,255,0) 36%),
+    linear-gradient(135deg,#e8fbff 0%,#c9f1f5 52%,#d7f4df 100%) !important;
+  border-top:1px solid rgba(0,119,182,.18) !important;
+  z-index:-1 !important;
+}
+
+footer .footer-bottom,
+footer .footer-bottom p,
+footer .footer-bottom span{
+  color:#07345f !important;
+  font-weight:700 !important;
+}
+
 @media(max-width:1050px){
   footer .footer-grid > div:first-child{
     min-height:300px !important;
@@ -85,5 +115,9 @@ footer .footer-grid > div:first-child .footer-about{
 
   footer .footer-grid > div:first-child .footer-logo-img{
     width:220px !important;
+  }
+
+  footer .footer-bottom{
+    padding-top:20px !important;
   }
 }
