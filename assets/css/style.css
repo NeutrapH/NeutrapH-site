@@ -289,6 +289,125 @@ footer .footer-bottom span{
   font-weight:500 !important;
 }
 
+/* =========================================================
+   MOBILE NAVIGATION FIX
+   Prevents the dropdown from being clipped and gives every
+   link a large, reliable tap target on phones and tablets.
+========================================================= */
+@media(max-width:1050px){
+  header{
+    overflow:visible !important;
+  }
+
+  header::before,
+  header::after{
+    pointer-events:none !important;
+  }
+
+  header .container.nav-wrap,
+  header .nav-wrap{
+    overflow:visible !important;
+    gap:12px !important;
+  }
+
+  header .menu-toggle{
+    position:relative !important;
+    z-index:1301 !important;
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width:48px !important;
+    height:48px !important;
+    min-width:48px !important;
+    min-height:48px !important;
+    padding:0 !important;
+    border:1px solid rgba(0,119,182,.24) !important;
+    border-radius:12px !important;
+    background:#ffffff !important;
+    color:#0a3d6b !important;
+    box-shadow:0 10px 24px rgba(6,65,110,.14) !important;
+    line-height:1 !important;
+    touch-action:manipulation !important;
+  }
+
+  header nav{
+    position:fixed !important;
+    top:86px !important;
+    left:12px !important;
+    right:12px !important;
+    width:auto !important;
+    max-height:calc(100dvh - 108px) !important;
+    overflow-y:auto !important;
+    -webkit-overflow-scrolling:touch !important;
+    display:none !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    gap:0 !important;
+    padding:10px !important;
+    background:rgba(255,255,255,.98) !important;
+    border:1px solid rgba(0,119,182,.18) !important;
+    border-radius:16px !important;
+    box-shadow:0 22px 55px rgba(6,35,61,.22) !important;
+    z-index:1300 !important;
+  }
+
+  header nav.open{
+    display:flex !important;
+  }
+
+  header nav a{
+    width:100% !important;
+    min-height:50px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    padding:0 16px !important;
+    border:0 !important;
+    border-bottom:1px solid #e4f2fb !important;
+    border-radius:10px !important;
+    color:#0a3d6b !important;
+    font-size:15px !important;
+    font-weight:800 !important;
+    line-height:1.2 !important;
+    text-align:left !important;
+    text-shadow:none !important;
+    touch-action:manipulation !important;
+  }
+
+  header nav a:last-child{
+    border-bottom:0 !important;
+  }
+
+  header nav a:hover,
+  header nav a:focus,
+  header nav a.active{
+    background:#e8fbff !important;
+    color:#0077b6 !important;
+    border-color:#d3edf8 !important;
+    outline:none !important;
+  }
+
+  header .header-cta{
+    display:none !important;
+  }
+}
+
+@media(max-width:700px){
+  header nav{
+    top:76px !important;
+    left:10px !important;
+    right:10px !important;
+    max-height:calc(100dvh - 96px) !important;
+  }
+
+  header .menu-toggle{
+    width:46px !important;
+    height:46px !important;
+    min-width:46px !important;
+    min-height:46px !important;
+  }
+}
+
 @media(max-width:1050px){
   footer .footer-grid > div:first-child{
     --footer-brand-center-shift:0px;
