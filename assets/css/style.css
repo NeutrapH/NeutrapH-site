@@ -52,6 +52,41 @@ header .nav-wrap{
   height:96px !important;
 }
 
+header .logo-area{
+  min-width:190px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  text-decoration:none !important;
+  font-family:'Montserrat',sans-serif !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+}
+
+header .logo-area .site-logo{
+  display:none !important;
+}
+
+header .logo-area::before{
+  content:"Neutra" !important;
+  color:#0a3d6b !important;
+  font-size:34px !important;
+  font-weight:900 !important;
+  letter-spacing:0 !important;
+  text-shadow:0 2px 0 rgba(255,255,255,.70) !important;
+}
+
+header .logo-area::after{
+  content:"pH" !important;
+  font-size:34px !important;
+  font-weight:900 !important;
+  letter-spacing:0 !important;
+  background:linear-gradient(135deg,#00b4d8 0%,#0077b6 45%,#6fba2c 100%) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  color:transparent !important;
+  text-shadow:none !important;
+}
+
 header .logo-icon{
   width:92px !important;
   height:92px !important;
@@ -92,6 +127,15 @@ header .header-cta:hover{
     height:86px !important;
   }
 
+  header .logo-area{
+    min-width:160px !important;
+  }
+
+  header .logo-area::before,
+  header .logo-area::after{
+    font-size:29px !important;
+  }
+
   header .logo-icon{
     width:76px !important;
     height:76px !important;
@@ -107,6 +151,15 @@ header .header-cta:hover{
 @media(max-width:700px){
   header .nav-wrap{
     height:76px !important;
+  }
+
+  header .logo-area{
+    min-width:132px !important;
+  }
+
+  header .logo-area::before,
+  header .logo-area::after{
+    font-size:24px !important;
   }
 
   header .logo-icon{
