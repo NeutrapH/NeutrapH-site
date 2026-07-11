@@ -1,6 +1,125 @@
 @import url("style-base.css");
 
 /* =========================================================
+   WATER THEMED HEADER
+   Light, wave-inspired header treatment based on the supplied
+   reference while preserving the existing navigation structure.
+========================================================= */
+header{
+  position:sticky !important;
+  top:0 !important;
+  z-index:100 !important;
+  overflow:hidden !important;
+  background:
+    radial-gradient(ellipse at left bottom, rgba(0,180,216,.20) 0%, rgba(0,180,216,.08) 24%, rgba(255,255,255,0) 45%),
+    radial-gradient(ellipse at right bottom, rgba(0,180,216,.20) 0%, rgba(0,180,216,.08) 24%, rgba(255,255,255,0) 45%),
+    linear-gradient(180deg,#ffffff 0%,#fbfdff 34%,#eefaff 68%,#e5f7ff 100%) !important;
+  border-bottom:1px solid rgba(0,180,216,.20) !important;
+  box-shadow:0 18px 42px rgba(10,61,107,.10) !important;
+}
+
+header::before{
+  content:"" !important;
+  position:absolute !important;
+  left:-4% !important;
+  right:-4% !important;
+  bottom:-10px !important;
+  height:56px !important;
+  pointer-events:none !important;
+  background:
+    radial-gradient(ellipse at 9% 78%, rgba(0,180,216,.18) 0%, rgba(0,180,216,.08) 32%, transparent 62%),
+    radial-gradient(ellipse at 91% 78%, rgba(0,180,216,.18) 0%, rgba(0,180,216,.08) 32%, transparent 62%),
+    linear-gradient(175deg, transparent 0 38%, rgba(255,255,255,.70) 39% 56%, rgba(0,180,216,.14) 57% 60%, transparent 61%) !important;
+  opacity:.95 !important;
+}
+
+header::after{
+  content:"" !important;
+  position:absolute !important;
+  inset:auto 0 0 0 !important;
+  height:1px !important;
+  background:rgba(255,255,255,.88) !important;
+  pointer-events:none !important;
+}
+
+header .container,
+header .nav-wrap{
+  position:relative !important;
+  z-index:2 !important;
+}
+
+header .nav-wrap{
+  height:96px !important;
+}
+
+header .logo-icon{
+  width:92px !important;
+  height:92px !important;
+}
+
+header nav{
+  gap:22px !important;
+}
+
+header nav a{
+  color:#0a3d6b !important;
+  border-bottom:2px solid transparent !important;
+  padding:12px 3px 10px !important;
+  text-shadow:0 1px 0 rgba(255,255,255,.6) !important;
+}
+
+header nav a:hover,
+header nav a.active{
+  color:#008fd3 !important;
+  border-color:#00b4d8 !important;
+}
+
+header .header-cta{
+  background:linear-gradient(135deg,#20d4dc 0%,#008fd3 55%,#0067a0 100%) !important;
+  color:#ffffff !important;
+  border-radius:999px !important;
+  padding:14px 24px !important;
+  box-shadow:0 14px 28px rgba(0,119,182,.28), inset 0 1px 0 rgba(255,255,255,.32) !important;
+}
+
+header .header-cta:hover{
+  background:linear-gradient(135deg,#19c5cf 0%,#0077b6 62%,#0a3d6b 100%) !important;
+  transform:translateY(-1px) !important;
+}
+
+@media(max-width:1050px){
+  header .nav-wrap{
+    height:86px !important;
+  }
+
+  header .logo-icon{
+    width:76px !important;
+    height:76px !important;
+  }
+
+  header nav{
+    top:86px !important;
+    background:#ffffff !important;
+    border-top:1px solid rgba(0,180,216,.18) !important;
+  }
+}
+
+@media(max-width:700px){
+  header .nav-wrap{
+    height:76px !important;
+  }
+
+  header .logo-icon{
+    width:64px !important;
+    height:64px !important;
+  }
+
+  header nav{
+    top:76px !important;
+  }
+}
+
+/* =========================================================
    FOOTER BRAND SECTION
    Uses a soft NeutrapH water-toned panel for the logo/mission
    area while the rest of the footer keeps the dark blue base.
