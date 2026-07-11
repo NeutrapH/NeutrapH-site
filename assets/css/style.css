@@ -259,6 +259,33 @@ footer .footer-bottom span{
   font-weight:700 !important;
 }
 
+/* Keep footer typography aligned with the rest of the website. */
+footer,
+footer .footer-about,
+footer .footer-links a,
+footer .contact-row-text,
+footer .footer-bottom,
+footer .footer-bottom p,
+footer .footer-bottom span{
+  font-family:'Open Sans',Arial,sans-serif !important;
+}
+
+footer .footer-col h4{
+  font-family:'Montserrat',sans-serif !important;
+  font-weight:800 !important;
+  letter-spacing:0 !important;
+}
+
+footer .footer-grid > div:first-child .footer-about{
+  font-weight:600 !important;
+}
+
+footer .footer-bottom,
+footer .footer-bottom p,
+footer .footer-bottom span{
+  font-weight:500 !important;
+}
+
 @media(max-width:1050px){
   footer .footer-grid > div:first-child{
     min-height:300px !important;
