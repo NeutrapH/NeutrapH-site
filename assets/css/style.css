@@ -2,8 +2,8 @@
 
 /* =========================================================
    FOOTER BRAND SECTION
-   Makes the full left logo/mission area white while the rest
-   of the footer keeps the NeutrapH dark blue background.
+   Uses a soft NeutrapH water-toned panel for the logo/mission
+   area while the rest of the footer keeps the dark blue base.
 ========================================================= */
 footer .footer-grid{
   position:relative !important;
@@ -22,7 +22,7 @@ footer .footer-grid > div:first-child{
   align-items:center !important;
   justify-content:center !important;
   min-height:335px !important;
-  color:#0a3d6b !important;
+  color:#07345f !important;
   background:transparent !important;
   padding:34px 34px 42px 0 !important;
 }
@@ -34,7 +34,10 @@ footer .footer-grid > div:first-child::before{
   right:-24px !important;
   bottom:-38px !important;
   width:100vw !important;
-  background:#ffffff !important;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(255,255,255,.78) 0%, rgba(255,255,255,0) 36%),
+    linear-gradient(135deg,#e8fbff 0%,#c9f1f5 52%,#d7f4df 100%) !important;
+  border-right:1px solid rgba(0,119,182,.22) !important;
   z-index:-1 !important;
   box-shadow:18px 0 34px rgba(0,22,48,.12) !important;
 }
@@ -48,7 +51,7 @@ footer .footer-grid > div:first-child .footer-logo-img{
 }
 
 footer .footer-grid > div:first-child .footer-about{
-  color:#0a3d6b !important;
+  color:#07345f !important;
   max-width:330px !important;
   margin:0 auto !important;
   text-align:center !important;
