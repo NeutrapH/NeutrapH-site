@@ -213,17 +213,18 @@ header .header-cta:hover{
 
 /* =========================================================
    FOOTER BRAND SECTION
-   Keeps the logo/mission panel visually distinct, while the
-   copyright row now sits inside the main dark footer area.
+   Keeps the logo/mission panel visually distinct and removes
+   the separate footer-bottom copyright row entirely.
 ========================================================= */
 footer{
-  padding-bottom:28px !important;
+  padding-bottom:0 !important;
 }
 
 footer .footer-grid{
   position:relative !important;
   isolation:isolate !important;
-  padding-bottom:30px !important;
+  padding-bottom:0 !important;
+  border-bottom:0 !important;
 }
 
 footer .footer-grid > div{
@@ -249,7 +250,7 @@ footer .footer-grid > div:first-child::before{
   position:absolute !important;
   top:-60px !important;
   right:-24px !important;
-  bottom:-38px !important;
+  bottom:0 !important;
   width:100vw !important;
   background:
     radial-gradient(circle at 22% 18%, rgba(255,255,255,.78) 0%, rgba(255,255,255,0) 36%),
@@ -279,25 +280,16 @@ footer .footer-grid > div:first-child .footer-about{
 }
 
 footer .footer-bottom{
-  position:relative !important;
-  z-index:1 !important;
-  margin-top:16px !important;
-  padding-top:0 !important;
-  color:rgba(255,255,255,.58) !important;
-  font-family:'Open Sans',Arial,sans-serif !important;
-  font-weight:500 !important;
+  display:none !important;
+  height:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+  overflow:hidden !important;
 }
 
 footer .footer-bottom::before{
   content:none !important;
   display:none !important;
-}
-
-footer .footer-bottom p,
-footer .footer-bottom span{
-  color:rgba(255,255,255,.58) !important;
-  font-family:'Open Sans',Arial,sans-serif !important;
-  font-weight:500 !important;
 }
 
 /* Keep footer typography aligned with the rest of the website. */
@@ -445,7 +437,7 @@ footer .footer-col h4{
   footer .footer-grid > div:first-child{
     min-height:auto !important;
     padding:36px 22px !important;
-    margin-bottom:18px !important;
+    margin-bottom:0 !important;
   }
 
   footer .footer-grid > div:first-child::before{
@@ -456,9 +448,5 @@ footer .footer-col h4{
 
   footer .footer-grid > div:first-child .footer-logo-img{
     width:220px !important;
-  }
-
-  footer .footer-bottom{
-    margin-top:14px !important;
   }
 }
