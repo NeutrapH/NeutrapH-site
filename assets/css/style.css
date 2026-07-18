@@ -171,6 +171,47 @@ header .header-cta:hover{
 }
 
 /* =========================================================
+   SECTION INTRO ALIGNMENT
+   Centers the reusable label/title/description/divider intro
+   pattern across pages without changing card or body copy.
+========================================================= */
+.section > .container > .section-label{
+  display:block !important;
+  width:max-content !important;
+  max-width:100% !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  text-align:center !important;
+}
+
+.section > .container > .section-title{
+  max-width:860px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  text-align:center !important;
+}
+
+.section > .container > .section-desc{
+  max-width:760px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  text-align:center !important;
+}
+
+.section > .container > .section-divider{
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+@media(max-width:700px){
+  .section > .container > .section-label,
+  .section > .container > .section-title,
+  .section > .container > .section-desc{
+    max-width:100% !important;
+  }
+}
+
+/* =========================================================
    FOOTER BRAND SECTION
    Uses a soft NeutrapH water-toned panel for the logo/mission
    area while the rest of the footer keeps the dark blue base.
