@@ -1,0 +1,199 @@
+name: Align hero copy positions
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  align-hero-copy:
+    if: ${{ github.actor != 'github-actions[bot]' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Append shared hero alignment CSS
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+
+          const cssPath = 'assets/css/style.css';
+          let css = fs.readFileSync(cssPath, 'utf8');
+
+          const marker = 'DESKTOP HERO COPY ALIGNMENT';
+          if (!css.includes(marker)) {
+            css += `
+
+/* =========================================================
+   DESKTOP HERO COPY ALIGNMENT
+   Keeps every page hero copy aligned to the home page text block.
+========================================================= */
+:root{
+  --neutraph-hero-height:720px;
+  --neutraph-hero-copy-top:88px;
+  --neutraph-hero-copy-width:560px;
+  --neutraph-hero-copy-bottom:70px;
+}
+
+.hero.hero-home-modern,
+.page-hero,
+.subscriptions-hero,
+.refill-hero,
+.dispenser-hero-modern,
+.shop-hero-modern{
+  min-height:var(--neutraph-hero-height) !important;
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+}
+
+.hero.hero-home-modern .hero-home-content,
+.page-hero > .container,
+.subscriptions-hero .container,
+.refill-hero .container,
+.dispenser-hero-modern .container,
+.shop-hero-modern .container{
+  min-height:var(--neutraph-hero-height) !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:flex-start !important;
+  justify-content:flex-start !important;
+  padding-top:var(--neutraph-hero-copy-top) !important;
+  padding-bottom:var(--neutraph-hero-copy-bottom) !important;
+  text-align:left !important;
+}
+
+.hero.hero-home-modern .hero-text,
+.subscriptions-hero .hero-text,
+.refill-hero .refill-text,
+.dispenser-hero-modern .hero-content,
+.shop-hero-modern .hero-content{
+  width:100% !important;
+  max-width:var(--neutraph-hero-copy-width) !important;
+  margin:0 auto 0 0 !important;
+  padding:0 !important;
+  text-align:left !important;
+}
+
+.hero.hero-home-modern .hero-badge,
+.subscriptions-hero .hero-badge,
+.refill-hero .hero-badge,
+.dispenser-hero-modern .hero-breadcrumb,
+.shop-hero-modern .hero-breadcrumb{
+  margin-top:0 !important;
+  margin-bottom:22px !important;
+}
+
+.hero.hero-home-modern .hero-title,
+.page-hero h1,
+.subscriptions-hero h1,
+.refill-hero h1,
+.dispenser-hero-modern h1,
+.shop-hero-modern h1{
+  width:100% !important;
+  max-width:var(--neutraph-hero-copy-width) !important;
+  margin-top:0 !important;
+  margin-left:0 !important;
+  margin-right:auto !important;
+  margin-bottom:24px !important;
+  text-align:left !important;
+}
+
+.hero.hero-home-modern .hero-desc,
+.page-hero p,
+.subscriptions-hero p,
+.refill-hero p,
+.dispenser-hero-modern p,
+.shop-hero-modern p{
+  width:100% !important;
+  max-width:var(--neutraph-hero-copy-width) !important;
+  margin-left:0 !important;
+  margin-right:auto !important;
+  margin-bottom:32px !important;
+  text-align:left !important;
+}
+
+.hero.hero-home-modern .hero-actions,
+.subscriptions-hero .hero-buttons,
+.refill-hero .hero-btns,
+.dispenser-hero-modern .hero-buttons,
+.shop-hero-modern .hero-buttons{
+  justify-content:flex-start !important;
+  margin-left:0 !important;
+  margin-right:auto !important;
+}
+
+@media(max-width:760px){
+  :root{
+    --neutraph-hero-height:560px;
+    --neutraph-hero-copy-top:60px;
+    --neutraph-hero-copy-bottom:60px;
+  }
+
+  .hero.hero-home-modern .hero-home-content,
+  .page-hero > .container,
+  .subscriptions-hero .container,
+  .refill-hero .container,
+  .dispenser-hero-modern .container,
+  .shop-hero-modern .container{
+    align-items:center !important;
+    justify-content:center !important;
+    text-align:center !important;
+  }
+
+  .hero.hero-home-modern .hero-text,
+  .subscriptions-hero .hero-text,
+  .refill-hero .refill-text,
+  .dispenser-hero-modern .hero-content,
+  .shop-hero-modern .hero-content,
+  .page-hero h1,
+  .page-hero p{
+    margin-left:auto !important;
+    margin-right:auto !important;
+    text-align:center !important;
+  }
+
+  .hero.hero-home-modern .hero-title,
+  .page-hero h1,
+  .subscriptions-hero h1,
+  .refill-hero h1,
+  .dispenser-hero-modern h1,
+  .shop-hero-modern h1,
+  .hero.hero-home-modern .hero-desc,
+  .page-hero p,
+  .subscriptions-hero p,
+  .refill-hero p,
+  .dispenser-hero-modern p,
+  .shop-hero-modern p{
+    text-align:center !important;
+  }
+}
+`;
+
+            fs.writeFileSync(cssPath, css);
+            console.log('Appended shared hero alignment CSS');
+          } else {
+            console.log('Hero alignment CSS already present');
+          }
+
+          const workflowPath = '.github/workflows/align-hero-copy.yml';
+          if (fs.existsSync(workflowPath)) {
+            fs.rmSync(workflowPath);
+            console.log('Removed temporary workflow');
+          }
+          NODE
+
+      - name: Commit hero alignment
+        run: |
+          if git diff --quiet; then
+            echo "No hero alignment changes needed."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Align hero text positions"
+          git push
