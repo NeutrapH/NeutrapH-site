@@ -1,7 +1,10 @@
 /*
   NeutrapH PayFast frontend integration for GitHub Pages.
 
-  REQUIRED SETUP:
+  PayFast is currently disabled on the public website. Set
+  PAYFAST_ENABLED to true when checkout buttons should be shown again.
+
+  REQUIRED SETUP WHEN RE-ENABLING:
   1. Replace PAYFAST_MERCHANT_ID_HERE with your live PayFast Merchant ID.
   2. Replace PAYFAST_MERCHANT_KEY_HERE with your live PayFast Merchant Key.
   3. GitHub Pages cannot run a PayFast backend or ITN endpoint.
@@ -11,6 +14,55 @@
 */
 
 (function(){
+  const PAYFAST_ENABLED = false;
+
+  function applyDormantStorefrontUpdates(){
+    const planPrices = {
+      'Starter Plan': 'R249',
+      'Standard Plan': 'R399',
+      'Business Plan': 'R549'
+    };
+
+    document.querySelectorAll('.sub-card').forEach(card => {
+      const titleEl = card.querySelector('.sub-card-header h3, h3');
+      const priceEl = card.querySelector('.sub-price');
+      if(!titleEl || !priceEl) return;
+
+      const updatedPrice = planPrices[titleEl.textContent.trim()];
+      if(!updatedPrice) return;
+
+      const suffix = priceEl.querySelector('span') ? priceEl.querySelector('span').outerHTML : '<span>/month</span>';
+      priceEl.innerHTML = `${updatedPrice} ${suffix}`;
+    });
+
+    document.querySelectorAll('option').forEach(option => {
+      option.textContent = option.textContent
+        .replace('Starter Plan - R299/month', 'Starter Plan - R249/month')
+        .replace('Standard Plan - R499/month', 'Standard Plan - R399/month')
+        .replace('Business Plan - R899/month', 'Business Plan - R549/month');
+    });
+
+    document.querySelectorAll('.section-desc').forEach(desc => {
+      if(desc.textContent.includes('PayFast')){
+        desc.textContent = 'Order through WhatsApp for packaged water, bulk orders and delivery support.';
+      }
+    });
+
+    document.querySelectorAll('.payfast-card-actions').forEach(block => block.remove());
+  }
+
+  function runDormantStorefrontUpdates(){
+    if(document.readyState === 'loading'){
+      document.addEventListener('DOMContentLoaded', applyDormantStorefrontUpdates);
+    }else{
+      applyDormantStorefrontUpdates();
+    }
+  }
+
+  runDormantStorefrontUpdates();
+
+  if(!PAYFAST_ENABLED) return;
+
   const PAYFAST_CONFIG = {
     merchantId: 'PAYFAST_MERCHANT_ID_HERE',
     merchantKey: 'PAYFAST_MERCHANT_KEY_HERE',
@@ -25,9 +77,9 @@
     'water-dispenser-option-1': { name: 'Water Dispenser Option 1', description: 'Standard hot and cold water dispenser', amount: '1999.99' },
     'water-dispenser-option-2': { name: 'Water Dispenser Option 2', description: 'Water dispenser with 5 stage RO filters', amount: '2499.99' },
     'water-dispenser-option-3': { name: 'Water Dispenser Option 3', description: 'Premium water dispenser', amount: '2999.99' },
-    'subscription-starter': { name: 'Subscription Package', description: 'Starter subscription package - R299/month', amount: '299.00' },
-    'subscription-standard': { name: 'Standard Subscription Package', description: 'Standard subscription package - R499/month', amount: '499.00' },
-    'subscription-business': { name: 'Business Subscription Package', description: 'Business subscription package - R899/month', amount: '899.00' },
+    'subscription-starter': { name: 'Subscription Package', description: 'Starter subscription package - R249/month', amount: '249.00' },
+    'subscription-standard': { name: 'Standard Subscription Package', description: 'Standard subscription package - R399/month', amount: '399.00' },
+    'subscription-business': { name: 'Business Subscription Package', description: 'Business subscription package - R549/month', amount: '549.00' },
     'pack-water-500ml-6pack': { name: '6x500ml Water Bottles', description: '6 pack of 500ml NeutrapH water bottles', amount: '49.99', quantitySelectId: 'qty-6x500mlWaterBottles' },
     'pack-water-1-5l-6pack': { name: '6x1.5L Water Bottles', description: '6 pack of 1.5L NeutrapH water bottles', amount: '99.99', quantitySelectId: 'qty-6x15LWaterBottles' },
     'pack-water-5l': { name: '5L Water Bottle', description: '5L NeutrapH water bottle', amount: '39.99', quantitySelectId: 'qty-5LWaterBottle' },
