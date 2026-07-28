@@ -449,6 +449,32 @@ footer .footer-col h4{
   footer .footer-grid > div:first-child .footer-logo-img{
     width:220px !important;
   }
+
+  .sticky-mobile-cta{
+    left:auto !important;
+    right:18px !important;
+    bottom:18px !important;
+    width:56px !important;
+    height:56px !important;
+    min-width:56px !important;
+    min-height:56px !important;
+    padding:0 !important;
+    border-radius:50% !important;
+    display:grid !important;
+    place-items:center !important;
+    font-size:0 !important;
+    line-height:0 !important;
+    color:transparent !important;
+    overflow:hidden !important;
+  }
+
+  .sticky-mobile-cta::before{
+    content:"" !important;
+    width:28px !important;
+    height:28px !important;
+    display:block !important;
+    background:url("https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg") center/contain no-repeat !important;
+  }
 }
 
 /* =========================================================
