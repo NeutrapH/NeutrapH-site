@@ -978,3 +978,19 @@ function normalizeHeroHeights(){
     }
   });
 })();
+
+(function(){
+  function updateDisplayedAddress(){
+    const newAddress = 'Welverdiend, Bushbuckridge,1363<br>Mpumalanga, South Africa';
+
+    document.querySelectorAll('.contact-row-text').forEach(item => {
+      const currentHtml = item.innerHTML || '';
+      if(currentHtml.includes('Welverdiend, Bushbuckridge') && currentHtml.includes('Mpumalanga, South Africa')){
+        item.innerHTML = newAddress;
+      }
+    });
+  }
+
+  updateDisplayedAddress();
+  window.addEventListener('load', updateDisplayedAddress);
+})();
