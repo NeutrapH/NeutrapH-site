@@ -7,12 +7,16 @@ The site remains a pre-launch enquiry site. Production uses GitHub Pages from `m
 - Explicit pre-launch status on all public pages, including payment pages.
 - Removed customer history, completed launches, popularity claims, active walk-in availability and unsupported safety/approval claims.
 - Retired the archived homepage to prevent obsolete claims being served directly.
-- Replaced unapproved prices and package commitments with pending information. Original values remain in Git history; no new prices were invented.
+- Restored the previous displayed prices as explicitly labelled placeholders at the owner’s request. Final launch pricing remains subject to costing and confirmation; package commitments remain pending.
 - Unified accessible launch-enquiry forms, correct plan/service preselection, channel-specific contact requirements, honest draft confirmation and copy fallback.
 - Added a factual enquiry privacy notice and launch-information page.
 - Removed checkout scripts from public pages; payment-result pages no longer claim a transaction outcome and their contact buttons have visible contrast.
 - Compressed primary PNG assets to WebP, generated smaller image sources and added lazy loading below the fold.
 - Removed obsolete build-time rewriting of founder claims.
+
+## Owner-confirmed current status
+
+Placeholder prices are approved for display only. Water-test evidence is pending. Equipment specifications and operating terms are not yet available. These pending items do not block the pre-launch enquiry site; they must be resolved before trading.
 
 ## Business decisions and evidence still required before trading
 

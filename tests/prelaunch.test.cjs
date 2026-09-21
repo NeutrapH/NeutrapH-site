@@ -6,13 +6,32 @@ const vm = require('node:vm');
 const root = path.join(__dirname, '..');
 const pages = fs.readdirSync(root).filter(n => n.endsWith('.html'));
 
-test('Every public page is explicitly pre-launch with no checkout or unapproved prices', () => {
+test('Every public page is explicitly pre-launch without checkout or unsupported claims', () => {
   for (const name of pages) {
     const html = fs.readFileSync(path.join(root, name), 'utf8');
     assert.match(html, /class="launch-notice"/, name);
     assert.equal((html.match(/<h1\b/g) || []).length, 1, name);
-    assert.doesNotMatch(html, /Most Popular|Best Seller|Health Regulation Approved|Today we serve|First schools and churches onboarded|R\d+(?:[,.]\d+)?|src="assets\/js\/payfast.js"/, name);
+    assert.doesNotMatch(html, /Most Popular|Best Seller|Health Regulation Approved|Today we serve|First schools and churches onboarded|src="assets\/js\/payfast.js"/, name);
   }
+});
+
+test('Displayed prices match the agreed placeholders and each carries a qualification', () => {
+  const expected = {
+    'index.html': ['249', '399', '549'],
+    'subscriptions.html': ['249', '399', '549'],
+    'Shop.html': ['49.99', '99.99', '39.99', '59.99', '119.99'],
+    'water-dispensers.html': ['1,999.99', '2,499.99', '2,999.99'],
+    'refilling-station.html': ['2.50']
+  };
+  for (const [page, prices] of Object.entries(expected)) {
+    const html = fs.readFileSync(path.join(root, page), 'utf8');
+    assert.deepEqual([...html.matchAll(/\bR([\d,.]+)/g)].map(m => m[1]), prices, page);
+    assert.equal((html.match(/Placeholder price · subject to change before launch/g) || []).length, prices.length, page);
+  }
+  const launch = fs.readFileSync(path.join(root, 'launch-information.html'), 'utf8');
+  assert.match(launch, /Water-test evidence is pending/);
+  assert.match(launch, /Equipment specifications are not yet available/);
+  assert.match(launch, /Operating terms are not yet available/);
 });
 
 test('Local linked resources and IDs exist, including responsive images', () => {
