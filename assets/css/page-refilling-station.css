@@ -1,0 +1,135 @@
+
+
+/* =========================
+   REFILLING STATION HERO
+========================= */
+
+.refill-hero{
+    position: relative;
+    min-height: 720px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,32,96,0.96) 0%,
+        rgba(0,78,180,0.88) 38%,
+        rgba(0,132,255,0.20) 68%,
+        rgba(255,255,255,0.00) 100%
+    ),
+    url("../images/hero-refilling-station.webp");
+
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+}
+
+.refill-hero-content{
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.refill-text{
+    max-width: 620px;
+    padding: 80px 0;
+}
+
+.refill-text h1{
+    font-size: 6rem;
+    line-height: 0.95;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 26px;
+    letter-spacing: -3px;
+}
+
+.refill-text p{
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 38px;
+    max-width: 560px;
+}
+
+.hero-badge{
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.hero-btns{
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.btn-outline{
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.55);
+    color: #ffffff;
+}
+
+.btn-outline:hover{
+    background: #ffffff;
+    color: #0056b3;
+}
+
+.detail-img img{
+    width: 100%;
+    max-width: 650px;
+    border-radius: 28px;
+    object-fit: cover;
+    display: block;
+    margin: auto;
+}
+
+@media(max-width: 991px){
+
+    .refill-hero{
+        min-height: 640px;
+
+        background:
+        linear-gradient(
+            180deg,
+            rgba(0,32,96,0.92) 0%,
+            rgba(0,78,180,0.78) 50%,
+            rgba(0,132,255,0.28) 100%
+        ),
+        url("../images/hero-refilling-station.webp");
+
+        background-position: center;
+    }
+
+    .refill-text{
+        max-width: 100%;
+        text-align: center;
+        padding: 40px 0;
+    }
+
+    .refill-text h1{
+        font-size: 4rem;
+    }
+
+    .refill-text p{
+        font-size: 1.1rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-btns{
+        justify-content: center;
+    }
+}
+

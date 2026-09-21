@@ -12,7 +12,10 @@ The historical payment setup below is not launch approval. Public pages do not l
 
 - `index.html` and the other root `.html` files are the public website pages.
 - `assets/css/style.css` contains the shared site styles.
-- `assets/js/script.js` contains the shared navigation, WhatsApp order, and form helpers.
+- `assets/css/layout.css` contains the former runtime layout rules; `page-*.css` holds page-specific styles and `usability.css` holds responsive/accessibility improvements. Layout is not injected by JavaScript.
+- `assets/js/script.js` contains shared navigation, WhatsApp enquiry, and form helpers.
+- `templates/header.html` and `templates/footer.html` are the shared navigation/contact sources. After editing them, run `node scripts/sync-shared.cjs` and commit the generated root HTML. Run with `--check` to detect drift.
+- `sitemap.xml` lists indexable pages; `robots.txt` points crawlers to it. Keep page titles, descriptions, canonical links and social previews current when adding pages.
 - `assets/images/` contains all image assets with lowercase, web-safe filenames.
 - `archive/` contains old backup files that are not part of the live site.
 
