@@ -1,88 +1,14 @@
 const phone = '27798134597';
-
-function toggleMenu(){
-  document.querySelector('nav').classList.toggle('open');
-}
-
-function toggleInfo(btn){
-  const info = btn.nextElementSibling;
-  const hidden = info.style.display === 'none' || !info.style.display;
-  info.style.display = hidden ? 'block' : 'none';
-  btn.textContent = hidden ? 'Hide Product Information' : 'View Product Information';
-}
-
-function toggleIngredients(btn){
-  const info = btn.nextElementSibling;
-  const hidden = info.style.display === 'none' || !info.style.display;
-  info.style.display = hidden ? 'block' : 'none';
-  btn.textContent = hidden ? 'Hide Ingredients' : 'View Ingredients';
-}
-
-function toggleProductInfo(id){
-  const info = document.getElementById(id);
-  if(!info) return;
-  const hidden = info.style.display === 'none' || !info.style.display;
-  info.style.display = hidden ? 'block' : 'none';
-}
-
-function orderProduct(product){
-  const qtyField = document.getElementById('qty-' + product.replace(/[^a-z0-9]/gi, ''));
-  const qty = qtyField ? qtyField.value : '1';
-  const msg = `Hi NeutrapH, I would like to order ${qty} x ${product}. Please confirm delivery and payment details.`;
-  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
-}
-
-function showFormConfirmation(form){
-  if(!form) return;
-
-  const buttons = form.querySelector('.form-buttons');
-  if(!buttons) return;
-
-  let confirmation = form.querySelector('.form-confirmation');
-  if(!confirmation){
-    confirmation = document.createElement('p');
-    confirmation.className = 'form-confirmation';
-    buttons.insertAdjacentElement('afterend', confirmation);
-  }
-
-  confirmation.textContent = '✅ Your details are ready to send. Complete the action in WhatsApp or your email app.';
-}
-
-function submitLead(e){
-  e.preventDefault();
-  const f = new FormData(e.target);
-  let msg = 'Hi NeutrapH, I would like to sign up / enquire.\n\n';
-
-  for(const [k, v] of f.entries()){
-    if(v) msg += `${k}: ${v}\n`;
-  }
-
-  showFormConfirmation(e.target);
-  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
-}
-
-function submitLeadEmail(){
-  const form = document.querySelector('.form');
-  if(!form) return;
-
-  if(!form.checkValidity()){
-    form.reportValidity();
-    return;
-  }
-
-  const f = new FormData(form);
-  let msg = 'New NeutrapH Order / Subscription Enquiry\n\n';
-
-  for(const [k, v] of f.entries()){
-    if(v) msg += `${k}: ${v}\n`;
-  }
-
-  showFormConfirmation(form);
-  window.location.href =
-    'mailto:info@neutraph.co.za' +
-    '?subject=' + encodeURIComponent('New NeutrapH Enquiry') +
-    '&body=' + encodeURIComponent(msg);
-}
+function toggleMenu(){const nav=document.querySelector('nav');const button=document.querySelector('.menu-toggle');const open=nav.classList.toggle('open');button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Close menu':'Open menu');}
+function toggleProductInfo(id){const info=document.getElementById(id);if(!info)return;const open=info.style.display==='none'||!info.style.display;info.style.display=open?'block':'none';const btn=document.querySelector('[aria-controls="'+id+'"]');if(btn)btn.setAttribute('aria-expanded',String(open));}
+function orderProduct(product){const input=document.getElementById('qty-'+product.replace(/[^a-z0-9]/gi,''));const qty=input?input.value:'1';const msg='Hi NeutrapH, I am interested in the planned '+product+' (quantity: '+qty+'). Please share information about launch availability. This is an enquiry, not an order.';window.open('https://wa.me/'+phone+'?text='+encodeURIComponent(msg),'_blank','noopener');}
+function enquiryText(form){const rows=['NeutrapH pre-launch enquiry (not an order)',''];for(const [key,value] of new FormData(form)){if(value){const field=form.elements.namedItem(key);const text=field&&field.tagName==='SELECT'?field.selectedOptions[0].textContent:value;rows.push(key+': '+text);}}return rows.join('\n');}
+function validateEnquiry(form,channel){form.elements.namedItem('Phone').required=channel==='whatsapp';form.elements.namedItem('Email').required=channel==='email';return form.reportValidity();}
+function showFormConfirmation(form){form.querySelector('.form-confirmation').textContent='Your draft is ready. Review and send it in your chosen app. This page has not submitted an enquiry or placed an order.';form.querySelector('#enquiry-copy').value=enquiryText(form);}
+function submitLead(e){e.preventDefault();const form=e.target;if(!validateEnquiry(form,'whatsapp'))return;showFormConfirmation(form);window.open('https://wa.me/'+phone+'?text='+encodeURIComponent(enquiryText(form)),'_blank','noopener');}
+function submitLeadEmail(){const form=document.querySelector('.form');if(!form||!validateEnquiry(form,'email'))return;showFormConfirmation(form);window.location.href='mailto:info@neutraph.co.za?subject='+encodeURIComponent('NeutrapH pre-launch enquiry')+'&body='+encodeURIComponent(enquiryText(form));}
+function prepareEnquiryCopy(button){const form=button.closest('form');const output=form.querySelector('#enquiry-copy');output.value=enquiryText(form);output.focus();output.select();}
+(function(){const form=document.querySelector('.form');if(!form)return;const params=new URLSearchParams(location.search);const allowed=['starter','standard','business','general','packaged','dispenser','refill','purification'];const chosen=params.get('plan')||params.get('service');if(allowed.includes(chosen))form.elements.namedItem('Interest').value=chosen;form.querySelector('button[type="submit"]').addEventListener('click',()=>{form.elements.namedItem('Phone').required=true;form.elements.namedItem('Email').required=false;});})();
 
 (function(){
   if(document.getElementById('neutraph-layout-polish')) return;
@@ -340,13 +266,13 @@ function submitLeadEmail(){
     .page-water-purification .page-hero{
       background-image:
         linear-gradient(90deg,rgba(3,30,83,.98) 0%,rgba(4,55,120,.90) 36%,rgba(0,119,182,.42) 62%,rgba(0,119,182,.08) 100%),
-        url("assets/images/ro-filter.png") !important;
+        url("assets/images/ro-filter.webp") !important;
     }
 
     .page-contact .page-hero{
       background-image:
         linear-gradient(90deg,rgba(3,30,83,.98) 0%,rgba(4,55,120,.90) 36%,rgba(0,119,182,.40) 64%,rgba(0,119,182,.08) 100%),
-        url("assets/images/hero-home.png") !important;
+        url("assets/images/hero-home.webp") !important;
     }
 
     .page-water-purification .page-hero > .container,
@@ -975,6 +901,8 @@ function normalizeHeroHeights(){
     if(!nav || !btn) return;
     if(nav.classList.contains('open') && !nav.contains(e.target) && !btn.contains(e.target)){
       nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Open menu');
     }
   });
 })();
@@ -994,3 +922,5 @@ function normalizeHeroHeights(){
   updateDisplayedAddress();
   window.addEventListener('load', updateDisplayedAddress);
 })();
+
+document.addEventListener('keydown', function(event){if(event.key!=='Escape')return;const nav=document.querySelector('nav');const button=document.querySelector('.menu-toggle');if(nav&&button&&nav.classList.contains('open')){nav.classList.remove('open');button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Open menu');button.focus();}});

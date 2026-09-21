@@ -1,5 +1,7 @@
 # PayFast Setup
 
+**Pre-launch: payments are closed.** The integration notes below describe historical code, not a ready checkout. Public pages no longer load `payfast.js`, payment-result pages show no transaction outcome, and optional serverless payment creation returns 503 unless `NEUTRAPH_CHECKOUT_ENABLED=true`. Do not enable that flag before final pricing, sales terms, verified payment status, notifications and transaction tests are complete. See `LAUNCH_READINESS.md`.
+
 The website still works as a static GitHub Pages site. PayFast has two supported paths:
 
 1. Static GitHub Pages form submission from `assets/js/payfast.js`.

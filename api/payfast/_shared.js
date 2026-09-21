@@ -102,6 +102,11 @@ function validateOrder(input = {}){
 }
 
 function createPayment(input = {}){
+  // Pre-launch: keep both optional serverless adapters closed even if credentials exist.
+  // Replace this gate only after the payment-readiness review and transaction tests.
+  if (process.env.NEUTRAPH_CHECKOUT_ENABLED !== 'true') {
+    throw new HttpError(503, 'NeutrapH is not accepting payments before launch');
+  }
   const order = validateOrder(input);
   const fields = {
     merchant_id: env('PAYFAST_MERCHANT_ID'),
