@@ -2,6 +2,12 @@
 
 Static GitHub Pages website for NeutrapH.
 
+## Current pre-launch state
+
+Orders, payments and walk-in refills are closed. Public prices are explicitly labelled placeholders, approved for display only. Package commitments, water-test evidence, equipment specifications and operating terms remain pending. See `LAUNCH_READINESS.md` for outstanding owner decisions. Run `node tests/prelaunch.test.cjs` and `node netlify/prepare-build.js` before publishing. Source HTML owns the business copy; build scripts must not rewrite it.
+
+The historical payment setup below is not launch approval. Public pages do not load `payfast.js`. Optional serverless checkout creation rejects requests unless `NEUTRAPH_CHECKOUT_ENABLED=true`; do not set that flag until payment readiness is reviewed and tested.
+
 ## Structure
 
 - `index.html` and the other root `.html` files are the public website pages.

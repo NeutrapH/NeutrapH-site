@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Buy purified packaged water from NeutrapH in 500ml, 1.5L, 5L and 10L options. Delivered to homes, schools and businesses in Bushbuckridge.">
+  <meta name="description" content="NeutrapH is preparing to launch water services in Bushbuckridge. Explore our planned range and register interest. Orders and refills are not yet available.">
   <meta name="keywords" content="water delivery Bushbuckridge, purified water, water dispenser rental, packaged water, reverse osmosis, NeutrapH">
   <meta property="og:title" content="NeutrapH - Balanced Water. Better Life.">
-  <meta property="og:description" content="Affordable purified water solutions, subscriptions and packaged water for schools, churches, offices and communities.">
+  <meta property="og:description" content="NeutrapH is preparing to launch in Bushbuckridge. Explore planned water services and register interest.">
   <meta property="og:type" content="website">
-  <title>Buy Packaged Water Online | NeutrapH Shop</title>
-  <link rel="icon" href="favicon.ico">
+  <title>Planned Packaged Water Range | NeutrapH</title>
+  <link rel="icon" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/prelaunch.css">
 
 <style>
 /* NeutrapH packaged-water shop improvements */
@@ -30,12 +31,12 @@
 <header>
   <div class="container nav-wrap">
 <a href="index.html" class="logo-area">
-  <img src="assets/images/neutraph-secondary-logo.png" alt="NeutrapH Logo" class="site-logo">
+  <img src="assets/images/neutraph-secondary-logo.webp" alt="NeutrapH Logo" class="site-logo" width="560" height="373" decoding="async">
 </a>
 
-    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Open menu">&#9776;</button>
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="site-navigation">&#9776;</button>
 
-    <nav>
+    <nav id="site-navigation">
       <a href="index.html" data-page="index.html">Home</a>
       <a href="water-purification.html" data-page="water-purification.html">Purification</a>
       <a href="water-dispensers.html" data-page="water-dispensers.html">Dispensers</a>
@@ -47,10 +48,11 @@
     </nav>
 
     <a href="https://wa.me/27798134597" target="_blank" class="header-cta">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="wa-icon-sm" alt="">Order Now
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="wa-icon-sm" alt="">Enquire
     </a>
   </div>
 </header>
+<aside class="launch-notice" aria-label="Launch status"><div class="container"><strong>Preparing to launch</strong> NeutrapH has not started trading. Orders, deliveries and walk-in refills are not yet available. <a href="contact.html">Register your interest</a>.</div></aside>
 <main>
 <section class="shop-hero-modern">
   <div class="container">
@@ -68,12 +70,12 @@
       </p>
       <div class="hero-buttons">
         <a class="hero-btn primary" href="#shop-products">
-          Shop Products
+          View Planned Products
         </a>
         <a class="hero-btn secondary"
            href="https://wa.me/27798134597"
            target="_blank">
-          Order on WhatsApp
+          Enquire on WhatsApp
         </a>
       </div>
     </div>
@@ -86,7 +88,7 @@
         <aside class="shop-sidebar">
           <h3>Shop by Category</h3>
           <a class="size-filter active" href="#shop-products">All Products <small>5</small></a>
-          <a class="size-filter" href="#bottled-water">Packaged Water <small>5</small></a>
+          <a class="size-filter" href="#bottled-water">Packaged Water <small>4</small></a>
           <a class="size-filter" href="#dispenser-bottles">Dispenser Bottles <small>1</small></a>
           <div class="help-card">
             <h3>Need Help?</h3>
@@ -98,43 +100,42 @@
         <div>
           <div class="shop-head-row">
             <div>
-              <span class="section-label">Shop Now</span>
+              <span class="section-label">Planned range</span>
               <h2 class="section-title">NeutrapH Water Shop</h2>
-              <p class="section-desc">Order through WhatsApp for packaged water, bulk orders and delivery support.</p>
+              <p class="section-desc">Enquire about the planned range on WhatsApp. Prices, availability, delivery and payment arrangements are not yet confirmed.</p>
               <div class="section-divider"></div>
             </div>
           </div>
 
           <div class="shop-grid improved" id="bottled-water">
-            <div class="shop-card"><span class="product-badge">6 Pack</span><div class="shop-img-wrap"><img src="assets/images/product-water-500ml-6pack.png" alt="6x500ml Water Bottles"></div><div class="shop-body"><div class="shop-price">R49,99</div><div class="shop-size-label">6 x 500ml Plastic Bottles</div><div class="shop-qty-row"><label>Qty:</label><select id="qty-6x500mlWaterBottles"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><button class="shop-btn" onclick="orderProduct('6x500ml Water Bottles')">Order on WhatsApp</button></div></div>
-            <div class="shop-card"><span class="product-badge">6 Pack</span><div class="shop-img-wrap"><img src="assets/images/product-water-1-5l-6pack.png" alt="6x1.5L Water Bottles"></div><div class="shop-body"><div class="shop-price">R99,99</div><div class="shop-size-label">6 x 1.5L Plastic Bottles</div><div class="shop-qty-row"><label>Qty:</label><select id="qty-6x15LWaterBottles"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><button class="shop-btn" onclick="orderProduct('6x1.5L Water Bottles')">Order on WhatsApp</button></div></div>
-            <div class="shop-card"><span class="product-badge best">Best Seller</span><div class="shop-img-wrap"><img src="assets/images/product-water-5l.png" alt="5L Water Bottle"></div><div class="shop-body"><div class="shop-price">R39,99</div><div class="shop-size-label">5L Plastic Bottle</div><div class="shop-qty-row"><label>Qty:</label><select id="qty-5LWaterBottle"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><button class="shop-btn" onclick="orderProduct('5L Water Bottle')">Order on WhatsApp</button></div></div>
-            <div class="shop-card"><span class="product-badge">10L</span><div class="shop-img-wrap"><img src="assets/images/product-water-10l.png" alt="10L Water Bottle"></div><div class="shop-body"><div class="shop-price">R59,99</div><div class="shop-size-label">10L Plastic Bottle</div><div class="shop-qty-row"><label>Qty:</label><select id="qty-10LWaterBottle"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><button class="shop-btn" onclick="orderProduct('10L Water Bottle')">Order on WhatsApp</button></div></div>
+            <div class="shop-card"><span class="product-badge">6 Pack</span><div class="shop-img-wrap"><img src="assets/images/product-water-500ml-6pack.webp" alt="6x500ml Water Bottles" width="960" height="804" decoding="async" loading="lazy" srcset="assets/images/product-water-500ml-6pack-480.webp 480w, assets/images/product-water-500ml-6pack.webp 960w" sizes="(max-width: 700px) 90vw, (max-width: 1050px) 45vw, 400px"></div><div class="shop-body"><div class="shop-price price-placeholder">R49.99 <span class="price-unit">/6-pack</span><small class="price-disclaimer">Placeholder price · subject to change before launch</small></div><div class="shop-size-label">6 x 500ml Plastic Bottles</div><div class="shop-qty-row"><label for="qty-6x500mlWaterBottles">Quantity of packs / bottles:</label><select id="qty-6x500mlWaterBottles"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><button class="shop-btn" onclick="orderProduct('6x500ml Water Bottles')">Enquire on WhatsApp</button></div></div>
+            <div class="shop-card"><span class="product-badge">6 Pack</span><div class="shop-img-wrap"><img src="assets/images/product-water-1-5l-6pack.webp" alt="6x1.5L Water Bottles" width="960" height="804" decoding="async" loading="lazy" srcset="assets/images/product-water-1-5l-6pack-480.webp 480w, assets/images/product-water-1-5l-6pack.webp 960w" sizes="(max-width: 700px) 90vw, (max-width: 1050px) 45vw, 400px"></div><div class="shop-body"><div class="shop-price price-placeholder">R99.99 <span class="price-unit">/6-pack</span><small class="price-disclaimer">Placeholder price · subject to change before launch</small></div><div class="shop-size-label">6 x 1.5L Plastic Bottles</div><div class="shop-qty-row"><label for="qty-6x15LWaterBottles">Quantity of packs / bottles:</label><select id="qty-6x15LWaterBottles"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><button class="shop-btn" onclick="orderProduct('6x1.5L Water Bottles')">Enquire on WhatsApp</button></div></div>
+            <div class="shop-card"><span class="product-badge best">Planned product</span><div class="shop-img-wrap"><img src="assets/images/product-water-5l.webp" alt="5L Water Bottle" width="960" height="960" decoding="async" loading="lazy" srcset="assets/images/product-water-5l-480.webp 480w, assets/images/product-water-5l.webp 960w" sizes="(max-width: 700px) 90vw, (max-width: 1050px) 45vw, 400px"></div><div class="shop-body"><div class="shop-price price-placeholder">R39.99 <span class="price-unit">/bottle</span><small class="price-disclaimer">Placeholder price · subject to change before launch</small></div><div class="shop-size-label">5L Plastic Bottle</div><div class="shop-qty-row"><label for="qty-5LWaterBottle">Quantity of packs / bottles:</label><select id="qty-5LWaterBottle"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><button class="shop-btn" onclick="orderProduct('5L Water Bottle')">Enquire on WhatsApp</button></div></div>
+            <div class="shop-card"><span class="product-badge">10L</span><div class="shop-img-wrap"><img src="assets/images/product-water-10l.webp" alt="10L Water Bottle" width="960" height="960" decoding="async" loading="lazy" srcset="assets/images/product-water-10l-480.webp 480w, assets/images/product-water-10l.webp 960w" sizes="(max-width: 700px) 90vw, (max-width: 1050px) 45vw, 400px"></div><div class="shop-body"><div class="shop-price price-placeholder">R59.99 <span class="price-unit">/bottle</span><small class="price-disclaimer">Placeholder price · subject to change before launch</small></div><div class="shop-size-label">10L Plastic Bottle</div><div class="shop-qty-row"><label for="qty-10LWaterBottle">Quantity of packs / bottles:</label><select id="qty-10LWaterBottle"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><button class="shop-btn" onclick="orderProduct('10L Water Bottle')">Enquire on WhatsApp</button></div></div>
             <div class="shop-card" id="dispenser-bottles">
 
   <span class="product-badge">18.9L </span>
 
   <div class="shop-img-wrap">
-    <img src="assets/images/product-water-18-9l-dispenser-bottle.png"
-         alt="18.9L Water Dispenser Bottle">
+    <img src="assets/images/product-water-18-9l-dispenser-bottle.webp"
+         alt="18.9L Water Dispenser Bottle" width="960" height="640" decoding="async" loading="lazy" srcset="assets/images/product-water-18-9l-dispenser-bottle-480.webp 480w, assets/images/product-water-18-9l-dispenser-bottle.webp 960w" sizes="(max-width: 700px) 90vw, (max-width: 1050px) 45vw, 400px">
   </div>
 
   <div class="shop-body">
 
-    <div class="shop-price">R119,99</div>
+    <div class="shop-price price-placeholder">R119.99 <span class="price-unit">/bottle</span><small class="price-disclaimer">Placeholder price · subject to change before launch</small></div>
 
     <div class="shop-size-label">
-      NeutrapH Water Dispenser Bottle 18.9L Poly-Carbonate
+      Planned 18.9 L Water Dispenser Bottle
     </div>
 
     <p class="product-desc">
-      Premium reusable 18.9L poly-carbonate water dispenser bottle
-      designed for home, office and commercial water dispensers.
+      A reusable 18.9 L bottle is being considered. Final material, compatibility and whether it is supplied empty, filled or on exchange are still to be confirmed.
     </p>
 
     <!-- DETAILS BUTTON -->
     <button class="info-toggle"
-      onclick="toggleProductInfo('dispenserBottleInfo')">
+      onclick="toggleProductInfo('dispenserBottleInfo')" aria-controls="dispenserBottleInfo" aria-expanded="false">
       View Product Details
     </button>
 
@@ -143,24 +144,12 @@
          id="dispenserBottleInfo"
          style="display:none;">
 
-      <ul>
-        <li>18.9L / Capacity</li>
-        <li>55mm Neck Size</li>
-        <li>270mm Diameter</li>
-        <li>490mm Height</li>
-        <li>Durable Poly-Carbonate Material</li>
-        <li>Health Regulation Approved</li>
-        <li>Suitable for Most Water Dispensers</li>
-        <li>Reusable & Long Lasting</li>
-        <li>Ideal for Homes & Offices</li>
-      </ul>
+      <ul><li>Proposed capacity: 18.9 L</li><li>Final dimensions, material and compatibility to be confirmed</li><li>Empty/filled supply and exchange terms to be confirmed</li></ul>
 
     </div>
 
     <div class="shop-qty-row">
-      <label>Qty:</label>
-
-      <select id="qty-189LWaterDispenserBottle">
+      <label for="qty-189LWaterDispenserBottle">Quantity of packs / bottles:</label><select id="qty-189LWaterDispenserBottle">
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -172,7 +161,7 @@
     <button class="shop-btn"
       onclick="orderProduct('18.9L Water Dispenser Bottle')">
 
-      Order on WhatsApp
+      Enquire on WhatsApp
 
     </button>
 
@@ -181,7 +170,7 @@
 </div>
 
                     <div class="bulk-order-strip">
-            <div><strong>Bulk Orders?</strong> Need larger quantities for your business, school, church or event?</div>
+            <div><strong>Bulk Enquiries?</strong> Need larger quantities for your business, school, church or event?</div>
             <a class="shop-btn" href="https://wa.me/27798134597" target="_blank">Contact Us on WhatsApp</a>
           </div>
 
@@ -189,11 +178,11 @@
       </div>
     </div>
   </section>
-</main><footer id="contact"><div class="container">
+<section class="section"><div class="container prelaunch-note"><h2>Enquiries only</h2><p>A WhatsApp draft records the product and quantity you are interested in. It is not an order or payment request. Final prices, packaging, delivery charges and purchase terms will be provided before orders open.</p><a href="water-dispensers.html">Explore planned dispenser options</a></div></section></main><footer id="contact"><div class="container">
   <div class="footer-grid">
-    <div><img src="assets/images/neutraph-logo.png" class="footer-logo-img" alt="NeutrapH Logo" onerror="this.style.display='none'"><p class="footer-about">Our mission is to deliver clean, safe drinking water to every community. Serving Bushbuckridge and surrounding communities.</p></div>
-    <div class="footer-col"><h4>Quick Links</h4><div class="footer-links"><a href="index.html">Home</a><a href="water-purification.html">Water Purification</a><a href="water-dispensers.html">Water Dispensers</a><a href="subscriptions.html">Subscription Plans</a><a href="Shop.html">Packaged Water</a><a href="about.html">About Us</a><a href="contact.html">Contact</a></div></div>
+    <div><img src="assets/images/neutraph-logo.webp" class="footer-logo-img" alt="NeutrapH Logo" onerror="this.style.display='none'" width="560" height="373" decoding="async"><p class="footer-about">Preparing water services for Welverdiend, Bushbuckridge and surrounding communities. NeutrapH has not started trading.</p></div>
+    <div class="footer-col"><h4>Quick Links</h4><div class="footer-links"><a href="privacy.html">Enquiry privacy</a><a href="launch-information.html">Launch information</a><a href="index.html">Home</a><a href="water-purification.html">Water Purification</a><a href="water-dispensers.html">Water Dispensers</a><a href="subscriptions.html">Subscription Plans</a><a href="Shop.html">Packaged Water</a><a href="about.html">About Us</a><a href="contact.html">Contact</a></div></div>
     <div class="footer-col"><h4>Contact Us</h4><div class="contact-row"><div class="contact-icon"><svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.3 1.3.4 2.6.6 4 .6.7 0 1.2.5 1.2 1.2v3.5c0 .7-.5 1.2-1.2 1.2C10.8 21.9 2.1 13.2 2.1 3.4c0-.7.5-1.2 1.2-1.2h3.5c.7 0 1.2.5 1.2 1.2 0 1.4.2 2.7.6 4 .1.4 0 .9-.3 1.2l-1.7 2.2z"/></svg></div><div class="contact-row-text">+27 79 813 4597</div></div><div class="contact-row"><div class="contact-icon"><svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M3.8 5h16.4c1 0 1.8.8 1.8 1.8v10.4c0 1-.8 1.8-1.8 1.8H3.8c-1 0-1.8-.8-1.8-1.8V6.8C2 5.8 2.8 5 3.8 5zm.6 2 7.6 5.1L19.6 7H4.4zm15.6 9.6V8.9l-7.3 4.9c-.4.3-.9.3-1.4 0L4 8.9v7.7h16z"/></svg></div><div class="contact-row-text">info@neutraph.co.za</div></div><div class="contact-row"><div class="contact-icon"><svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M12 2.2c4 0 7.2 3.2 7.2 7.2 0 5.3-7.2 12.4-7.2 12.4S4.8 14.7 4.8 9.4c0-4 3.2-7.2 7.2-7.2zm0 10.3a3.1 3.1 0 1 0 0-6.2 3.1 3.1 0 0 0 0 6.2z"/></svg></div><div class="contact-row-text">Welverdiend, Bushbuckridge<br>Mpumalanga, South Africa</div></div></div>
     <div class="footer-col"><h4>Follow Us</h4><div class="social-row"><a href="https://facebook.com/neutraph" class="social-btn" aria-label="Facebook"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook"></a><a href="https://instagram.com/neutraph" class="social-btn" aria-label="Instagram"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a><a href="https://wa.me/27798134597" target="_blank" class="social-btn" aria-label="WhatsApp"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a></div></div>
   </div>
-</div></footer><a class="sticky-mobile-cta" href="https://wa.me/27798134597" target="_blank">WhatsApp NeutrapH</a><script src="assets/js/script.js"></script><script src="assets/js/payfast.js"></script></body></html>
+</div></footer><a class="sticky-mobile-cta" href="https://wa.me/27798134597" target="_blank">WhatsApp NeutrapH</a><script src="assets/js/script.js"></script></body></html>
