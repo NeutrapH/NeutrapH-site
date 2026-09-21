@@ -1,0 +1,8 @@
+
+    .payment-result{min-height:calc(100vh - 74px);background:linear-gradient(135deg,#06243d 0%,#0a3d6b 58%,#dff7ff 100%);display:flex;align-items:center;padding:86px 0}
+    .payment-result-card{max-width:720px;background:#fff;border-radius:18px;box-shadow:0 24px 70px rgba(6,47,104,.22);padding:42px}
+    .payment-result-kicker{color:#0077b6;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+    .payment-result-card h1{color:#062f68;font-family:'Montserrat',sans-serif;font-size:42px;line-height:1.1;margin-bottom:14px}
+    .payment-result-card p{color:#52627a;font-size:17px;line-height:1.7;margin-bottom:24px}
+    .payment-result-actions{display:flex;gap:12px;flex-wrap:wrap}.payment-result-card .btn-outline{color:#0077b6;border-color:#9eddf2}
+    @media(max-width:700px){.payment-result{padding:54px 0}.payment-result-card{padding:28px}.payment-result-card h1{font-size:32px}.payment-result-actions .btn{width:100%}}
