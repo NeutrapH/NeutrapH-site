@@ -441,3 +441,26 @@ header .header-cta:hover {
   }
 }
 
+
+
+/* Override older layout sizing that otherwise spreads the nav and enlarges the CTA. */
+header .container.nav-wrap nav {
+  justify-content: flex-start !important;
+  gap: clamp(10px, 1.15vw, 18px) !important;
+}
+header .container.nav-wrap .header-cta {
+  min-width: 128px !important;
+  height: 46px !important;
+  min-height: 46px !important;
+  padding: 0 18px !important;
+  box-shadow: 0 7px 18px rgba(0, 119, 182, .17) !important;
+}
+@media (min-width: 1051px) and (max-width: 1260px) {
+  header .container.nav-wrap nav { gap: 9px !important; }
+  header .container.nav-wrap .header-cta {
+    min-width: 116px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 14px !important;
+  }
+}
