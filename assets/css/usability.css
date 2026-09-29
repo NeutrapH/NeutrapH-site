@@ -299,7 +299,7 @@ header .container.nav-wrap {
   padding-right: 24px !important;
 }
 header .logo-area {
-  flex: 0 0 166px !important;
+  flex: 0 0 132px !important;
   min-width: 0 !important;
   justify-content: flex-start !important;
 }
@@ -387,7 +387,7 @@ header .header-cta:hover {
     padding-left: 18px !important;
     padding-right: 18px !important;
   }
-  header .logo-area { flex-basis: 142px !important; }
+  header .logo-area { flex-basis: 120px !important; }
   header .site-logo,
   header .site-logo-img {
     height: 68px !important;
