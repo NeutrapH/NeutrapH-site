@@ -276,3 +276,168 @@ header .wa-icon-sm {
     top: 70px !important;
   }
 }
+
+/* NeutrapH header refresh: quiet background, original logo, compact spacing. */
+header {
+  position: sticky !important;
+  overflow: visible !important;
+  background: #F8FCFE !important;
+  border-bottom: 1px solid #D8EDF5 !important;
+  box-shadow: 0 8px 22px rgba(11, 53, 88, 0.07) !important;
+}
+header::before,
+header::after {
+  content: none !important;
+  display: none !important;
+}
+header .container.nav-wrap {
+  height: 98px !important;
+  min-height: 98px !important;
+  max-width: 1340px !important;
+  gap: 14px !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+header .logo-area {
+  flex: 0 0 166px !important;
+  min-width: 0 !important;
+  justify-content: flex-start !important;
+}
+header .logo-area::before,
+header .logo-area::after {
+  content: none !important;
+  display: none !important;
+}
+header .logo-area .site-logo,
+header .site-logo,
+header .site-logo-img {
+  display: block !important;
+  width: auto !important;
+  height: 78px !important;
+  max-height: 78px !important;
+  object-fit: contain !important;
+  transform: none !important;
+}
+header nav {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  justify-content: flex-start !important;
+  gap: clamp(10px, 1.15vw, 18px) !important;
+}
+header nav a {
+  position: relative !important;
+  color: #0B3558 !important;
+  border: 0 !important;
+  padding: 10px 2px !important;
+  text-shadow: none !important;
+}
+header nav a::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 50% !important;
+  bottom: 3px !important;
+  width: 24px !important;
+  height: 2px !important;
+  border-radius: 2px !important;
+  background: #00A9D6 !important;
+  opacity: 0 !important;
+  transform: translateX(-50%) scaleX(.6) !important;
+  transition: opacity .18s ease, transform .18s ease !important;
+}
+header nav a:hover,
+header nav a:focus,
+header nav a.active {
+  color: #00A9D6 !important;
+  background: transparent !important;
+}
+header nav a:hover::after,
+header nav a:focus::after,
+header nav a.active::after {
+  opacity: 1 !important;
+  transform: translateX(-50%) scaleX(1) !important;
+}
+header .header-cta {
+  flex: 0 0 auto !important;
+  min-width: 128px !important;
+  height: 46px !important;
+  min-height: 46px !important;
+  padding: 0 18px !important;
+  background: linear-gradient(135deg, #00B4D8 0%, #0077B6 52%, #0B3558 100%) !important;
+  border: 1px solid rgba(0, 169, 214, .28) !important;
+  box-shadow: 0 7px 18px rgba(0, 119, 182, .17) !important;
+}
+header .header-cta:hover {
+  box-shadow: 0 9px 21px rgba(0, 77, 126, .21) !important;
+}
+
+.launch-notice {
+  background: #EFF8FC !important;
+  border-top: 1px solid #D8EDF5 !important;
+  border-bottom: 1px solid #D8EDF5 !important;
+  color: #38566F !important;
+  box-shadow: none !important;
+}
+.launch-notice strong { color: #0B3558 !important; }
+
+@media (min-width: 1051px) and (max-width: 1260px) {
+  header .container.nav-wrap {
+    height: 90px !important;
+    min-height: 90px !important;
+    gap: 10px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+  header .logo-area { flex-basis: 142px !important; }
+  header .site-logo,
+  header .site-logo-img {
+    height: 68px !important;
+    max-height: 68px !important;
+  }
+  header nav { gap: 9px !important; }
+  header nav a { font-size: 12.5px !important; }
+  header .header-cta {
+    min-width: 116px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 14px !important;
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 1050px) {
+  header .container.nav-wrap {
+    height: 86px !important;
+    min-height: 86px !important;
+    gap: 12px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  header .logo-area { flex: 0 1 auto !important; }
+  header .site-logo,
+  header .site-logo-img {
+    height: 68px !important;
+    max-height: 68px !important;
+  }
+  header .header-cta { display: none !important; }
+  header nav a::after { display: none !important; }
+  header nav a.active {
+    background: #EFF8FC !important;
+    color: #00A9D6 !important;
+    border-radius: 10px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  header .container.nav-wrap {
+    height: 76px !important;
+    min-height: 76px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  header .site-logo,
+  header .site-logo-img {
+    height: 62px !important;
+    max-height: 62px !important;
+  }
+}
+
