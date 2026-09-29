@@ -464,3 +464,40 @@ header .container.nav-wrap .header-cta {
     padding: 0 14px !important;
   }
 }
+
+
+/* Keep the logo, links and CTA in a compact left-to-right header row. */
+header .container.nav-wrap {
+  display: flex !important;
+  justify-content: flex-start !important;
+  gap: 14px !important;
+}
+header .container.nav-wrap nav {
+  margin: 0 !important;
+}
+header .container.nav-wrap .header-cta {
+  width: auto !important;
+  min-width: 120px !important;
+  max-width: none !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  padding: 0 15px !important;
+  font-size: 13px !important;
+}
+header .container.nav-wrap .header-cta .wa-icon-sm,
+header .container.nav-wrap .header-cta img.wa-icon-sm {
+  width: 18px !important;
+  height: 18px !important;
+  flex-basis: 18px !important;
+  padding: 2px !important;
+}
+@media (min-width: 1051px) and (max-width: 1260px) {
+  header .container.nav-wrap { gap: 10px !important; }
+  header .container.nav-wrap .header-cta {
+    min-width: 110px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    padding: 0 12px !important;
+    font-size: 12px !important;
+  }
+}
