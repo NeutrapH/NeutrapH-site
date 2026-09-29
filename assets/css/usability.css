@@ -69,3 +69,210 @@ body .payment-result { min-height: 0; padding: 64px 0; }
   html { scroll-behavior: auto !important; }
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
+
+/* =========================================================
+   HEADER REFRESH
+   Clean, premium navigation with restrained brand colour.
+========================================================= */
+header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  overflow: visible !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid #e1ebf1 !important;
+  box-shadow: 0 8px 24px rgba(8, 52, 82, .06) !important;
+}
+header::before,
+header::after {
+  content: none !important;
+  display: none !important;
+}
+header .container.nav-wrap {
+  max-width: 1320px !important;
+  height: 84px !important;
+  padding: 0 28px !important;
+  gap: 24px !important;
+}
+header .logo-area {
+  min-width: 172px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0 !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  line-height: 1 !important;
+}
+header .logo-area .site-logo {
+  display: none !important;
+}
+header .logo-area::before {
+  content: "Neutrap" !important;
+  color: #0a3d6b !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 31px !important;
+  font-weight: 700 !important;
+  letter-spacing: -.035em !important;
+  text-shadow: none !important;
+}
+header .logo-area::after {
+  content: "H" !important;
+  color: #59d9f2 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 31px !important;
+  font-weight: 900 !important;
+  letter-spacing: -.03em !important;
+  margin-left: 1px !important;
+  text-shadow: none !important;
+}
+header nav {
+  align-items: center !important;
+  gap: 16px !important;
+}
+header nav a {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: 84px !important;
+  padding: 0 1px !important;
+  border: 0 !important;
+  color: #163f60 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  text-shadow: none !important;
+  transition: color .18s ease !important;
+}
+header nav a::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 50% !important;
+  bottom: 18px !important;
+  width: 0 !important;
+  height: 2px !important;
+  transform: translateX(-50%) !important;
+  border-radius: 999px !important;
+  background: #00a9d6 !important;
+  transition: width .18s ease !important;
+}
+header nav a:hover,
+header nav a:focus-visible,
+header nav a.active {
+  color: #0077b6 !important;
+  border-color: transparent !important;
+}
+header nav a:hover::after,
+header nav a:focus-visible::after,
+header nav a.active::after {
+  width: 22px !important;
+}
+header .header-cta {
+  min-height: 46px !important;
+  padding: 0 19px !important;
+  border: 1px solid rgba(0, 119, 182, .16) !important;
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, #08b7d6 0%, #0077b6 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 20px rgba(0, 119, 182, .18) !important;
+}
+header .header-cta:hover,
+header .header-cta:focus-visible {
+  background: linear-gradient(135deg, #00a8c8 0%, #08669b 100%) !important;
+  box-shadow: 0 10px 24px rgba(0, 103, 160, .22) !important;
+  transform: translateY(-1px) !important;
+}
+header .wa-icon-sm {
+  width: 19px !important;
+  height: 19px !important;
+}
+
+@media (min-width: 1051px) {
+  header .container.nav-wrap {
+    display: grid !important;
+    grid-template-columns: 172px minmax(0, 1fr) auto !important;
+    column-gap: 24px !important;
+    align-items: center !important;
+  }
+  header nav {
+    justify-content: center !important;
+  }
+}
+
+@media (min-width: 1051px) and (max-width: 1240px) {
+  header .container.nav-wrap {
+    grid-template-columns: 148px minmax(0, 1fr) auto !important;
+    column-gap: 14px !important;
+    padding: 0 18px !important;
+  }
+  header .logo-area {
+    min-width: 148px !important;
+  }
+  header .logo-area::before,
+  header .logo-area::after {
+    font-size: 27px !important;
+  }
+  header nav {
+    gap: 10px !important;
+  }
+  header nav a {
+    font-size: 11.5px !important;
+  }
+  header .header-cta {
+    padding: 0 14px !important;
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 1050px) {
+  header .container.nav-wrap {
+    display: flex !important;
+    height: 76px !important;
+    padding: 0 20px !important;
+    justify-content: space-between !important;
+    gap: 14px !important;
+  }
+  header .logo-area {
+    min-width: 0 !important;
+  }
+  header .logo-area::before,
+  header .logo-area::after {
+    font-size: 27px !important;
+  }
+  header .menu-toggle {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    min-height: 46px !important;
+    border: 1px solid #dbe9f1 !important;
+    border-radius: 12px !important;
+    background: #f7fbfd !important;
+    color: #0a3d6b !important;
+    box-shadow: none !important;
+  }
+  header nav {
+    top: 76px !important;
+  }
+  header nav a {
+    min-height: 50px !important;
+    padding: 0 16px !important;
+    font-size: 15px !important;
+  }
+  header nav a::after {
+    display: none !important;
+  }
+}
+
+@media (max-width: 700px) {
+  header .container.nav-wrap {
+    height: 70px !important;
+    padding: 0 16px !important;
+  }
+  header .logo-area::before,
+  header .logo-area::after {
+    font-size: 24px !important;
+  }
+  header nav {
+    top: 70px !important;
+  }
+}
