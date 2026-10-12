@@ -3,6 +3,12 @@ command = "node netlify/prepare-build.js"
 publish = "."
 
 [[redirects]]
+from = "/index.html"
+to = "/"
+status = 301
+force = true
+
+[[redirects]]
 from = "/api/payfast/create-payment"
 to = "/.netlify/functions/payfast-create-payment"
 status = 200
