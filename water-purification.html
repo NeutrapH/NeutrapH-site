@@ -26,14 +26,17 @@
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/prelaunch.css">
   <link rel="stylesheet" href="assets/css/usability.css?v=20260929-footer1">
+  <link rel="stylesheet" href="assets/css/hero-v2.css">
+  <link rel="stylesheet" href="assets/css/brand-palette.css">
 </head>
 
 <body class="page-water-purification">
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header>
   <div class="container nav-wrap">
-<a href="/" class="logo-area">
-  <img src="assets/images/neutraph-secondary-logo.webp" alt="NeutrapH Logo" class="site-logo" width="560" height="373" decoding="async">
+<a href="/" class="logo-area" aria-label="NeutrapH home">
+  <span class="header-brand-symbol" aria-hidden="true"><img src="assets/images/neutraph-logo.webp" alt="" width="560" height="373" decoding="async"></span>
+  <span class="header-brand-type"><span class="header-wordmark">Neutrap<span>H</span></span><span class="header-brand-caption">Water for our community</span></span>
 </a>
 
     <button class="menu-toggle" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="site-navigation">&#9776;</button>
@@ -57,10 +60,16 @@
 
 <aside class="launch-notice" aria-label="Launch status"><div class="container"><strong>Preparing to launch</strong> NeutrapH has not started trading. Orders, deliveries and walk-in refills are not yet available. <a href="contact.html">Register your interest</a>.</div></aside>
 <main id="main-content" tabindex="-1">
-  <section class="page-hero">
-    <div class="container">
-      <h1>Water Purification</h1>
-      <p>Reverse osmosis is part of the proposed treatment approach. The final system and finished-water quality must be verified before commercial supply.</p>
+  <section class="brand-hero brand-hero--process" aria-labelledby="purification-hero-title">
+    <div class="brand-hero-grid">
+      <div class="brand-hero-copy">
+        <span class="brand-eyebrow">Our planned approach</span>
+        <h1 id="purification-hero-title">Thoughtful process.<span>Clear purpose.</span></h1>
+        <p class="brand-intro">Explore our proposed water purification approach, including reverse osmosis. The final system and finished-water quality must be verified before supply begins.</p>
+        <div class="brand-actions"><a class="brand-primary" href="#ro-process-section">Explore the process <span aria-hidden="true">↓</span></a><a class="brand-secondary" href="contact.html?service=purification">Ask a question</a></div>
+        <p class="brand-footnote">Water purification · Planned treatment, pending verification</p>
+      </div>
+      <figure class="brand-visual"><img src="assets/images/hero-purification-v2.webp" srcset="assets/images/hero-purification-v2-768.webp 768w, assets/images/hero-purification-v2.webp 1536w" sizes="(max-width:700px) 100vw, 50vw" width="1536" height="1024" fetchpriority="high" alt="Illustrative still life of water, pleated filtration material and carbon granules."><figcaption>Illustrative materials · Not installed NeutrapH equipment</figcaption></figure>
     </div>
   </section>
 
