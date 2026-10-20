@@ -53,6 +53,7 @@ test('Product quantities support larger enquiries and details work without JavaS
   for (const [select] of quantities) assert.match(select, /<option(?: value="20")?>20<\/option>/);
   assert.match(shop, /<details class="product-details"/);
   assert.match(shop, /contact.html\?service=packaged/);
-  assert.match(read('water-purification.html'), /<details id="ro-process-section"/);
+  assert.match(read('water-purification.html'), /<section[^>]*id="ro-process-section"/);
+  assert.match(read('water-purification.html'), /<desc id="ro-svg-desc">[^<]*concentrate stream exits downward from the feed side/);
   assert.match(read('about.html'), /<h2>Themba Mkhabela<\/h2>/);
 });

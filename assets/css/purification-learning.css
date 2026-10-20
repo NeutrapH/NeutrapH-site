@@ -1,0 +1,48 @@
+.learn-section{padding:80px 0;background:#f3f8f6;color:#123e4b;scroll-margin-top:110px}
+.learn-section .container{max-width:1200px}
+.learn-heading{max-width:740px;margin-bottom:36px}
+.learn-section h2{font-family:Montserrat,sans-serif;font-size:clamp(28px,3.2vw,44px);line-height:1.18;letter-spacing:-1.2px;color:inherit;margin:14px 0 20px}
+.learn-section p{line-height:1.8;color:#486771}
+.journey-strip{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);padding:0;margin:0 0 32px;gap:2px}
+.journey-strip li{background:#dceceb;padding:18px 14px;font-size:13px;font-weight:700;position:relative}
+.journey-strip li:not(:last-child)::after{content:'→';position:absolute;right:5px;top:18px;color:#087e8d}
+.journey-strip span{display:block;color:#087e8d;font-size:11px;letter-spacing:2px;margin-bottom:10px}
+.learn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.learn-step{background:#fffdfa;border:1px solid #d5e3df;border-radius:14px;overflow:hidden}
+.learn-step-top{height:175px;background:#dceeed;display:flex;justify-content:space-between;padding:20px;align-items:flex-start;position:relative}
+.learn-step-top>span{font-size:13px;color:#43717a;font-weight:700}
+.learn-step-top svg{width:100px;height:110px;fill:none;stroke:#116071;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;position:absolute;left:50%;top:18px;transform:translateX(-50%)}
+.learn-step-top small{position:absolute;bottom:15px;left:0;right:0;text-align:center;font-size:10px;text-transform:uppercase;letter-spacing:2px;font-weight:700}
+.learn-step-copy{padding:26px}
+.learn-step h3{font-family:Montserrat,sans-serif;color:#103e4c;margin:0 0 12px;font-size:21px}
+.learn-step strong{font-size:13px;color:#08798a}
+.learn-step p{font-size:14px;margin:12px 0 0}
+.learn-step .reject-note{padding:12px;border-radius:5px;background:#f6ead9;color:#735126;font-size:12px}
+.learn-caption{font-size:12px;margin-top:24px;max-width:900px}
+.ro-focus{background:#092f3e;color:#edf8f7}
+.ro-focus .section-label{color:#91dedd!important}
+.ro-focus p{color:#bad1d7}
+.ro-explainer{margin:0;border:1px solid #39626e;border-radius:18px;padding:24px;background:#103b49;overflow:hidden}
+.ro-explainer svg{width:100%;height:auto;display:block}
+.ro-explainer figcaption{color:#b3cdd3;font-size:12px;line-height:1.6;border-top:1px solid #39626e;padding-top:18px}
+.ro-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:38px}
+.ro-facts span{font-size:10px;letter-spacing:2px;color:#91dedd}
+.ro-facts h3{color:#f1f8f7;font-size:22px;margin:15px 0}
+.ro-facts p{font-size:14px}
+.learn-questions{display:grid;grid-template-columns:1fr 1.2fr;gap:70px}
+.learn-questions details{border-bottom:1px solid #c5dada;padding:20px 0}
+.learn-questions summary{font-weight:700;cursor:pointer;font-size:17px;color:#154e5b}
+.learn-questions details p{font-size:14px;margin-top:14px}
+.learn-evidence{background:#e0eeeb;padding-top:55px;padding-bottom:55px}
+.learn-evidence p{max-width:760px}
+.learn-evidence .learn-sources{font-size:12px;margin-top:28px}
+.learn-sources a{color:#07566b;text-decoration:underline}
+@media(max-width:800px){.learn-grid{grid-template-columns:repeat(2,1fr)}.journey-strip{grid-template-columns:repeat(3,1fr)}.learn-questions{grid-template-columns:1fr;gap:12px}.learn-section{padding:50px 0}.ro-facts{gap:20px}}
+@media(max-width:540px){.learn-grid,.ro-facts{grid-template-columns:1fr}.journey-strip li{font-size:11px;padding:14px 10px}.learn-step-top{height:145px}.ro-explainer{padding:12px}.ro-explainer svg{min-width:660px}.ro-explainer{overflow-x:auto}.ro-explainer figcaption{min-width:260px}.ro-facts{gap:12px}.learn-step-copy{padding:22px}.learn-heading{margin-bottom:24px}}
+/* Show the complete industrial skid rather than cropping its equipment. */
+.page-water-purification .brand-visual{background:#123743;display:flex;align-items:center}
+.page-water-purification .brand-visual img{position:relative;inset:auto;height:auto;object-fit:contain}
+@media(max-width:1000px){.page-water-purification .brand-hero-grid{grid-template-columns:1fr}.page-water-purification .brand-visual{min-height:0;aspect-ratio:3/2}.page-water-purification .brand-hero-copy{padding:42px 28px}.page-water-purification .brand-hero h1{max-width:650px}.page-water-purification .brand-footnote{margin-top:24px}}
+/* Square composition fills the hero without letterboxing. */
+.page-water-purification .brand-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+@media(max-width:1000px){.page-water-purification .brand-visual{aspect-ratio:1/1}}

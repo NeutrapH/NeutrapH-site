@@ -50,9 +50,9 @@ test('Local linked resources and IDs exist, including responsive images', () => 
   }
 });
 
-test('Both forms use the same labelled, minimal enquiry fields', () => {
-  const forms = ['index.html', 'contact.html'].map(name => fs.readFileSync(path.join(root, name), 'utf8').match(/<form\b[\s\S]*?<\/form>/)[0]);
-  assert.equal(forms[0], forms[1]);
+test('Contact retains labelled, minimal enquiry fields; Home has no duplicate form', () => {
+  const forms = ['contact.html'].map(name => fs.readFileSync(path.join(root, name), 'utf8').match(/<form\b[\s\S]*?<\/form>/)[0]);
+  assert.doesNotMatch(fs.readFileSync(path.join(root, 'index.html'), 'utf8'), /home-contact|<form\b/);
   assert.doesNotMatch(forms[0], /name="Address"|Delivery Frequency/);
   for (const m of forms[0].matchAll(/<(?:input|select|textarea)\b[^>]*id="([^"]+)"/g)) assert.ok(forms[0].includes('for="' + m[1] + '"'));
   assert.match(forms[0], /privacy.html/);

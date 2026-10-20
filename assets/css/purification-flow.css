@@ -1,0 +1,22 @@
+.flow-lab{padding:76px 0;background:#071f2c;color:#e9f8f7;scroll-margin-top:100px}
+.flow-lab .container{max-width:1280px}
+.flow-heading{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:28px}
+.flow-heading h2{font:600 clamp(30px,4vw,48px)/1.15 Montserrat,sans-serif;letter-spacing:-1.5px;margin:12px 0}
+.flow-heading p{max-width:720px;color:#a7c5ce;line-height:1.7;font-size:15px}
+.flow-heading .section-label{color:#8ce1db!important}
+.flow-controls{display:flex;gap:10px;flex-shrink:0}
+.flow-lab button{font:600 12px system-ui;cursor:pointer;border:1px solid #497481;color:#e2f8f7;background:#183f4d;border-radius:6px;padding:12px 17px}
+.flow-lab button:focus-visible{outline:3px solid #b3fbee;outline-offset:3px}
+.flow-lab #flow-toggle{background:#a7eee4;color:#083643;border-color:#a7eee4;min-width:100px}
+.flow-viewport{overflow-x:auto;border:1px solid #325966;border-radius:16px;box-shadow:0 22px 65px #0004}
+.flow-viewport canvas{display:block;width:100%;min-width:850px;height:auto}
+.flow-stage-list{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;margin-top:20px}
+.flow-lab .flow-stage{padding:13px 8px;font-size:11px;background:transparent;line-height:1.4}
+.flow-lab .flow-stage[aria-pressed=true]{background:#a7eee4;border-color:#d1fff6;color:#063c39;box-shadow:0 0 0 1px #70d6c7;transform:none}
+.flow-lab .flow-stage{transition:background .2s,color .2s,box-shadow .2s,transform .2s}
+@media(prefers-reduced-motion:reduce){.flow-lab .flow-stage{transition:none}}
+.flow-description{margin-top:20px;padding:24px 28px;background:#123440;border-left:3px solid #91e6dc;border-radius:4px;min-height:132px}
+.flow-description strong{color:#a7eee4;font-size:16px}
+.flow-description p{color:#c0d6dc;line-height:1.8;font-size:14px;max-width:940px;margin:8px 0 0}
+.flow-note{font-size:12px;line-height:1.7;color:#91b0b9;margin-top:18px}
+@media(max-width:850px){.flow-heading{display:block}.flow-controls{margin-top:22px}.flow-stage-list{grid-template-columns:repeat(4,1fr)}.flow-lab{padding:48px 0}.flow-description{padding:20px}}
