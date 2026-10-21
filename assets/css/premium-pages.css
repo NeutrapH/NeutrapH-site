@@ -13,14 +13,21 @@
 .premium-page main .shop-card,.premium-page main .sub-card{border:1px solid #dce5e1!important;border-radius:10px!important;background:#fffefa!important;box-shadow:none!important;transform:none!important;overflow:hidden}
 .premium-page main .shop-card:hover,.premium-page main .sub-card:hover{box-shadow:0 12px 30px #133c4910!important}
 .premium-page main .shop-grid{gap:26px}
+.page-our-shop #bottled-water + .shop-grid.improved{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
 .premium-page main .shop-img-wrap,.premium-page main .dispenser-card-img{background:#f0f4f0!important;height:290px;padding:22px}
 .premium-page main .shop-img-wrap img,.premium-page main .dispenser-card-img img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+.page-our-shop #bottled-water + .shop-grid .shop-img-wrap{height:350px;padding:14px}
+.page-our-shop #bottled-water + .shop-grid .shop-img-wrap img{transform:scale(1.12)}
+.page-our-shop #bottled-water + .shop-grid .shop-card{display:flex;flex-direction:column}
+.page-our-shop #bottled-water + .shop-grid .shop-body{display:flex;flex:1;flex-direction:column}
+.page-our-shop #bottled-water + .shop-grid .shop-body .shop-btn{margin-top:auto}
 .premium-page main .dispenser-card-img{height:360px;padding:0!important;background:#f5f2ec!important}
 .premium-page main .dispenser-card-img img{object-fit:contain!important;mix-blend-mode:normal;padding:0!important}
 .premium-page main .shop-body{padding:26px}
 .premium-page main .shop-price{color:#164c58!important;font-size:28px;font-weight:600}
 .premium-page main .price-disclaimer{font-size:10px!important;font-weight:400;line-height:1.5;letter-spacing:0;opacity:.8;margin-top:8px}
 .premium-page main .shop-size-label{font-size:19px;font-weight:600;line-height:1.4;color:#1d424c}
+@media(max-width:700px){.page-our-shop #bottled-water + .shop-grid.improved{grid-template-columns:1fr}.page-our-shop #bottled-water + .shop-grid .shop-img-wrap{height:320px}}
 .premium-page main .dispenser-specs,.premium-page main .product-unit-note{font-size:13px;color:#62777b;line-height:1.7}
 .premium-page main .shop-btn,.premium-page main .sub-btn,.premium-page main .btn-blue{background:#125565!important;color:#fff!important;border-radius:4px!important;box-shadow:none!important;font-size:12px;font-weight:600;letter-spacing:.2px;text-transform:none}
 .premium-page main .product-badge{background:#e3eeeb!important;color:#285c63!important;border-radius:3px;font-size:10px;box-shadow:none}

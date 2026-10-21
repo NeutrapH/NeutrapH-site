@@ -13,6 +13,12 @@ body .brand-hero--process h1 span{
 }
 body .brand-hero .brand-eyebrow{color:#076bb5}
 body .brand-hero--process .brand-eyebrow{color:#65dce9}
+/* Selected heroes echo the cyan accent in the header wordmark. */
+body.page-index .brand-hero h1 span,
+body.page-water-dispensers .brand-hero h1 span,
+body.page-subscriptions .brand-hero h1 span{
+  background-image:linear-gradient(110deg,#0865dc 5%,#008fca 48%,#00c9ee 95%);
+}
 @media(forced-colors:active){
   body .brand-hero h1 span,
   body.premium-page .premium-about h1 span{
