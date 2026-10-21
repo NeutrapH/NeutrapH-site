@@ -49,7 +49,7 @@ body header .header-brand-symbol{display:block;position:relative;flex:0 0 47px;w
 body header .header-brand-symbol img{position:absolute;width:140px!important;height:93.25px!important;max-width:none!important;left:-47px;top:-3px}
 body header .header-brand-type{display:flex;flex-direction:column;gap:9px}
 body header .header-wordmark{font-family:Montserrat,sans-serif;font-size:28px;font-weight:600;letter-spacing:-1.3px;color:#103d4b}
-body header .header-wordmark > span{color:#00c9ee;font-weight:800}
+body header .header-wordmark > span{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:1.22em;height:1.22em;margin-left:2px;border:1px solid #79dbe8;border-radius:50%;background:linear-gradient(145deg,#effdff 0%,#c8f4f8 100%);box-shadow:inset 0 1px 2px rgba(255,255,255,.9),0 1px 2px rgba(0,111,160,.12);color:#00c9ee;font-weight:800;line-height:1.22;vertical-align:middle}
 body header .header-brand-caption{font-family:'Open Sans',sans-serif;font-size:8px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#46616a}
 body header .container.nav-wrap nav{justify-content:center!important;gap:16px!important}
 body header nav a{font-size:12px!important;font-weight:600!important}
