@@ -57,7 +57,7 @@
 .premium-about p{font-size:15px;line-height:1.85;max-width:570px;color:#546e74}
 .premium-about .about-lead{font-size:20px;color:#244e57}
 .premium-about figure{margin:0}
-.premium-about figure img{display:block;width:100%;height:450px;object-fit:cover;object-position:center 30%;border-radius:8px}
+.premium-about figure img{display:block;width:100%;height:auto;object-fit:contain;border-radius:8px}
 .premium-about figcaption{padding-top:22px}
 .premium-about figcaption h2{font-size:21px;color:#174751;margin:0 0 8px}
 .premium-about figcaption span{font-size:12px;color:#61777b}
@@ -77,8 +77,8 @@
 .premium-page .form label{font-size:12px;color:#315c65}
 .premium-page .form-privacy,.premium-page .form>p{font-size:12px;line-height:1.7;color:#6c7f81}
 .premium-page .text-link{color:#145c68;font-weight:600}
-@media(max-width:900px){.premium-page .refill-editorial,.premium-about-grid{gap:40px}.premium-page .form-wrap{gap:35px}.premium-page main .shop-grid{grid-template-columns:repeat(2,1fr)}.premium-about figure img{height:370px}.premium-values{gap:25px}}
-@media(max-width:700px){.premium-page main .section,.premium-page .premium-about{padding:48px 0}.premium-page .brand-hero .brand-hero-grid,.premium-page .brand-hero .brand-visual{min-height:0}.premium-page .brand-hero h1{font-size:40px}.premium-page main .shop-grid,.premium-page main .sub-plans-grid,.premium-page .refill-editorial,.premium-about-grid,.premium-values,.premium-page .form-wrap{grid-template-columns:1fr}.premium-page .map-box{border-left:0!important;border-top:1px solid #d5e1dc!important;padding:30px 0 0!important}.premium-end .container{align-items:flex-start;flex-direction:column}.premium-page .shop-sidebar{gap:8px}.premium-page .shop-sidebar h3{width:100%;margin-bottom:8px}.premium-about figure img{height:auto;max-height:470px}.premium-about-grid{gap:35px}.refill-price{padding:28px}.premium-page main .sub-card-img{height:250px}}
+@media(max-width:900px){.premium-page .refill-editorial,.premium-about-grid{gap:40px}.premium-page .form-wrap{gap:35px}.premium-page main .shop-grid{grid-template-columns:repeat(2,1fr)}.premium-values{gap:25px}}
+@media(max-width:700px){.premium-page main .section,.premium-page .premium-about{padding:48px 0}.premium-page .brand-hero .brand-hero-grid,.premium-page .brand-hero .brand-visual{min-height:0}.premium-page .brand-hero h1{font-size:40px}.premium-page main .shop-grid,.premium-page main .sub-plans-grid,.premium-page .refill-editorial,.premium-about-grid,.premium-values,.premium-page .form-wrap{grid-template-columns:1fr}.premium-page .map-box{border-left:0!important;border-top:1px solid #d5e1dc!important;padding:30px 0 0!important}.premium-end .container{align-items:flex-start;flex-direction:column}.premium-page .shop-sidebar{gap:8px}.premium-page .shop-sidebar h3{width:100%;margin-bottom:8px}.premium-about-grid{gap:35px}.refill-price{padding:28px}.premium-page main .sub-card-img{height:250px}}
 /* Contact panels: override legacy equal-height cards and tight borders. */
 body.page-contact.premium-page main .form-wrap{gap:36px;align-items:start!important}
 body.page-contact.premium-page main .form-card{padding:36px!important;border:1px solid #dce5df!important;border-radius:16px!important;background:#fffefa!important;box-shadow:0 12px 36px #173f4907!important;height:auto!important}
