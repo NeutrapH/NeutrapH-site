@@ -16,25 +16,21 @@
  ['Treated water','The intended output still needs appropriate water-quality verification before supply. A clear appearance alone does not prove safety.']
  ];
  const bounds=[[28,118,96,192],[180,119,80,185],[295,119,80,185],[410,119,80,185],[511,199,78,82],[659,123,258,166],[790,383,120,171],[258,470,184,92],[101,478,85,97]];
- const summaries=['Testing guides the treatment needed.','Retains suspended particles.','Reduces selected tastes, odours and chlorine.','Reduces hardness before reverse osmosis.','Provides pressure for membrane separation.','Separates permeate from concentrate.','Helps protect treated water.','Inactivates microorganisms when validated.','Quality verification before supply.'];
- const mobile=document.createElement('div');mobile.className='flow-mobile';mobile.setAttribute('role','group');mobile.setAttribute('aria-label','Treatment journey, from source to output');
- mobile.innerHTML=stages.map(([name,detail],i)=>{
- const group={0:'01 / Source & pretreatment',5:'02 / Membrane separation',6:'03 / Storage & output'}[i];
- return (group?'<p class="flow-mobile-group">'+group+'</p>':'')+'<div class="flow-mobile-node"><button type="button" class="flow-mobile-stage" aria-expanded="false" aria-controls="flow-mobile-detail-'+i+'"><span class="flow-mobile-number">'+String(i+1).padStart(2,'0')+'</span><span><strong>'+name+'</strong><span class="flow-mobile-summary">'+summaries[i]+'</span></span><span class="flow-mobile-plus" aria-hidden="true">+</span></button><p class="flow-mobile-detail" id="flow-mobile-detail-'+i+'" hidden>'+detail+'</p></div>'+(i===5?'<p class="flow-mobile-branch"><strong>↳ Separate concentrate outlet</strong><br>Rejected substances leave here. Management to be confirmed.</p>':'');
- }).join('');root.querySelector('.flow-viewport').after(mobile);
- const mobileButtons=mobile.querySelectorAll('.flow-mobile-stage');
- mobileButtons.forEach((button,i)=>button.addEventListener('click',()=>{
-  if(button.getAttribute('aria-expanded')==='true'){
-   button.setAttribute('aria-expanded','false');button.querySelector('.flow-mobile-plus').textContent='+';
-   button.parentElement.classList.remove('is-selected');mobile.querySelector('#flow-mobile-detail-'+i).hidden=true;
-  }else select(i);
- }));
- root.classList.toggle('flow-paused',!playing);
- function select(i){selected=i;mobileButtons.forEach((button,j)=>{button.setAttribute('aria-expanded',String(i===j));button.querySelector('.flow-mobile-plus').textContent=i===j?'−':'+';button.parentElement.classList.toggle('is-selected',i===j);mobile.querySelector('#flow-mobile-detail-'+j).hidden=i!==j;});root.querySelectorAll('.flow-stage').forEach((b,j)=>b.setAttribute('aria-pressed',String(i===j)));description.innerHTML=`<strong>${String(i+1).padStart(2,'0')} / ${stages[i][0]}</strong><p>${stages[i][1]}</p>`;draw();}
+ const phone=matchMedia('(max-width:700px)');
+ const mobileY=[90,260,430,600,770,940,1150,1360,1540];
+ const mobileBounds=mobileY.map((y,i)=>[14,y-28,332,i===6?190:i===5?185:158]);
+ let width=1120,height=650;
+ function configure(){
+  width=phone.matches?360:1120;height=phone.matches?1720:650;
+  const ratio=Math.min(window.devicePixelRatio||1,2);
+  canvas.width=width*ratio;canvas.height=height*ratio;ctx.setTransform(ratio,0,0,ratio,0,0);draw();
+ }
+ phone.addEventListener('change',configure);
+ function select(i){selected=i;root.querySelectorAll('.flow-stage').forEach((b,j)=>b.setAttribute('aria-pressed',String(i===j)));description.innerHTML=`<strong>${String(i+1).padStart(2,'0')} / ${stages[i][0]}</strong><p>${stages[i][1]}</p>`;draw();}
  root.querySelectorAll('.flow-stage').forEach((b,i)=>b.addEventListener('click',()=>select(i)));
  canvas.addEventListener('click',event=>{
-  const r=canvas.getBoundingClientRect(),x=(event.clientX-r.left)*1120/r.width,y=(event.clientY-r.top)*650/r.height;
-  const areas=bounds;
+  const r=canvas.getBoundingClientRect(),x=(event.clientX-r.left)*width/r.width,y=(event.clientY-r.top)*height/r.height;
+  const areas=phone.matches?mobileBounds:bounds;
   const i=areas.findIndex(([ax,ay,w,h])=>x>=ax-10&&x<=ax+w+10&&y>=ay-10&&y<=ay+h+10);
   if(i>=0)select(i);
  });
@@ -42,8 +38,8 @@
  function line(points,color,width=3){ctx.beginPath();points.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();}
  function box(x,y,w,h,r,color){ctx.fillStyle=color;ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fill();}
  function draw(){
- ctx.clearRect(0,0,1120,650);ctx.fillStyle='#f4f7f3';ctx.fillRect(0,0,1120,650);
- ctx.strokeStyle='#d9e2dc';ctx.lineWidth=1;ctx.strokeRect(16,16,1088,618);
+ ctx.clearRect(0,0,width,height);ctx.fillStyle='#f4f7f3';ctx.fillRect(0,0,width,height);
+ ctx.strokeStyle='#d9e2dc';ctx.lineWidth=1;ctx.strokeRect(16,16,width-32,height-32);
  function text(t,x,y,size=12,c='#244b52'){label(t,x,y,size,c);}
  function pipe(points,c='#25888e'){
  line(points,'#b9cdc7',9);line(points,c,3);
@@ -62,9 +58,58 @@
  if(media==='resin'){for(let i=0;i<48;i++){ctx.fillStyle=i%2?'#c59a57':'#e7c88a';ctx.beginPath();ctx.arc(x+14+(i*13%(w-27)),y+33+(i*19%(h-53)),2.5,0,7);ctx.fill();}}
  if(media==='water'){for(let i=0;i<9;i++){ctx.fillStyle='#cfffff99';ctx.beginPath();ctx.arc(x+16+(i*11%(w-30)),y+30+((i*17-time*12)%(h-55)+(h-55))%(h-55),2,0,7);ctx.fill();}}
  line([[x+12,y+h],[x+12,y+h+13],[x+3,y+h+13]],'#49696a',3);line([[x+w-12,y+h],[x+w-12,y+h+13],[x+w-3,y+h+13]],'#49696a',3);
- text(tag,x+w/2,y-18,11);text(name,x+w/2,y+h+35,12);
+ if(tag)text(tag,x+w/2,y-18,11);if(name)text(name,x+w/2,y+h+35,12);
  }
- function pump(x,y,tag,stage){ctx.fillStyle=selected===stage?'#7bc9c0':'#bdd0ca';ctx.beginPath();ctx.arc(x,y,24,0,7);ctx.fill();ctx.strokeStyle='#365d65';ctx.lineWidth=2;ctx.stroke();ctx.save();ctx.translate(x,y);ctx.rotate(time*2);for(let j=0;j<3;j++){ctx.rotate(2*Math.PI/3);line([[0,0],[15,0],[9,9]],'#38636c',3);}ctx.restore();box(x-32,y+27,64,8,2,'#58777b');text(tag,x,y+55,10);}
+ function pump(x,y,tag,stage){ctx.fillStyle=selected===stage?'#7bc9c0':'#bdd0ca';ctx.beginPath();ctx.arc(x,y,24,0,7);ctx.fill();ctx.strokeStyle='#365d65';ctx.lineWidth=2;ctx.stroke();ctx.save();ctx.translate(x,y);ctx.rotate(time*2);for(let j=0;j<3;j++){ctx.rotate(2*Math.PI/3);line([[0,0],[15,0],[9,9]],'#38636c',3);}ctx.restore();box(x-32,y+27,64,8,2,'#58777b');if(tag)text(tag,x,y+55,10);}
+ // The phone schematic uses the same equipment, colours and flow clock as desktop.
+ if(phone.matches){
+  const y=mobileY, ends=[198,370,540,710,830,1022,1260,1420];
+  text('SOURCE & PRE-TREATMENT',180,45,12,'#267f80');
+  for(let i=0;i<8;i++){
+   if(i===0){pipe([[80,90],[25,90],[25,225],[80,225],[80,260]],'#669f94');}
+   else if(i===6){pipe([[80,1260],[80,1288],[135,1288],[135,1320],[23,1320],[23,1390]],'#21a9ad');}
+   else if(i===7){pipe([[137,1390],[147,1390],[147,1470],[80,1470],[80,1540]],'#21a9ad');}
+   else pipe([[80,ends[i]],[80,y[i+1]]],i<4?'#669f94':'#21a9ad');
+  }
+  // Borehole, with a submerged pump and riser.
+  line([[30,166],[130,166]],'#8c997e',2);
+  for(let i=0;i<6;i++)line([[34+i*18,168],[27+i*18,179]],'#a8ae96',1);
+  box(63,90,34,108,3,'#c4d2cb');box(70,100,20,91,2,'#9c9470');box(68,163,24,28,4,'#38626b');line([[80,163],[80,90]],'#38626b',4);
+  vessel(45,y[1],70,110,'#9eac8977','','',1,'sediment');
+  vessel(45,y[2],70,110,'#556e5c88','','',2,'carbon');
+  vessel(45,y[3],70,110,'#c49c6388','','',3,'resin');
+  // Regeneration/brine tank belongs to the softener, not the product-water pipe.
+  box(123,659,22,48,4,'#d5dfd9');line([[115,628],[134,628],[134,659]],'#597b7b',2);
+  pump(80,798,'',4);
+  line([[106,789],[125,789],[125,767]],'#4c7478',2);ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(125,757,10,0,7);ctx.fill();ctx.stroke();line([[125,757],[130,752]],'#244b52',2);
+  text('MEMBRANE SEPARATION',180,905,12,'#267f80');
+  box(23,940,114,82,4,selected===5?'#d5eee6':'#e3eae4');ctx.strokeStyle='#577a7a';ctx.strokeRect(23,940,114,82);
+  for(let i=0;i<2;i++){
+   const yy=952+i*32,g=ctx.createLinearGradient(0,yy,0,yy+21);g.addColorStop(0,'#637e83');g.addColorStop(.45,'#f6fffb');g.addColorStop(1,'#79979a');box(29,yy,102,21,10,g);
+   for(const x of [34,126])line([[x,yy-2],[x,yy+23]],'#2e626c',3);
+  }
+  line([[33,1022],[33,1032],[127,1032],[127,1022]],'#486b70',3);
+  pipe([[137,994],[154,994],[154,1034],[309,1034],[309,1040]],'#b98848');
+  box(170,1041,158,42,5,'#efe4cc');text('Separate concentrate',249,1058,11,'#805e30');text('outlet · management pending',249,1074,10,'#805e30');
+  text('STORAGE, UV & OUTPUT',180,1118,12,'#267f80');
+  vessel(40,y[6],80,110,'#58c4ca77','','',6,'water');
+  pump(135,1288,'',6);text('Transfer pump',241,1292,11);
+  const uv=ctx.createLinearGradient(0,1360,0,1420);uv.addColorStop(0,'#607f85');uv.addColorStop(.5,'#f4fcfb');uv.addColorStop(1,'#8fa9ad');box(23,1368,114,44,20,uv);
+  line([[39,1390],[123,1390]],'#c0a0ed',7);box(67,1347,26,20,3,'#4d727a');line([[80,1367],[80,1368]],'#4d727a',3);
+  ctx.fillStyle='#d0efeb';ctx.beginPath();ctx.moveTo(47,1540);ctx.lineTo(58,1630);ctx.lineTo(102,1630);ctx.lineTo(113,1540);ctx.closePath();ctx.fill();ctx.strokeStyle='#3f858c';ctx.lineWidth=2;ctx.stroke();line([[51,1570],[109,1570]],'#36a3ae',2);
+  const tags=['BH-01','F-01','F-02','F-03','P-01','RO-01','TK-01','UV-01','OUTPUT'];
+  const names=[['Borehole water','Source testing'],['Sediment filter','Suspended particles'],['Activated carbon','Carbon media'],['Water softener','Resin + brine tank'],['Pressure pump','High-pressure feed'],['RO membrane','Permeate flows down'],['Protected storage','Hygienic storage'],['UV treatment','Disinfection chamber'],['Treated water','Verification before supply']];
+  names.forEach(([name,sub],i)=>{
+   const yy=y[i];text(String(i+1).padStart(2,'0')+' / '+tags[i],245,yy+17,11,'#267f80');
+   text(name,245,yy+43,14);text(sub,245,yy+66,11);
+  });
+  const [sx,sy,sw,sh]=mobileBounds[selected];
+  ctx.strokeStyle='#00a58f';ctx.lineWidth=2;ctx.beginPath();ctx.roundRect(sx,sy,sw,sh,12);ctx.stroke();
+  text('Feed / pretreatment',100,1670,10,'#4c7f75');text('RO permeate',255,1670,10,'#198b92');
+  text('Tap equipment to highlight · explanations below',180,1694,10);
+  return;
+ }
+
  text('01 / SOURCE & PRE-TREATMENT',220,91,11,'#2a8987');text('02 / MEMBRANE SEPARATION',830,91,11,'#2a8987');
  // Orthogonal process pipework, connected to the equipment nozzles.
  pipe([[75,228],[75,148],[170,148],[170,195],[190,195]],'#9d8d5d');
@@ -118,5 +163,5 @@
  root.querySelector('#flow-reset').addEventListener('click',()=>{time=0;select(0);});
  reduced.addEventListener('change',e=>{if(e.matches){playing=false;state();}});
  document.addEventListener('visibilitychange',()=>{if(document.hidden)cancelAnimationFrame(frame);else{last=performance.now();frame=requestAnimationFrame(tick);}});
- select(0);state();frame=requestAnimationFrame(tick);
+ configure();select(0);state();frame=requestAnimationFrame(tick);
 })();
