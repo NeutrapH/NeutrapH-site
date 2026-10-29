@@ -10,7 +10,7 @@
 .flow-lab #flow-toggle{background:#a7eee4;color:#083643;border-color:#a7eee4;min-width:100px}
 .flow-viewport{overflow-x:auto;border:1px solid #325966;border-radius:16px;box-shadow:0 22px 65px #0004}
 .flow-viewport canvas{display:block;width:100%;min-width:850px;height:auto}
-.flow-stage-list{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;margin-top:20px}
+.flow-stage-list{display:grid;grid-template-columns:repeat(9,1fr);gap:8px;margin-top:20px}
 .flow-lab .flow-stage{padding:13px 8px;font-size:11px;background:transparent;line-height:1.4}
 .flow-lab .flow-stage[aria-pressed=true]{background:#a7eee4;border-color:#d1fff6;color:#063c39;box-shadow:0 0 0 1px #70d6c7;transform:none}
 .flow-lab .flow-stage{transition:background .2s,color .2s,box-shadow .2s,transform .2s}
@@ -20,3 +20,25 @@
 .flow-description p{color:#c0d6dc;line-height:1.8;font-size:14px;max-width:940px;margin:8px 0 0}
 .flow-note{font-size:12px;line-height:1.7;color:#91b0b9;margin-top:18px}
 @media(max-width:850px){.flow-heading{display:block}.flow-controls{margin-top:22px}.flow-stage-list{grid-template-columns:repeat(4,1fr)}.flow-lab{padding:48px 0}.flow-description{padding:20px}}
+.flow-mobile{display:none}
+@media(max-width:600px){
+ .flow-lab:has(.flow-mobile) .flow-viewport,.flow-lab:has(.flow-mobile) .flow-stage-list,.flow-lab:has(.flow-mobile) .flow-description{display:none}
+ .flow-heading{margin-bottom:24px}.flow-heading h2{letter-spacing:-.8px}.flow-controls button{min-height:44px}
+ .flow-mobile{display:block;position:relative;padding:0 0 8px}
+ .flow-mobile-group{position:relative;z-index:1;margin:24px 0 14px;color:#8ce1db;font:600 11px/1.5 system-ui;letter-spacing:1.2px;text-transform:uppercase;background:#071f2c}
+ .flow-mobile-node{position:relative;margin-bottom:26px;background:#123440;border:1px solid #325966;border-radius:12px}
+ .flow-mobile-node:not(:last-child)::after{content:'';position:absolute;top:100%;left:29px;width:3px;height:27px;background:linear-gradient(to bottom,#52b8b0 55%,transparent 55%);background-size:3px 12px;animation:flow-down .8s linear infinite}
+ .flow-mobile-node.is-selected{border-color:#a7eee4;box-shadow:0 0 0 1px #a7eee433}
+ .flow-lab .flow-mobile-stage{display:grid;grid-template-columns:36px minmax(0,1fr) 16px;gap:12px;align-items:center;width:100%;min-height:88px;padding:16px 12px;border:0;border-radius:12px;background:transparent;text-align:left;color:#effff9}
+ .flow-mobile-number{display:grid;place-items:center;width:36px;height:36px;background:#1c4b55;color:#a7eee4;border:1px solid #487c83;border-radius:50%;font-size:12px}
+ .is-selected .flow-mobile-number{background:#a7eee4;color:#063c39;border-color:#a7eee4}
+ .flow-mobile-stage strong{display:block;font-size:16px;line-height:1.4;font-weight:600}
+ .flow-mobile-summary{display:block;color:#b9d1d8;font-size:12px;line-height:1.5;font-weight:400;margin-top:4px}
+ .flow-mobile-plus{font-size:20px;color:#a7eee4}
+ .flow-mobile-detail{margin:0 16px 18px 60px;font:400 14px/1.7 system-ui;color:#d1e7e8}
+ .flow-mobile-branch{position:relative;margin:-6px 0 24px 30px;padding:12px 14px;border-left:2px solid #c79859;border-radius:0 6px 6px 0;background:#302f29;color:#e6d2b2;font:400 12px/1.6 system-ui}
+ .flow-mobile-branch strong{font-weight:600;color:#f1d6ab}
+ .flow-paused .flow-mobile-node::after{animation-play-state:paused}
+}
+@keyframes flow-down{to{background-position:0 12px}}
+@media(prefers-reduced-motion:reduce){.flow-mobile-node::after{animation:none}}
