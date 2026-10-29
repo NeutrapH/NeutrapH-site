@@ -8,18 +8,33 @@
  ['Borehole water','Source water may contain suspended particles and dissolved substances, even when it looks clear. Testing determines the treatment needed.'],
  ['Sediment filter','Suspended particles are retained by the filter. Dissolved salts can remain in the water.'],
  ['Activated carbon','Suitable carbon media reduces chlorine and selected taste- and odour-causing substances, helping prepare water for RO.'],
+ ['Water softener','Ion-exchange resin reduces calcium and magnesium hardness before RO, helping limit scale on the membrane. Resin needs regeneration and maintenance; softening does not disinfect water.'],
  ['Pressure pump','Pressure drives the separation at the RO membrane. Pressure itself does not remove contaminants.'],
  ['RO membrane','Water crosses the membrane as permeate. A separate concentrate stream carries rejected substances away. Removal is not absolute.'],
  ['Protected storage','RO-treated water enters protected storage. Hygienic storage and maintenance help prevent recontamination.'],
  ['UV treatment','Validated UV treatment inactivates microorganisms. It does not remove dissolved salts or provide lasting protection after treatment.'],
  ['Treated water','The intended output still needs appropriate water-quality verification before supply. A clear appearance alone does not prove safety.']
  ];
- const xs=[65,205,345,485,625,765,905,1045], y=230;
- function select(i){selected=i;root.querySelectorAll('.flow-stage').forEach((b,j)=>b.setAttribute('aria-pressed',String(i===j)));description.innerHTML=`<strong>${String(i+1).padStart(2,'0')} / ${stages[i][0]}</strong><p>${stages[i][1]}</p>`;draw();}
+ const bounds=[[28,118,96,192],[180,119,80,185],[295,119,80,185],[410,119,80,185],[511,199,78,82],[659,123,258,166],[790,383,120,171],[258,470,184,92],[101,478,85,97]];
+ const summaries=['Testing guides the treatment needed.','Retains suspended particles.','Reduces selected tastes, odours and chlorine.','Reduces hardness before reverse osmosis.','Provides pressure for membrane separation.','Separates permeate from concentrate.','Helps protect treated water.','Inactivates microorganisms when validated.','Quality verification before supply.'];
+ const mobile=document.createElement('div');mobile.className='flow-mobile';mobile.setAttribute('role','group');mobile.setAttribute('aria-label','Treatment journey, from source to output');
+ mobile.innerHTML=stages.map(([name,detail],i)=>{
+ const group={0:'01 / Source & pretreatment',5:'02 / Membrane separation',6:'03 / Storage & output'}[i];
+ return (group?'<p class="flow-mobile-group">'+group+'</p>':'')+'<div class="flow-mobile-node"><button type="button" class="flow-mobile-stage" aria-expanded="false" aria-controls="flow-mobile-detail-'+i+'"><span class="flow-mobile-number">'+String(i+1).padStart(2,'0')+'</span><span><strong>'+name+'</strong><span class="flow-mobile-summary">'+summaries[i]+'</span></span><span class="flow-mobile-plus" aria-hidden="true">+</span></button><p class="flow-mobile-detail" id="flow-mobile-detail-'+i+'" hidden>'+detail+'</p></div>'+(i===5?'<p class="flow-mobile-branch"><strong>↳ Separate concentrate outlet</strong><br>Rejected substances leave here. Management to be confirmed.</p>':'');
+ }).join('');root.querySelector('.flow-viewport').after(mobile);
+ const mobileButtons=mobile.querySelectorAll('.flow-mobile-stage');
+ mobileButtons.forEach((button,i)=>button.addEventListener('click',()=>{
+  if(button.getAttribute('aria-expanded')==='true'){
+   button.setAttribute('aria-expanded','false');button.querySelector('.flow-mobile-plus').textContent='+';
+   button.parentElement.classList.remove('is-selected');mobile.querySelector('#flow-mobile-detail-'+i).hidden=true;
+  }else select(i);
+ }));
+ root.classList.toggle('flow-paused',!playing);
+ function select(i){selected=i;mobileButtons.forEach((button,j)=>{button.setAttribute('aria-expanded',String(i===j));button.querySelector('.flow-mobile-plus').textContent=i===j?'−':'+';button.parentElement.classList.toggle('is-selected',i===j);mobile.querySelector('#flow-mobile-detail-'+j).hidden=i!==j;});root.querySelectorAll('.flow-stage').forEach((b,j)=>b.setAttribute('aria-pressed',String(i===j)));description.innerHTML=`<strong>${String(i+1).padStart(2,'0')} / ${stages[i][0]}</strong><p>${stages[i][1]}</p>`;draw();}
  root.querySelectorAll('.flow-stage').forEach((b,i)=>b.addEventListener('click',()=>select(i)));
  canvas.addEventListener('click',event=>{
   const r=canvas.getBoundingClientRect(),x=(event.clientX-r.left)*1120/r.width,y=(event.clientY-r.top)*650/r.height;
-  const areas=[[28,118,96,192],[207,119,96,185],[342,119,96,185],[511,199,78,82],[659,123,258,166],[790,383,120,171],[258,470,184,92],[101,478,85,97]];
+  const areas=bounds;
   const i=areas.findIndex(([ax,ay,w,h])=>x>=ax-10&&x<=ax+w+10&&y>=ay-10&&y<=ay+h+10);
   if(i>=0)select(i);
  });
@@ -44,6 +59,7 @@
  box(x+9,y+25,w-18,h-40,5,colour);
  if(media==='sediment'){for(let i=0;i<7;i++)line([[x+15+i*6,y+30],[x+15+i*6,y+h-20]],'#e3d8a9',2);}
  if(media==='carbon'){for(let i=0;i<35;i++){ctx.fillStyle='#293d3b';ctx.beginPath();ctx.arc(x+14+(i*17%(w-27)),y+33+(i*23%(h-53)),3,0,7);ctx.fill();}}
+ if(media==='resin'){for(let i=0;i<48;i++){ctx.fillStyle=i%2?'#c59a57':'#e7c88a';ctx.beginPath();ctx.arc(x+14+(i*13%(w-27)),y+33+(i*19%(h-53)),2.5,0,7);ctx.fill();}}
  if(media==='water'){for(let i=0;i<9;i++){ctx.fillStyle='#cfffff99';ctx.beginPath();ctx.arc(x+16+(i*11%(w-30)),y+30+((i*17-time*12)%(h-55)+(h-55))%(h-55),2,0,7);ctx.fill();}}
  line([[x+12,y+h],[x+12,y+h+13],[x+3,y+h+13]],'#49696a',3);line([[x+w-12,y+h],[x+w-12,y+h+13],[x+w-3,y+h+13]],'#49696a',3);
  text(tag,x+w/2,y-18,11);text(name,x+w/2,y+h+35,12);
@@ -51,8 +67,8 @@
  function pump(x,y,tag,stage){ctx.fillStyle=selected===stage?'#7bc9c0':'#bdd0ca';ctx.beginPath();ctx.arc(x,y,24,0,7);ctx.fill();ctx.strokeStyle='#365d65';ctx.lineWidth=2;ctx.stroke();ctx.save();ctx.translate(x,y);ctx.rotate(time*2);for(let j=0;j<3;j++){ctx.rotate(2*Math.PI/3);line([[0,0],[15,0],[9,9]],'#38636c',3);}ctx.restore();box(x-32,y+27,64,8,2,'#58777b');text(tag,x,y+55,10);}
  text('01 / SOURCE & PRE-TREATMENT',220,91,11,'#2a8987');text('02 / MEMBRANE SEPARATION',830,91,11,'#2a8987');
  // Orthogonal process pipework, connected to the equipment nozzles.
- pipe([[75,228],[75,148],[170,148],[170,195],[220,195]],'#9d8d5d');
- pipe([[290,195],[355,195]],'#669f94');pipe([[425,195],[490,195],[490,240],[526,240]],'#3a9291');
+ pipe([[75,228],[75,148],[170,148],[170,195],[190,195]],'#9d8d5d');
+ pipe([[250,195],[305,195]],'#669f94');pipe([[365,195],[420,195]],'#669f94');pipe([[480,195],[500,195],[500,240],[526,240]],'#3a9291');
  pipe([[574,240],[610,240],[610,180],[680,180]],'#25888e');
  pipe([[895,180],[1005,180],[1005,407],[900,407]],'#21a9ad');
  pipe([[680,227],[650,227],[650,330],[520,330],[520,417]],'#b98848');
@@ -62,18 +78,19 @@
  // Borehole and submerged pump.
  line([[36,250],[118,250]],'#8c997e',2);for(let i=0;i<5;i++)line([[38+i*17,253],[30+i*17,267]],'#a8ae96',1);
  box(59,158,32,131,3,'#c4d2cb');box(67,171,16,107,2,'#9c9470');box(64,246,22,31,4,'#38626b');line([[75,246],[75,150]],'#38626b',4);text('BH-01',75,130,11);text('Borehole water',75,318);text('Source testing',75,337,10);
- vessel(220,139,70,142,'#9eac8977','F-01','Sediment filter',1,'sediment');
- vessel(355,139,70,142,'#556e5c88','F-02','Activated carbon',2,'carbon');
- pump(550,240,'P-01 / HIGH PRESSURE',3);
+ vessel(190,139,60,142,'#9eac8977','F-01','Sediment filter',1,'sediment');
+ vessel(305,139,60,142,'#556e5c88','F-02','Activated carbon',2,'carbon');
+ vessel(420,139,60,142,'#c49c6388','F-03','Water softener',3,'resin');
+ pump(550,240,'P-01 / HIGH PRESSURE',4);
  // Membrane skid: horizontal pressure vessels, flanges and support frame.
- box(667,130,242,135,7,selected===4?'#d5eee6':'#e3eae4');ctx.strokeStyle='#577a7a';ctx.strokeRect(667,130,242,135);
+ box(667,130,242,135,7,selected===5?'#d5eee6':'#e3eae4');ctx.strokeStyle='#577a7a';ctx.strokeRect(667,130,242,135);
  for(let i=0;i<2;i++){let yy=157+i*46;const g=ctx.createLinearGradient(0,yy,0,yy+30);g.addColorStop(0,'#637e83');g.addColorStop(.45,'#f6fffb');g.addColorStop(1,'#79979a');box(682,yy,210,30,14,g);for(let x of [690,883])line([[x,yy-3],[x,yy+33]],'#2e626c',4);for(let j=0;j<10;j++)line([[718+j*13,yy+4],[718+j*13,yy+26]],'#65a9ac55',1);}
  line([[680,265],[680,281],[895,281],[895,265]],'#486b70',4);text('RO-01',788,115,11);text('Reverse osmosis membrane skid',788,303);text('PERMEATE →',966,159,10,'#19868b');text('CONCENTRATE',584,350,10,'#996c36');
  // Pressure gauge on feed.
  line([[610,180],[610,141]],'#4c7478',2);ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(610,128,13,0,7);ctx.fill();ctx.stroke();line([[610,128],[617,121]],'#244b52',2);text('Pressure',610,107,9);
  text('03 / STORAGE, DISINFECTION & OUTPUT',804,366,11,'#2a8987');
- vessel(800,395,100,137,'#58c4ca77','TK-01','Protected storage',5,'water');
- pump(630,482,'P-02 / TRANSFER',5);
+ vessel(800,395,100,137,'#58c4ca77','TK-01','Protected storage',6,'water');
+ pump(630,482,'P-02 / TRANSFER',6);
  // Separate concentrate outlet; it never joins treated water.
  box(478,417,84,30,5,'#efe4cc');text('Separate outlet',520,437,10,'#805e30');text('Management to be confirmed',520,462,9,'#805e30');
  // Horizontal UV chamber and control head.
@@ -82,10 +99,6 @@
  ctx.fillStyle='#d0efeb';ctx.beginPath();ctx.moveTo(110,489);ctx.lineTo(120,566);ctx.lineTo(167,566);ctx.lineTo(178,489);ctx.closePath();ctx.fill();ctx.strokeStyle='#3f858c';ctx.lineWidth=2;ctx.stroke();line([[115,515],[173,515]],'#36a3ae',2);text('Treated water',145,591);text('Verification before supply',145,608,10);
  text('FLOW LEGEND',999,486,10);text('Feed / pre-treatment',999,508,10,'#8b8155');text('RO permeate',999,528,10,'#198b92');text('Concentrate',999,548,10,'#996c36');
  // Spotlight each selected item, including the borehole, UV chamber and output.
- const bounds=[
-  [28,118,96,192],[207,119,96,185],[342,119,96,185],[511,199,78,82],
-  [659,123,258,166],[790,383,120,171],[258,470,184,92],[101,478,85,97]
- ];
  const [sx,sy,sw,sh]=bounds[selected];
  ctx.save();
  ctx.beginPath();ctx.rect(0,0,1120,650);ctx.roundRect(sx-7,sy-7,sw+14,sh+14,14);
@@ -100,7 +113,7 @@
  box(tx,ty,tw,26,6,'#07594f');label(tag,tx+tw/2,ty+18,12,'#effff9');
  }
  function tick(now){if(playing)time+=Math.min((now-last)/1000,.06);last=now;draw();frame=requestAnimationFrame(tick);}
- function state(){toggle.textContent=playing?'Pause flow':'Play flow';toggle.setAttribute('aria-pressed',String(playing));}
+ function state(){root.classList.toggle('flow-paused',!playing);toggle.textContent=playing?'Pause flow':'Play flow';toggle.setAttribute('aria-pressed',String(playing));}
  toggle.addEventListener('click',()=>{playing=!playing;state();});
  root.querySelector('#flow-reset').addEventListener('click',()=>{time=0;select(0);});
  reduced.addEventListener('change',e=>{if(e.matches){playing=false;state();}});
