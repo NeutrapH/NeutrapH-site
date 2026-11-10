@@ -14,6 +14,8 @@ function orderProduct(product){const input=document.getElementById('qty-'+produc
 
   const button = form.querySelector('button[type="submit"]');
   const status = form.querySelector('.form-confirmation');
+  const entry = document.getElementById('enquiry-entry');
+  const confirmation = document.getElementById('enquiry-success');
   const endpoint = form.getAttribute('action');
   const configured = /^https:\/\/formspree\.io\/f\/[a-z0-9]+$/i.test(endpoint || '');
 
@@ -21,7 +23,6 @@ function orderProduct(product){const input=document.getElementById('qty-'+produc
     event.preventDefault();
     if (button.disabled) return;
     if (!configured) {
-      status.dataset.state = 'error';
       status.textContent = 'The form is temporarily unavailable. Please email us directly or chat on WhatsApp below.';
       return;
     }
@@ -43,17 +44,17 @@ function orderProduct(product){const input=document.getElementById('qty-'+produc
       if (!response.ok || typeof result?.next !== 'string') {
         throw new Error('Form submission was not accepted');
       }
-
-      form.reset();
-      status.dataset.state = 'success';
-      status.textContent = 'Thank you for your enquiry. A NeutrapH representative will get back to you within 24 hours.';
     } catch {
-      status.dataset.state = 'error';
       status.textContent = 'We couldn’t confirm your enquiry was sent. Please try again, email us directly or chat on WhatsApp below.';
-    } finally {
       button.textContent = 'Send';
       button.disabled = false;
+      return;
     }
+
+    form.reset();
+    entry.hidden = true;
+    confirmation.hidden = false;
+    confirmation.focus();
   });
 
   button.disabled = false;

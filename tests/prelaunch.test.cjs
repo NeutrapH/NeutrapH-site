@@ -110,6 +110,9 @@ test('Plan and service selection handles all supported values and rejects unknow
 });
 
 test('The enquiry form confirms accepted submissions and keeps details after failed attempts', async () => {
+  const html = fs.readFileSync(path.join(root, 'contact.html'), 'utf8');
+  assert.match(html, /<section[^>]*id="enquiry-success"[^>]*\bhidden>/);
+  assert.match(html, /A NeutrapH representative will get back to you within 24 hours\./);
   const formUrl = 'https://formspree.io/f/testform';
   for (const [endpoint, reply, expectedState] of [
     [formUrl, { next: '/thanks' }, 'success'],
@@ -117,7 +120,10 @@ test('The enquiry form confirms accepted submissions and keeps details after fai
     [null, null, 'error']
   ]) {
     const button = { disabled: true, textContent: 'Send' };
-    const status = { textContent: '', dataset: {} };
+    const status = { textContent: '' };
+    const entry = { hidden: false };
+    let focused = false;
+    const confirmation = { hidden: true, focus: () => { focused = true; } };
     const interest = { options: [], selectedOptions: [{ textContent: 'Business plan' }] };
     let submit;
     let reset = false;
@@ -130,7 +136,13 @@ test('The enquiry form confirms accepted submissions and keeps details after fai
       reset: () => { reset = true; }
     };
     runSiteScript({
-      document: { getElementById: () => form },
+      document: {
+        getElementById: id => ({
+          'enquiry-form': form,
+          'enquiry-entry': entry,
+          'enquiry-success': confirmation
+        })[id]
+      },
       FormData: class extends Map {
         constructor() {
           super([['email', 'visitor@example.com']]);
@@ -148,11 +160,16 @@ test('The enquiry form confirms accepted submissions and keeps details after fai
     const event = { preventDefault() {} };
     await Promise.all([submit(event), submit(event)]);
     assert.equal(requests, endpoint ? 1 : 0);
-    assert.equal(status.dataset.state, expectedState);
-    assert.equal(reset, expectedState === 'success');
-    assert.equal(button.disabled, false);
-    assert.equal(button.textContent, 'Send');
-    if (reset) assert.match(status.textContent, /within 24 hours/);
+    const accepted = expectedState === 'success';
+    assert.equal(reset, accepted);
+    assert.equal(entry.hidden, accepted);
+    assert.equal(confirmation.hidden, !accepted);
+    assert.equal(focused, accepted);
+    assert.equal(button.disabled, accepted);
+    if (!accepted) {
+      assert.equal(button.textContent, 'Send');
+      assert.match(status.textContent, /unavailable|couldn’t confirm/);
+    }
   }
 });
 
