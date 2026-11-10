@@ -5,6 +5,21 @@ const path = require('node:path');
 const vm = require('node:vm');
 const root = path.join(__dirname, '..');
 const pages = fs.readdirSync(root).filter(n => n.endsWith('.html'));
+const siteScript = fs.readFileSync(path.join(root, 'assets/js/script.js'), 'utf8');
+
+function runSiteScript(context, after = '') {
+  return vm.runInNewContext(siteScript + '\n' + after, {
+    location: { pathname: '/contact.html', search: '' },
+    URLSearchParams,
+    ...context,
+    document: {
+      getElementById: () => null,
+      querySelectorAll: () => [],
+      addEventListener() {},
+      ...context.document
+    }
+  });
+}
 
 test('Every public page is explicitly pre-launch without checkout or unsupported claims', () => {
   for (const name of pages) {
@@ -56,6 +71,9 @@ test('Contact retains labelled, minimal enquiry fields; Home has no duplicate fo
   assert.doesNotMatch(forms[0], /name="Address"|Delivery Frequency/);
   for (const m of forms[0].matchAll(/<(?:input|select|textarea)\b[^>]*id="([^"]+)"/g)) assert.ok(forms[0].includes('for="' + m[1] + '"'));
   assert.match(forms[0], /privacy.html/);
+  assert.match(forms[0], /<input\b[^>]*name="email"[^>]*required/);
+  assert.equal((forms[0].match(/<button\b/g) || []).length, 1);
+  assert.match(forms[0], /type="submit"[^>]*>Send<\/button>/);
 });
 
 test('Payment pages cannot claim success or cancellation and are not indexable', () => {
@@ -68,14 +86,11 @@ test('Payment pages cannot claim success or cancellation and are not indexable',
 });
 
 test('Product hand-off preserves quantity, recipient and enquiry-only wording', () => {
-  const source = fs.readFileSync(path.join(root, 'assets/js/script.js'), 'utf8');
-  const helper = source.slice(0, source.indexOf('(function(){const form='));
   let opened;
-  vm.runInNewContext(helper + '\norderProduct("18.9L Water Dispenser Bottle");', {
+  runSiteScript({
     document: { getElementById: id => id === 'qty-189LWaterDispenserBottle' ? { value: '3' } : null },
-    window: { open: url => { opened = new URL(url); } },
-    encodeURIComponent
-  });
+    window: { open: url => { opened = new URL(url); } }
+  }, 'orderProduct("18.9L Water Dispenser Bottle");');
   assert.equal(opened.origin, 'https://wa.me');
   assert.equal(opened.pathname, '/27798134597');
   assert.match(opened.searchParams.get('text'), /quantity: 3/);
@@ -83,14 +98,61 @@ test('Product hand-off preserves quantity, recipient and enquiry-only wording', 
 });
 
 test('Plan and service selection handles all supported values and rejects unknown values', () => {
-  const source = fs.readFileSync(path.join(root, 'assets/js/script.js'), 'utf8');
-  const start = source.indexOf('(function(){const form=');
-  const initializer = source.slice(start, source.indexOf('\n', start));
-  for (const [query, expected] of [['plan=starter','starter'], ['plan=standard','standard'], ['plan=business','business'], ['service=refill','refill'], ['service=purification','purification'], ['plan=unknown',''], ['','']]) {
-    const interest = { value: '' };
-    const form = { elements: { namedItem: () => interest }, querySelector: () => ({ addEventListener() {} }) };
-    vm.runInNewContext(initializer, { document: { querySelector: () => form }, location: { search: query }, URLSearchParams });
+  const html = fs.readFileSync(path.join(root, 'contact.html'), 'utf8');
+  const options = Array.from(html.matchAll(/<option value="([^"]+)">/g), ([, value]) => ({ value }));
+  const supported = ['starter', 'standard', 'business', 'general', 'packaged', 'dispenser', 'refill', 'purification'];
+  for (const [query, expected] of [...supported.map(value => ['service=' + value, value]), ['plan=starter', 'starter'], ['plan=unknown', ''], ['', '']]) {
+    const interest = { value: '', options };
+    const form = { elements: { namedItem: () => interest }, querySelector: () => ({}), getAttribute: () => null, addEventListener() {} };
+    runSiteScript({ document: { getElementById: () => form }, location: { pathname: '/contact.html', search: query } });
     assert.equal(interest.value, expected, query);
+  }
+});
+
+test('The enquiry form confirms accepted submissions and keeps details after failed attempts', async () => {
+  const formUrl = 'https://formspree.io/f/testform';
+  for (const [endpoint, reply, expectedState] of [
+    [formUrl, { next: '/thanks' }, 'success'],
+    [formUrl, { error: 'Form unavailable' }, 'error'],
+    [null, null, 'error']
+  ]) {
+    const button = { disabled: true, textContent: 'Send' };
+    const status = { textContent: '', dataset: {} };
+    const interest = { options: [], selectedOptions: [{ textContent: 'Business plan' }] };
+    let submit;
+    let reset = false;
+    let requests = 0;
+    const form = {
+      elements: { namedItem: () => interest },
+      querySelector: selector => selector.startsWith('button') ? button : status,
+      getAttribute: () => endpoint,
+      addEventListener: (_, listener) => { submit = listener; },
+      reset: () => { reset = true; }
+    };
+    runSiteScript({
+      document: { getElementById: () => form },
+      FormData: class extends Map {
+        constructor() {
+          super([['email', 'visitor@example.com']]);
+        }
+      },
+      async fetch(url, request) {
+        requests += 1;
+        assert.equal(url, formUrl);
+        assert.equal(request.method, 'POST');
+        assert.equal(request.body.get('email'), 'visitor@example.com');
+        assert.equal(request.body.get('Interest'), 'Business plan');
+        return { ok: true, json: async () => reply };
+      }
+    });
+    const event = { preventDefault() {} };
+    await Promise.all([submit(event), submit(event)]);
+    assert.equal(requests, endpoint ? 1 : 0);
+    assert.equal(status.dataset.state, expectedState);
+    assert.equal(reset, expectedState === 'success');
+    assert.equal(button.disabled, false);
+    assert.equal(button.textContent, 'Send');
+    if (reset) assert.match(status.textContent, /within 24 hours/);
   }
 });
 
