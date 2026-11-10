@@ -57,6 +57,11 @@
 .premium-page .shop-sidebar .size-filter{padding:10px 16px;border:1px solid #d0ded9;border-radius:30px;background:transparent;color:#24545d;font-size:12px;margin:0}
 .premium-page .shop-sidebar .size-filter:hover{background:#dfede7}
 .premium-page .shop-category{margin-top:55px}
+.tap-bottle-category{margin-bottom:55px}
+.tap-bottle-category .section-desc{margin:8px 0 20px}
+.premium-page .tap-bottle-category .shop-img-wrap{aspect-ratio:1;height:auto;padding:0}
+.premium-page .tap-bottle-category .shop-img-wrap img{display:block;mix-blend-mode:normal}
+.tap-bottle-category .shop-btn{margin-top:14px}
 .premium-page .premium-about{background:#e9f1ed;padding:40px 0}
 .premium-about-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,330px);gap:56px;align-items:center}
 .premium-about h1{font:600 clamp(38px,4vw,60px)/1.12 Montserrat,sans-serif;letter-spacing:-2px;color:#133f4a;margin:25px 0}
