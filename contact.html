@@ -26,11 +26,11 @@
   <meta name="twitter:description" content="Send an enquiry about planned NeutrapH services, chat on WhatsApp or view the planned Bushbuckridge service area.">
   <meta name="twitter:image" content="https://neutraph.co.za/assets/images/social-preview.jpg">
   <link rel="stylesheet" href="assets/css/layout.css">
-  <link rel="stylesheet" href="assets/css/prelaunch.css">
+  <link rel="stylesheet" href="assets/css/prelaunch.css?v=website-audit-1">
   <link rel="stylesheet" href="assets/css/usability.css?v=20260929-footer1">
   <link rel="stylesheet" href="assets/css/hero-v2.css">
   <link rel="stylesheet" href="assets/css/brand-palette.css?v=20261021-ph-badge-v2">
-<link rel="stylesheet" href="assets/css/premium-pages.css?v=20261110-enquiry-success">
+<link rel="stylesheet" href="assets/css/premium-pages.css?v=website-audit-1">
 <link rel="stylesheet" href="assets/css/hero-logo-colors.css?v=20261020-review1">
 </head>
 
@@ -51,18 +51,18 @@
       <a href="water-dispensers.html" data-page="water-dispensers.html">Dispensers</a>
       <a href="subscriptions.html" data-page="subscriptions.html">Subscriptions</a>
       <a href="refilling-station.html" data-page="refilling-station.html">Refilling Station</a>
-      <a href="Shop.html" data-page="Shop.html">Shop</a>
+      <a href="shop.html" data-page="shop.html">Shop</a>
       <a href="about.html" data-page="about.html">About Us</a>
       <a href="contact.html" data-page="contact.html" class="active" aria-current="page">Contact</a>
     </nav>
 
-    <a href="https://wa.me/27798134597" target="_blank" class="header-cta">
+    <a href="https://wa.me/27798134597" target="_blank" rel="noopener" class="header-cta">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="wa-icon-sm" alt="">Enquire
     </a>
   </div>
 </header>
 
-<aside class="launch-notice" aria-label="Launch status"><div class="container"><strong>Preparing to launch</strong> NeutrapH has not started trading. Orders, deliveries and walk-in refills are not yet available. <a href="contact.html">Register your interest</a>.</div></aside>
+<aside class="launch-notice" aria-label="Launch status"><div class="container"><strong>Preparing to launch in Bushbuckridge</strong><span>Orders, deliveries and walk-in refills are not yet open.</span><a href="contact.html#launch-enquiry">Register interest</a></div></aside>
 <main id="main-content" tabindex="-1">
   <section class="brand-hero brand-hero--remaining">
   <div class="brand-hero-grid">
@@ -85,13 +85,21 @@
       <div class="form-card" id="launch-enquiry">
         <div id="enquiry-entry">
         <h2 class="form-heading">Start a conversation</h2>
-        <p style="color:var(--text-mid);margin-bottom:20px">Send your enquiry to NeutrapH using the form below.</p>
+        <p style="color:var(--text-mid);margin-bottom:20px">Tell us what you’re interested in and where you need it. Estimates are welcome.</p>
 
         <noscript><style>#enquiry-form{display:none!important}</style></noscript>
         <form id="enquiry-form" class="form" method="post" action="https://formspree.io/f/maeownqk" aria-describedby="enquiry-privacy">
-<div class="form-row"><div><label for="enquiry-name">Name (required)</label><input id="enquiry-name" name="Name" autocomplete="name" required maxlength="100"></div><div><label for="enquiry-area">Area / town (optional)</label><input id="enquiry-area" name="Area" autocomplete="address-level2" maxlength="120" placeholder="For example, Welverdiend"></div></div>
+<div class="form-row"><div><label for="enquiry-name">Name (required)</label><input id="enquiry-name" name="Name" autocomplete="name" required maxlength="100"></div><div><label for="enquiry-area">Area / town (required)</label><input id="enquiry-area" name="Area" autocomplete="address-level2" required maxlength="120" placeholder="For example, Welverdiend"></div></div>
 <div class="form-row"><div><label for="enquiry-email">Email (required)</label><input id="enquiry-email" name="email" type="email" autocomplete="email" required maxlength="254"></div><div><label for="enquiry-phone">Phone (optional)</label><input id="enquiry-phone" name="Phone" type="tel" autocomplete="tel" maxlength="40"></div></div>
-<div><label for="enquiry-service">Interested in (required)</label><select id="enquiry-service" name="Interest" required><option value="">Select an enquiry type</option><option value="general">General launch enquiry</option><option value="starter">Starter plan</option><option value="standard">Standard plan</option><option value="business">Business plan</option><option value="packaged">Packaged water</option><option value="dispenser">Dispenser options</option><option value="refill">Refilling station</option><option value="purification">Purification and quality checks</option></select></div>
+<div><label for="enquiry-service">Interested in (required)</label><select id="enquiry-service" name="Interest" required><option value="">Select an enquiry type</option><option value="general">General launch enquiry</option><option value="starter">Starter plan</option><option value="standard">Standard plan</option><option value="business">Business plan</option><option value="packaged">Packaged water</option><option value="bottles">Empty tap or dispenser bottles</option><option value="dispenser">Dispenser options</option><option value="refill">Refilling station</option><option value="purification">Purification and quality checks</option></select></div>
+<div class="form-row">
+  <div><label for="enquiry-customer">Customer type (required)</label><select id="enquiry-customer" name="Customer type" required><option value="">Select a customer type</option><option>Household</option><option>Business</option><option>School or childcare</option><option>Church or community organisation</option><option>Other</option></select></div>
+  <div><label for="enquiry-usage">Estimated water use in litres per month (optional)</label><input id="enquiry-usage" name="Litres per month" type="number" min="1" step="1"></div>
+</div>
+<div class="form-row">
+  <div><label for="enquiry-product">Product or size (optional)</label><input id="enquiry-product" name="Product" maxlength="120"></div>
+  <div><label for="enquiry-quantity">Estimated number of bottles, packs or dispensers (optional)</label><input id="enquiry-quantity" name="Quantity" type="number" min="1" step="1"></div>
+</div>
 <div><label for="enquiry-message">Message (optional)</label><textarea id="enquiry-message" name="Message" maxlength="1500" placeholder="Tell us what you need. Please do not include a full address or sensitive personal information."></textarea></div>
 <p id="enquiry-privacy" class="form-privacy">We use your details to respond to this enquiry. <a href="privacy.html">How your enquiry is handled</a>.</p>
 <p>Register your interest in our planned services. No payment is requested.</p>
@@ -137,13 +145,13 @@
 <footer id="contact"><div class="container">
   <div class="footer-grid">
     <div><img src="assets/images/neutraph-logo.webp" class="footer-logo-img" alt="NeutrapH Logo" onerror="this.style.display='none'" width="560" height="373" decoding="async"><p class="footer-about">Preparing water services for Welverdiend, Bushbuckridge and surrounding communities. NeutrapH has not started trading.</p></div>
-    <div class="footer-col"><h4>Quick Links</h4><div class="footer-links"><a href="privacy.html">Enquiry privacy</a><a href="launch-information.html">Launch information</a><a href="/">Home</a><a href="water-purification.html">Water Purification</a><a href="water-dispensers.html">Water Dispensers</a><a href="subscriptions.html">Subscription Plans</a><a href="Shop.html">Packaged Water</a><a href="about.html">About Us</a><a href="contact.html">Contact</a></div></div>
+    <div class="footer-col"><h4>Quick Links</h4><div class="footer-links"><a href="privacy.html">Enquiry privacy</a><a href="launch-information.html">Launch information</a><a href="/">Home</a><a href="water-purification.html">Water Purification</a><a href="water-dispensers.html">Water Dispensers</a><a href="subscriptions.html">Subscription Plans</a><a href="shop.html">Packaged Water</a><a href="about.html">About Us</a><a href="contact.html">Contact</a></div></div>
     <div class="footer-col"><h4>Contact Us</h4><div class="contact-row"><div class="contact-icon"><svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.3 1.3.4 2.6.6 4 .6.7 0 1.2.5 1.2 1.2v3.5c0 .7-.5 1.2-1.2 1.2C10.8 21.9 2.1 13.2 2.1 3.4c0-.7.5-1.2 1.2-1.2h3.5c.7 0 1.2.5 1.2 1.2 0 1.4.2 2.7.6 4 .1.4 0 .9-.3 1.2l-1.7 2.2z"/></svg></div><div class="contact-row-text"><a href="tel:+27798134597">+27 79 813 4597</a></div></div><div class="contact-row"><div class="contact-icon"><svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M3.8 5h16.4c1 0 1.8.8 1.8 1.8v10.4c0 1-.8 1.8-1.8 1.8H3.8c-1 0-1.8-.8-1.8-1.8V6.8C2 5.8 2.8 5 3.8 5zm.6 2 7.6 5.1L19.6 7H4.4zm15.6 9.6V8.9l-7.3 4.9c-.4.3-.9.3-1.4 0L4 8.9v7.7h16z"/></svg></div><div class="contact-row-text"><a href="mailto:info@neutraph.co.za">info@neutraph.co.za</a></div></div><div class="contact-row"><div class="contact-icon"><svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M12 2.2c4 0 7.2 3.2 7.2 7.2 0 5.3-7.2 12.4-7.2 12.4S4.8 14.7 4.8 9.4c0-4 3.2-7.2 7.2-7.2zm0 10.3a3.1 3.1 0 1 0 0-6.2 3.1 3.1 0 0 0 0 6.2z"/></svg></div><div class="contact-row-text">Welverdiend, Bushbuckridge, 1363<br>Mpumalanga, South Africa</div></div></div>
-    <div class="footer-col"><h4>Follow Us</h4><div class="social-row"><a href="https://facebook.com/neutraph" class="social-btn" aria-label="Facebook"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook"></a><a href="https://www.instagram.com/neutraph.co.za/" class="social-btn" aria-label="Instagram"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a><a href="https://wa.me/27798134597" target="_blank" class="social-btn" aria-label="WhatsApp"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a></div></div>
+    <div class="footer-col"><h4>Connect with us</h4><div class="social-row social-text-links"><a href="https://facebook.com/neutraph">Facebook</a><a href="https://www.instagram.com/neutraph.co.za/">Instagram</a><a href="https://wa.me/27798134597" target="_blank" rel="noopener">WhatsApp</a></div></div>
   </div>
 </div></footer>
 
-<a class="sticky-mobile-cta" href="https://wa.me/27798134597" target="_blank">WhatsApp NeutrapH</a>
+<a class="sticky-mobile-cta" href="https://wa.me/27798134597" target="_blank" rel="noopener">WhatsApp NeutrapH</a>
 
 <script src="assets/js/script.js?v=20261110-enquiry-success"></script>
 

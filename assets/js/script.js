@@ -12,6 +12,11 @@ function orderProduct(product){const input=document.getElementById('qty-'+produc
     interest.value = chosen;
   }
 
+  const product = form.elements.namedItem('Product');
+  if (product && params.has('product') && (chosen === 'packaged' || chosen === 'bottles')) {
+    product.value = params.get('product').slice(0, product.maxLength);
+  }
+
   const button = form.querySelector('button[type="submit"]');
   const status = form.querySelector('.form-confirmation');
   const entry = document.getElementById('enquiry-entry');

@@ -7,11 +7,15 @@ for (const page of fs.readdirSync(root).filter(name => name.endsWith('.html'))) 
   const file = path.join(root, page);
   const original = fs.readFileSync(file, 'utf8');
   let html = original;
-  for (const part of ['header', 'footer']) {
+  for (const part of ['header', 'launch-notice', 'footer']) {
     let shared = fs.readFileSync(path.join(root, 'templates', part + '.html'), 'utf8').trim();
     if (part === 'header') shared = shared.replace('data-page="' + page + '"', 'data-page="' + page + '" class="active" aria-current="page"');
-    const pattern = new RegExp('<' + part + '\\b[^]*?</' + part + '>');
-    html = pattern.test(html) ? html.replace(pattern, shared) : html.replace('</main>', '</main>\n' + shared);
+    const pattern = part === 'launch-notice'
+      ? /<aside class="launch-notice"[^]*?<\/aside>/
+      : new RegExp('<' + part + '\\b[^]*?</' + part + '>');
+    html = pattern.test(html) ? html.replace(pattern, shared) : part === 'launch-notice'
+      ? html.replace('</header>', '</header>\n\n' + shared)
+      : html.replace('</main>', '</main>\n' + shared);
   }
   if (check && html !== original) throw new Error('Run node scripts/sync-shared.cjs to update ' + page);
   if (!check) fs.writeFileSync(file, html);

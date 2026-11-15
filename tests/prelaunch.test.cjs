@@ -34,7 +34,7 @@ test('Displayed prices match the agreed placeholders and each carries a qualific
   const expected = {
     'index.html': ['249', '399', '549'],
     'subscriptions.html': ['249', '399', '549'],
-    'Shop.html': ['49.99', '99.99', '39.99', '59.99', '119.99'],
+    'shop.html': ['49.99', '99.99', '39.99', '59.99', '119.99'],
     'water-dispensers.html': ['1,999.99', '2,499.99', '2,999.99'],
     'refilling-station.html': ['2.50']
   };
@@ -100,7 +100,7 @@ test('Product hand-off preserves quantity, recipient and enquiry-only wording', 
 test('Plan and service selection handles all supported values and rejects unknown values', () => {
   const html = fs.readFileSync(path.join(root, 'contact.html'), 'utf8');
   const options = Array.from(html.matchAll(/<option value="([^"]+)">/g), ([, value]) => ({ value }));
-  const supported = ['starter', 'standard', 'business', 'general', 'packaged', 'dispenser', 'refill', 'purification'];
+  const supported = ['starter', 'standard', 'business', 'general', 'packaged', 'bottles', 'dispenser', 'refill', 'purification'];
   for (const [query, expected] of [...supported.map(value => ['service=' + value, value]), ['plan=starter', 'starter'], ['plan=unknown', ''], ['', '']]) {
     const interest = { value: '', options };
     const form = { elements: { namedItem: () => interest }, querySelector: () => ({}), getAttribute: () => null, addEventListener() {} };
