@@ -52,18 +52,15 @@
 
 .price-placeholder{line-height:1.4!important}.price-placeholder .price-unit{font-size:14px;font-weight:600}.price-placeholder .price-disclaimer{display:block;font-size:12px;font-weight:600;line-height:1.5;margin-top:8px;color:inherit;letter-spacing:0}.shop-price.price-placeholder{font-size:26px!important}
 
-footer .social-text-links {
-  flex-wrap: wrap;
-  gap: 8px 16px;
+#enquiry-form .form-row > div {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
-footer .social-text-links a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  color: #e2f4f3;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+#enquiry-form .form-row > div > :is(input, select) {
+  margin-top: auto;
+  height: 48px;
 }
 
 .product-enquiry {
