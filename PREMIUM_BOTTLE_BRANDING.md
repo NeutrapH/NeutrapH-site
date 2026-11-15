@@ -41,6 +41,6 @@ All files are in assets/images/:
 - home-packaged-premium-v4.webp and -480.webp
 - hero-shop-premium-v4.webp and -768.webp
 
-The five product images and hero are installed in Shop.html; the lifestyle image is installed in index.html.
+The five product images and hero are installed in shop.html; the lifestyle image is installed in index.html.
 
 Validation: all 12 existing tests, pre-launch build validation and whitespace checks passed.

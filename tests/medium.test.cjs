@@ -47,7 +47,7 @@ test('Extracted CSS image/import paths resolve from the stylesheet directory', (
 });
 
 test('Product quantities support larger enquiries and details work without JavaScript', () => {
-  const shop = read('Shop.html');
+  const shop = read('shop.html');
   const quantities = [...shop.matchAll(/<select\b[^]*?<\/select>/g)];
   assert.equal(quantities.length,5);
   for (const [select] of quantities) assert.match(select, /<option(?: value="20")?>20<\/option>/);
